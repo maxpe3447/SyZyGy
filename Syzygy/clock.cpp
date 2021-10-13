@@ -1,13 +1,14 @@
 #include "clock.h"
 
-Clock::Clock(QLCDNumber *dm,QLCDNumber *y, QLCDNumber *hm, QLCDNumber *s )
-    :dayAndMonth{dm}, year{y}, hourAndMin{hm}, second{s}
+Clock::Clock(QLCDNumber *dm,QLCDNumber *y, QLCDNumber *hm, QLCDNumber *s, QMainWindow* mainWindow )
+    :dayAndMonth{dm}, year{y}, hourAndMin{hm}, second{s}, mw{mainWindow}
 {
-    timer = new QTimer();
+    timer = new QTimer(this);
     isEnable = false;
     initSetCurrentTime();
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Tick()));
+    timer->start(1);
 }
 Clock::~Clock(){delete timer;}
 void Clock::initSetCurrentTime(){
@@ -22,6 +23,7 @@ void Clock::initSetCurrentTime(){
 
     second->setStyleSheet("background: transparent;");
     second->display(QDateTime::currentDateTime().toString(":ss"));
+    qDebug() << QDateTime::currentDateTime().toString(":ss");
 }
 void Clock::Start(){
     isEnable = true;
@@ -36,3 +38,4 @@ void Clock::Tick(){
     initSetCurrentTime();
 
 }
+
