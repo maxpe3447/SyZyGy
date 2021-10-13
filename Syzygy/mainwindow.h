@@ -3,7 +3,10 @@
 
 #include <QMainWindow>
 #include <QPixmap>
-//#include <QLCDNumber>
+#include <QDateTime>
+#include <QIcon>
+#include "planet.h"
+#include "clock.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,9 +20,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_pbMenu_clicked();
+
 private:
     Ui::MainWindow *ui;
     void initPlanetsImage();
     void initTime();
+    void initMenuButton();
+
+    Clock* clock;
+    Planet earth, jupiter, mars, mercury, neptune, saturn, sun, uranus, venus;
 };
 #endif // MAINWINDOW_H
