@@ -3,18 +3,22 @@
 #include <QTimer>
 #include <QLCDNumber>
 #include <QDateTime>
-
-class Clock
+#include <QObject>
+class Clock : public QObject
 {
+
 public:
     Clock(QLCDNumber *dm,QLCDNumber *y, QLCDNumber *hm, QLCDNumber *s);
     ~Clock();
     void Start();
+    void Stop();
 private:
-    QTimer* clock;
+    QTimer* timer;
     QLCDNumber *dayAndMonth, *year, *hourAndMin, *second;
 
-    void iniSetCurrentTime();
+    bool isEnable;
+
+    void initSetCurrentTime();
 
     private slots:
     void Tick();

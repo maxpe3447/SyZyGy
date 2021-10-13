@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     initPlanetsImage();
     initMenuButton();
     ui->groupBox->setStyleSheet("background: transparent;");
+
+    clock->Start();
 }
 
 MainWindow::~MainWindow()
@@ -43,8 +45,6 @@ void MainWindow::initMenuButton(){
 
 void MainWindow::on_pbMenu_clicked()
 {
-    //ui->label->setStyleSheet("color: rgb(255, 255, 255)");
-    //ui->label->setText("Yes");
 earth.SetPos(100, 100);
 
 

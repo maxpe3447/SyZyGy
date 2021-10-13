@@ -3,11 +3,14 @@
 Clock::Clock(QLCDNumber *dm,QLCDNumber *y, QLCDNumber *hm, QLCDNumber *s )
     :dayAndMonth{dm}, year{y}, hourAndMin{hm}, second{s}
 {
-    iniSetCurrentTime();
+    timer = new QTimer();
+    isEnable = false;
+    initSetCurrentTime();
 
+    connect(timer, SIGNAL(timeout()), this, SLOT(Tick()));
 }
-Clock::~Clock(){}
-void Clock::iniSetCurrentTime(){
+Clock::~Clock(){delete timer;}
+void Clock::initSetCurrentTime(){
     dayAndMonth->display(QDateTime::currentDateTime().toString("dd.MM"));
     dayAndMonth->setStyleSheet("background: transparent;");
 
@@ -21,5 +24,15 @@ void Clock::iniSetCurrentTime(){
     second->display(QDateTime::currentDateTime().toString(":ss"));
 }
 void Clock::Start(){
+    isEnable = true;
+    timer->start(1);
+}
+void Clock::Stop(){
+    isEnable = false;
+    timer->stop();
+}
+void Clock::Tick(){
+    //(!isEnable)     return;
+    initSetCurrentTime();
 
 }
