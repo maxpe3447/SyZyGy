@@ -22,6 +22,7 @@ public:
 
 private slots:
     void on_pbMenu_clicked();
+    void Tick_of_clock();
 
 private:
     Ui::MainWindow *ui;

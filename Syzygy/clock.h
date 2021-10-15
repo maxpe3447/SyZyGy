@@ -15,15 +15,15 @@ public:
     ~Clock();
     void Start();
     void Stop();
+    bool GetisEnable();
 private:
     QTimer* timer;
     QLCDNumber *dayAndMonth, *year, *hourAndMin, *second;
     QMainWindow *mw;
     bool isEnable;
-
     void initSetCurrentTime();
 
-    private slots:
+    public slots:
     void Tick();
 };
 

@@ -47,7 +47,9 @@ void MainWindow::initMenuButton(){
 void MainWindow::on_pbMenu_clicked()
 {
 earth.SetPos(100, 100);
-
-
+}
+void MainWindow::Tick_of_clock()
+{
+    clock->Tick();
 }
 

@@ -7,8 +7,8 @@ Clock::Clock(QLCDNumber *dm,QLCDNumber *y, QLCDNumber *hm, QLCDNumber *s, QMainW
     isEnable = false;
     initSetCurrentTime();
 
-    connect(timer, SIGNAL(timeout()), this, SLOT(Tick()));
-    timer->start(1);
+    connect(timer, SIGNAL(timeout()),mw, SLOT(Tick_of_clock()));
+    timer->start(1000);
 }
 Clock::~Clock(){delete timer;}
 void Clock::initSetCurrentTime(){
@@ -23,15 +23,20 @@ void Clock::initSetCurrentTime(){
 
     second->setStyleSheet("background: transparent;");
     second->display(QDateTime::currentDateTime().toString(":ss"));
-    qDebug() << QDateTime::currentDateTime().toString(":ss");
+    //qDebug() << QDateTime::currentDateTime().toString(":ss");
 }
 void Clock::Start(){
     isEnable = true;
-    timer->start(1);
+    timer->start(1000);
 }
 void Clock::Stop(){
     isEnable = false;
     timer->stop();
+}
+
+bool Clock::GetisEnable()
+{
+    return isEnable;
 }
 void Clock::Tick(){
     //(!isEnable)     return;
