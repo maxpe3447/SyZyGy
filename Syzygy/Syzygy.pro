@@ -12,11 +12,13 @@ SOURCES += \
     clock.cpp \
     main.cpp \
     mainwindow.cpp \
+    managesession.cpp \
     planet.cpp
 
 HEADERS += \
     clock.h \
     mainwindow.h \
+    managesession.h \
     planet.h
 
 FORMS += \

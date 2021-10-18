@@ -6,11 +6,14 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->groupBox->setStyleSheet("background: transparent;");
+
     clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
     initTime();
     initPlanetsImage();
     initMenuButton();
-    ui->groupBox->setStyleSheet("background: transparent;");
+
+    mngSession.GetLastSession(planets);
 
     clock->Start();
 
@@ -18,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    mngSession.SetCurrentSession(planets);
+
     delete ui;
     delete clock;
 }

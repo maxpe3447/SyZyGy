@@ -25,6 +25,16 @@ void Planet::SetPos(int x, int y)
     planet->setGeometry(x, y, planet->width(),planet->height());
 
 }
+
+int Planet::GetX()
+{
+    return planet->geometry().x();
+}
+
+int Planet::GetY()
+{
+    return planet->geometry().y();
+}
 void Planet::SetParams(QLabel* pLabel, QString img){
     planet = pLabel;
     QPixmap obj(img);

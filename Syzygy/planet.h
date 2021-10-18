@@ -15,7 +15,10 @@ public:
 
     void SetParams(QLabel* pLabel, QString img);
     void SetPos(int x, int y);
+    int GetX();
+    int GetY();
 private:
+    friend class ManageSession;
     QLabel *planet;
 };
 

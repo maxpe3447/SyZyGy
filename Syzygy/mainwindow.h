@@ -5,8 +5,10 @@
 #include <QPixmap>
 #include <QDateTime>
 #include <QIcon>
+#include <QVector>
 #include "planet.h"
 #include "clock.h"
+#include "managesession.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,7 +32,9 @@ private:
     void initTime();
     void initMenuButton();
 
+    ManageSession mngSession;
     Clock* clock;
     Planet earth, jupiter, mars, mercury, neptune, saturn, sun, uranus, venus;
+    QVector<Planet*> planets = {&earth, &jupiter, &mars, &mercury, &neptune, &saturn, &sun, &uranus, &venus};
 };
 #endif // MAINWINDOW_H
