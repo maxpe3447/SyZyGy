@@ -17,6 +17,9 @@ public:
     void SetPos(int x, int y);
     int GetX();
     int GetY();
+    int GetWidth();
+    int GetHeight();
+    QString GetName() const;
 private:
     friend class ManageSession;
     QLabel *planet;

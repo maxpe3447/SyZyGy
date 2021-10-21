@@ -3,12 +3,13 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow), isMenuShow{false}
 {
     ui->setupUi(this);
     ui->groupBox->setStyleSheet("background: transparent;");
 
     clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
+    infoForm = new PlanetInfoForm();
     initTime();
     initPlanetsImage();
     initMenuButton();
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     clock->Start();
 
+    connect(this, &MainWindow::SendOptionsAndInfo, infoForm, &PlanetInfoForm::GetOptionsAndInfo);
 }
 
 MainWindow::~MainWindow()
@@ -25,6 +27,7 @@ MainWindow::~MainWindow()
 
     delete ui;
     delete clock;
+    delete infoForm;
 }
 void MainWindow::initPlanetsImage(){
 
@@ -51,10 +54,61 @@ void MainWindow::initMenuButton(){
 
 void MainWindow::on_pbMenu_clicked()
 {
-earth.SetPos(100, 100);
+    earth.SetPos(100, 100);
+int deltaX = 1, deltaY = 30;
+    if(!isMenuShow)
+        this->setGeometry(this->x()+deltaX, this->y()+deltaY, this->width()+ui->pbMenu->width()*1.5,this->height());
+    isMenuShow = true;
 }
 void MainWindow::Tick_of_clock()
 {
     clock->Tick();
+}
+
+
+void MainWindow::on_pbDisMenu_clicked()
+{
+    int deltaX = 1, deltaY = 30;
+
+    if(isMenuShow)
+        this->setGeometry(this->x()+deltaX, this->y()+deltaY, this->width()- ui->pbMenu->width()*1.5,this->height());
+
+    isMenuShow = false;
+}
+
+
+void MainWindow::on_pbTravelToPlanet_clicked()
+{
+
+}
+
+
+void MainWindow::on_pbSetDate_clicked()
+{
+
+}
+
+
+void MainWindow::on_pb___clicked()
+{
+
+}
+
+void MainWindow::mouseDoubleClickEvent(QMouseEvent *me)
+{
+    if(me->button() == Qt::LeftButton){
+        qDebug() <<"Preses" << me->pos().x();
+        for(auto planet: planets){
+            //qDebug() <<"("<< me->pos().x() << me->pos().y()<<")\t(" << planet->GetX() << planet->GetY()<<")\t(" << planet->GetX()+planet->GetWidth() << planet->GetY()<<")";
+            if(planet->GetX() <= me->pos().x() && planet->GetY() <= me->pos().y() &&
+                    me->pos().x() <= planet->GetX()+planet->GetWidth() && me->pos().y() <= planet->GetY()+planet->GetHeight())
+            {
+//qDebug() <<"!!!!!!!!";
+                emit SendOptionsAndInfo(planet->GetName());
+                infoForm->show();
+                break;
+            }
+        }
+    }
 }
 

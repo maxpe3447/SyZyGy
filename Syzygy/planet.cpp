@@ -35,6 +35,21 @@ int Planet::GetY()
 {
     return planet->geometry().y();
 }
+
+int Planet::GetWidth()
+{
+    return planet->width();
+}
+
+int Planet::GetHeight()
+{
+    return planet->height();
+}
+
+QString Planet::GetName() const
+{
+    return planet->objectName();
+}
 void Planet::SetParams(QLabel* pLabel, QString img){
     planet = pLabel;
     QPixmap obj(img);

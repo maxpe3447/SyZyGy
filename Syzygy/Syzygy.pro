@@ -13,16 +13,19 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     managesession.cpp \
-    planet.cpp
+    planet.cpp \
+    planetinfoform.cpp
 
 HEADERS += \
     clock.h \
     mainwindow.h \
     managesession.h \
-    planet.h
+    planet.h \
+    planetinfoform.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    planetinfoform.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

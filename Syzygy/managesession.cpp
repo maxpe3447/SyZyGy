@@ -55,15 +55,18 @@ void ManageSession::SetCurrentSession(QVector<Planet *> & planets)
 }
 
 void ManageSession::Default(QVector<Planet*>& planets){
+    int x = 50, y = 90;
 
-    for(int i = 0, x = 50, y = 50; i < planets.size(); i++){
+    planets[0]->SetPos(x, y);
+    planets[1]->SetPos(x, y+90);
+
+    for(int i = 2, x = 100; i < planets.size(); i++){
         if(i%2==0){
-            planets[i]->SetPos(x, y);
-            y+=90;
+            planets[i]->SetPos(planets[i-2]->GetX()+x,planets[i-2]->GetY());
+            //y+=90;
         }
         else{
-            planets[i]->SetPos(x, y);
-            x+=100;
+            planets[i]->SetPos( planets[i-2]->GetX()+x,planets[i-2]->GetY());
         }
 
     }
