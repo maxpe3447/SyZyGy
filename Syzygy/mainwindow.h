@@ -8,10 +8,12 @@
 #include <QVector>
 #include <QDebug>
 #include <QMouseEvent>
+
 #include "planet.h"
 #include "clock.h"
 #include "managesession.h"
 #include "planetinfoform.h"
+#include "planetinfodata.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -39,7 +41,7 @@ private slots:
     void on_pb___clicked();
 private:
 signals:
-    void SendOptionsAndInfo(QString);
+    void SendOptionsAndInfo(PlanetInfoData*);
 protected:
     void mouseDoubleClickEvent(QMouseEvent*)override;
 private:

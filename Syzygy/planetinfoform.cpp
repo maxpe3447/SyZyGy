@@ -13,7 +13,11 @@ PlanetInfoForm::~PlanetInfoForm()
     delete ui;
 }
 
-void PlanetInfoForm::GetOptionsAndInfo(QString msg)
+void PlanetInfoForm::GetOptionsAndInfo(PlanetInfoData* data)
 {
-    ui->lInfo->setText(msg);
+    if(!data->isEmpty())
+    ui->lInfo->setText(data->GetInfo());
+    else
+        ui->lInfo->setText("ups");
+    delete data;
 }

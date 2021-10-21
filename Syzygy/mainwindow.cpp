@@ -104,7 +104,8 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *me)
                     me->pos().x() <= planet->GetX()+planet->GetWidth() && me->pos().y() <= planet->GetY()+planet->GetHeight())
             {
 //qDebug() <<"!!!!!!!!";
-                emit SendOptionsAndInfo(planet->GetName());
+                PlanetInfoData* data = new PlanetInfoData();
+                emit SendOptionsAndInfo(data->Parse(planet->GetName()));
                 infoForm->show();
                 break;
             }

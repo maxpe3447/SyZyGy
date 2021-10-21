@@ -2,6 +2,7 @@
 #define PLANETINFOFORM_H
 
 #include <QMainWindow>
+#include "planetinfodata.h"
 
 namespace Ui {
 class PlanetInfoForm;
@@ -18,7 +19,7 @@ public:
 private:
     Ui::PlanetInfoForm *ui;
 public slots:
-    void GetOptionsAndInfo(QString);
+    void GetOptionsAndInfo(PlanetInfoData* data);
 };
 
 #endif // PLANETINFOFORM_H

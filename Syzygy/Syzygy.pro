@@ -1,5 +1,6 @@
 QT       += core gui
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -14,6 +15,7 @@ SOURCES += \
     mainwindow.cpp \
     managesession.cpp \
     planet.cpp \
+    planetinfodata.cpp \
     planetinfoform.cpp
 
 HEADERS += \
@@ -21,6 +23,7 @@ HEADERS += \
     mainwindow.h \
     managesession.h \
     planet.h \
+    planetinfodata.h \
     planetinfoform.h
 
 FORMS += \
