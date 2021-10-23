@@ -54,8 +54,9 @@ void MainWindow::initMenuButton(){
 
 void MainWindow::on_pbMenu_clicked()
 {
-    earth.SetPos(100, 100);
-int deltaX = 1, deltaY = 30;
+    //earth.SetPos(100, 100);
+    algorithms.PlanetMovement(saturn, 4.71239); //movement test (270=4.71239)
+    int deltaX = 1, deltaY = 30;
     if(!isMenuShow)
         this->setGeometry(this->x()+deltaX, this->y()+deltaY, this->width()+ui->pbMenu->width()*1.5,this->height());
     isMenuShow = true;

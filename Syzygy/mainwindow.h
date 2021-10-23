@@ -14,6 +14,7 @@
 #include "managesession.h"
 #include "planetinfoform.h"
 #include "planetinfodata.h"
+#include "algorithms.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -57,5 +58,6 @@ private:
     PlanetInfoForm *infoForm;
     Planet earth, jupiter, mars, mercury, neptune, saturn, sun, uranus, venus;
     QVector<Planet*> planets = {&earth, &jupiter, &mars, &mercury, &neptune, &saturn, &sun, &uranus, &venus};
+    Algorithms algorithms;
 };
 #endif // MAINWINDOW_H
