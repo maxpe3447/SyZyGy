@@ -11,12 +11,15 @@ class Algorithms
 {
 public:
     Algorithms();
+    ~Algorithms();
     Algorithms(Planet&);
     void PlanetMovement(Planet&, double);
     double CurrentAngularPos(Planet&, int);
 private:
     int systemCenterX;
     int systemCenterY;
+
+    QPropertyAnimation* movePlanet;
 };
 
 #endif // ALGORITHMS_H

@@ -6,6 +6,11 @@ Algorithms::Algorithms()
     systemCenterY = 300;
 }
 
+Algorithms::~Algorithms()
+{
+    delete movePlanet;
+}
+
 Algorithms::Algorithms(Planet& star)
 {
     systemCenterX = star.GetX(); //Coordinates of The Sun(system center)
@@ -26,9 +31,11 @@ void Algorithms::PlanetMovement(Planet& planet, double angle)
     //float moveAngle = (360 - angle) * (PI / 180);
     int newX = systemCenterX + cos(moveAngle)*radius;
     int newY = systemCenterY + sin(moveAngle)*radius;
-    QPropertyAnimation* movePlanet = new QPropertyAnimation(planet.planet, "pos");
+    movePlanet = new QPropertyAnimation(planet.planet, "pos");
     movePlanet->setDuration(3000);
     movePlanet->setStartValue(planet.planet->pos());
     movePlanet->setEndValue(QPoint(newX, newY));
     movePlanet->start();
+
+
 }
