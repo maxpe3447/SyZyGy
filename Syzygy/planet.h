@@ -22,6 +22,7 @@ public:
     QString GetName() const;
 private:
     friend class ManageSession;
+    friend class Algorithms;
     QLabel *planet;
 };
 
