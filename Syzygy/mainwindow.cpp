@@ -9,8 +9,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->groupBox->setStyleSheet("background: transparent;");
 
     clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
+    imageSeter = new SetPlanetImage();
     infoForm = new PlanetInfoForm();
+
     initTime();
+    initPlanet();
     initPlanetsImage();
     initMenuButton();
 
@@ -25,21 +28,23 @@ MainWindow::~MainWindow()
 {
     mngSession.SetCurrentSession(planets);
 
+    for(auto planet: planets)
+        delete planet;
+
+    delete imageSeter;
     delete ui;
     delete clock;
     delete infoForm;
 }
 void MainWindow::initPlanetsImage(){
 
-    earth.SetParams(ui->earth, "Image/Planets/earth.png");
-    jupiter.SetParams(ui->jupiter, "Image/Planets/jupiter.png");
-    mars.SetParams(ui->mars, "Image/Planets/mars.png");
-    mercury.SetParams(ui->mercury, "Image/Planets/mercury.png");
-    neptune.SetParams(ui->neptune, "Image/Planets/neptune.png");
-    saturn.SetParams(ui->saturn, "Image/Planets/saturn.png");
-    sun.SetParams(ui->sun, "Image/Planets/sun.png");
-    uranus.SetParams(ui->uranus, "Image/Planets/uranus.png");
-    venus.SetParams(ui->venus, "Image/Planets/venus.png");
+    for(int i = 0; i < planets.size(); i++){
+        if(planets[i] != nullptr){
+
+            auto data = spi.GetImageOf(planets[i]->GetName());
+            planets[i]->SetParams(data);
+        }
+    }
 
 }
 void MainWindow::initTime(){
@@ -50,6 +55,21 @@ void MainWindow::initMenuButton(){
     QIcon ico(obj);
     ui->pbMenu->setIcon(ico);
     ui->pbMenu->setIconSize(ui->pbMenu->size());
+}
+
+void MainWindow::initPlanet()
+{
+    earth   = new Planet(ui->earth);
+    jupiter = new Planet(ui->jupiter);
+    mars    = new Planet(ui->mars);
+    mercury = new Planet(ui->mercury);
+    neptune = new Planet(ui->neptune);
+    saturn  = new Planet(ui->saturn);
+    sun     = new Planet(ui->sun);
+    uranus  = new Planet(ui->uranus);
+    venus   = new Planet(ui->venus);
+
+    planets = {earth, jupiter, mars, mercury, neptune, saturn, sun, uranus, venus};
 }
 
 void MainWindow::on_pbMenu_clicked()

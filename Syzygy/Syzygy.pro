@@ -1,5 +1,5 @@
-QT       += core gui
-
+QT       += core gui sql
+QT       +=xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,7 +17,8 @@ SOURCES += \
     managesession.cpp \
     planet.cpp \
     planetinfodata.cpp \
-    planetinfoform.cpp
+    planetinfoform.cpp \
+    setplanetimage.cpp
 
 HEADERS += \
     algorithms.h \
@@ -26,7 +27,8 @@ HEADERS += \
     managesession.h \
     planet.h \
     planetinfodata.h \
-    planetinfoform.h
+    planetinfoform.h \
+    setplanetimage.h
 
 FORMS += \
     mainwindow.ui \

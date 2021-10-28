@@ -3,7 +3,8 @@
 
 #include <QLabel>
 #include <QString>
-
+#include <QByteArray>
+#include <setplanetimage.h>
 
 class Planet
 {
@@ -14,15 +15,23 @@ public:
     Planet(QLabel* pLabel, QString img, int width, int height);
 
     void SetParams(QLabel* pLabel, QString img);
+    void SetParams(QLabel* pLabel, const QByteArray& img);
+    void SetParams(const QByteArray& img);
+    void SetParams(const QString& img);
+
     void SetPos(int x, int y);
     int GetX();
     int GetY();
+
     int GetWidth();
     int GetHeight();
+
     QString GetName() const;
 private:
     friend class ManageSession;
     friend class Algorithms;
+
+    void SetImg(QPixmap& pxm);
     QLabel *planet;
 };
 

@@ -15,6 +15,8 @@
 #include "planetinfoform.h"
 #include "planetinfodata.h"
 #include "algorithms.h"
+#include "setplanetimage.h"
+#include "setplanetimage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -50,14 +52,18 @@ private:
     void initPlanetsImage();
     void initTime();
     void initMenuButton();
+    void initPlanet();
 
     bool isMenuShow;
 
-    ManageSession mngSession;
+    SetPlanetImage* imageSeter;
     Clock* clock;
     PlanetInfoForm *infoForm;
-    Planet earth, jupiter, mars, mercury, neptune, saturn, sun, uranus, venus;
-    QVector<Planet*> planets = {&earth, &jupiter, &mars, &mercury, &neptune, &saturn, &sun, &uranus, &venus};
+    Planet  *earth = nullptr, *jupiter = nullptr, *mars = nullptr, *mercury = nullptr,
+            *neptune = nullptr, *saturn = nullptr, *sun = nullptr, *uranus = nullptr, *venus = nullptr;
+    QVector<Planet*> planets;
+    ManageSession mngSession;
+    SetPlanetImage spi;
     Algorithms algorithms;
 };
 #endif // MAINWINDOW_H
