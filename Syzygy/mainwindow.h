@@ -56,7 +56,7 @@ private:
 
     bool isMenuShow;
 
-    SetPlanetImage* imageSeter;
+    SetPlanetImage* imageSetter;
     Clock* clock;
     PlanetInfoForm *infoForm;
     Planet  *earth = nullptr, *jupiter = nullptr, *mars = nullptr, *mercury = nullptr,

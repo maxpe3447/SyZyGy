@@ -9,7 +9,6 @@
 
 class Clock : public QObject
 {
-//Q_OBJECT
 public:
     Clock(QLCDNumber *dm,QLCDNumber *y, QLCDNumber *hm, QLCDNumber *s, QMainWindow* mainWindow);
     ~Clock();

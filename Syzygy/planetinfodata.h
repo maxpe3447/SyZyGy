@@ -1,4 +1,4 @@
-#ifndef PLANETINFODATA_H
+    #ifndef PLANETINFODATA_H
 #define PLANETINFODATA_H
 
 #include <QString>
@@ -7,10 +7,13 @@
 #include <QFile>
 #include <QDebug>
 
+#include "setplanetimage.h"
+
 class PlanetInfoData
 {
 public:
-    PlanetInfoData();
+    PlanetInfoData(SetPlanetImage* planetImageSetter);
+
     void SetName(QString name);
     void SetInfo(QString info);
     void SetImg(QByteArray img);
@@ -38,6 +41,8 @@ private:
     bool empty;
 
     QString fileXML = "planets.xml";
+
+    SetPlanetImage* planetImageSetter;
 };
 
 #endif // PLANETINFODATA_H

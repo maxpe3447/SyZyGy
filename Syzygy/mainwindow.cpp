@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->groupBox->setStyleSheet("background: transparent;");
 
     clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
-    imageSeter = new SetPlanetImage();
+    imageSetter = new SetPlanetImage();
     infoForm = new PlanetInfoForm();
 
     initTime();
@@ -31,7 +31,7 @@ MainWindow::~MainWindow()
     for(auto planet: planets)
         delete planet;
 
-    delete imageSeter;
+    delete imageSetter;
     delete ui;
     delete clock;
     delete infoForm;
@@ -125,7 +125,7 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *me)
                     me->pos().x() <= planet->GetX()+planet->GetWidth() && me->pos().y() <= planet->GetY()+planet->GetHeight())
             {
 //qDebug() <<"!!!!!!!!";
-                PlanetInfoData* data = new PlanetInfoData();
+                PlanetInfoData* data = new PlanetInfoData(this->imageSetter);
                 emit SendOptionsAndInfo(data->Parse(planet->GetName()));
                 infoForm->show();
                 break;

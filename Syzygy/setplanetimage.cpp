@@ -8,7 +8,6 @@ SetPlanetImage::SetPlanetImage()
 
     db.setDatabaseName("images.db");
 
-
     if(!db.open()){
         qDebug() << "error! no open"<< db.lastError().text();
     }

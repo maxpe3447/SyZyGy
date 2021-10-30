@@ -1,8 +1,8 @@
 #include "planetinfodata.h"
 
-PlanetInfoData::PlanetInfoData(): empty{true}
+PlanetInfoData::PlanetInfoData(SetPlanetImage* planetImageSetter): empty{true}
 {
-
+    this->planetImageSetter = planetImageSetter;
 }
 
 void PlanetInfoData::SetName(QString name)
@@ -100,7 +100,9 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
                 xmlReader.readNextStartElement();
 
                 if(xmlReader.isStartElement()&& xmlReader.name().toString() == "img"){
-                    img = xmlReader.readElementText().toUtf8();
+                    QString imgName= xmlReader.readElementText();
+                    qDebug() << "!!!!!!!!" << imgName;
+                    img = planetImageSetter->GetImageOf(imgName);
                 }
             }
         }

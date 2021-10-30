@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<planets>
+	<earth name = "earth" formWidth = "600" formHeight = "500">
+		<info>
+			<text>ABOUT earth....</text>
+		</info>
+		<img>earth</img>
+	</earth>
+	<jupiter name = "jupiter" formWidth = "600" formHeight = "500">
+		<info>
+			<text>ABOUT jupiter....</text>
+		</info>
+		<img>jupiter</img>
+	</jupiter>
+	<mars name = "mars" formWidth = "600" formHeight = "500">
+		<info>
+			<text>ABOUT mars....</text>
+		</info>
+		<img>mars</img>
+	</mars>
+	<mercury name = "mercury" formWidth = "600" formHeight = "500">
+		<info>
+			<text>ABOUT mercury....</text>
+		</info>
+		<img>mercury</img>
+	</mercury>
+	<neptune name = "neptune" formWidth = "600" formHeight = "500">
+		<info>
+			<text>ABOUT neptune....</text>
+		</info>
+		<img>neptune</img>
+	</neptune>
+	<saturn name = "saturn" formWidth = "600" formHeight = "500">
+		<info>
+			<text>ABOUT saturn....</text>
+		</info>
+		<img>saturn</img>
+	</saturn>
+	<sun name = "sun" formWidth = "600" formHeight = "500">
+		<info>
+			<text>ABOUT sun....</text>
+		</info>
+		<img>sun</img>
+	</sun>
+	<uranus name = "uranus" formWidth = "600" formHeight = "500">
+		<info>
+			<text>ABOUT uranus....</text>
+		</info>
+		<img>uranus</img>
+	</uranus>
+	<venus name = "venus" formWidth = "600" formHeight = "500">
+		<info>
+			<text>ABOUT venus....</text>
+		</info>
+		<img>venus</img>
+	</venus>
+</planets>
