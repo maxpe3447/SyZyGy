@@ -100,9 +100,7 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
                 xmlReader.readNextStartElement();
 
                 if(xmlReader.isStartElement()&& xmlReader.name().toString() == "img"){
-                    QString imgName= xmlReader.readElementText();
-                    qDebug() << "!!!!!!!!" << imgName;
-                    img = planetImageSetter->GetImageOf(imgName);
+                    img = planetImageSetter->GetImageOf(xmlReader.readElementText());
                 }
             }
         }
