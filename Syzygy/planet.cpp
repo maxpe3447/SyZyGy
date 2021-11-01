@@ -11,8 +11,7 @@ Planet::Planet(QLabel *pLabel):planet{pLabel}
 Planet::Planet(QLabel* pLabel, QString img):planet{pLabel}
 {
     QPixmap obj(img);
-    planet->setPixmap(obj.scaled(planet->width(), planet->height()));
-    planet->setStyleSheet("background: transparent;");
+    SetImg(obj);
 }
 Planet::Planet(QLabel* pLabel, QString img, int width, int height):Planet(pLabel, img)
 {   

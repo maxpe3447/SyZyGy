@@ -63,7 +63,6 @@ private:
             *neptune = nullptr, *saturn = nullptr, *sun = nullptr, *uranus = nullptr, *venus = nullptr;
     QVector<Planet*> planets;
     ManageSession mngSession;
-    SetPlanetImage spi;
     Algorithms algorithms;
 };
 #endif // MAINWINDOW_H

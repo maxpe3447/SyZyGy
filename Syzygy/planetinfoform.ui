@@ -6,12 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>500</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>18</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/BackGround/Image/BackGroun.jpg);</string>
   </property>
   <property name="documentMode">
    <bool>false</bool>
@@ -20,10 +28,10 @@
    <widget class="QLabel" name="planeyImg">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>140</y>
-      <width>241</width>
-      <height>231</height>
+      <x>100</x>
+      <y>180</y>
+      <width>181</width>
+      <height>181</height>
      </rect>
     </property>
     <property name="text">
@@ -33,15 +41,16 @@
    <widget class="QLabel" name="lInfo">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>170</y>
-      <width>281</width>
-      <height>141</height>
+      <x>440</x>
+      <y>60</y>
+      <width>311</width>
+      <height>441</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>20</pointsize>
+      <family>Castellar</family>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="text">
@@ -54,7 +63,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>

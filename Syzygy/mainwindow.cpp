@@ -41,7 +41,7 @@ void MainWindow::initPlanetsImage(){
     for(int i = 0; i < planets.size(); i++){
         if(planets[i] != nullptr){
 
-            auto data = spi.GetImageOf(planets[i]->GetName());
+            auto data = imageSetter->GetImageOf(planets[i]->GetName());
             planets[i]->SetParams(data);
         }
     }
