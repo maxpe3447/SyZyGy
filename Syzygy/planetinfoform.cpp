@@ -24,7 +24,11 @@ void PlanetInfoForm::GetOptionsAndInfo(PlanetInfoData* data)
         //ui->planeyImg->setPixmap(pixmap);
         ui->planeyImg->setPixmap(pixmap.scaled(ui->planeyImg->width(), ui->planeyImg->height()));
         ui->planeyImg->setStyleSheet("background: transparent;");
-        ui->lInfo->setStyleSheet("background: transparent; color: rgb(255, 255, 255)");
+        ui->lInfo->setStyleSheet("background: transparent;"
+                                 "color: rgb(255, 255, 255);"
+                                 "border-style: outset;"
+                                 "border-width: 3px;"
+                                 "border-color: rgb(255, 255, 255)");
     }
     else
         ui->lInfo->setText("ups");
