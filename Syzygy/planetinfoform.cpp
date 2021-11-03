@@ -29,6 +29,8 @@ void PlanetInfoForm::GetOptionsAndInfo(PlanetInfoData* data)
                                  "border-style: outset;"
                                  "border-width: 3px;"
                                  "border-color: rgb(255, 255, 255)");
+        this->setGeometry(this->x(),this->y(),data->GetWidthForm(),data->GetHeighForm());
+        this->setWindowTitle(data->GetName());
     }
     else
         ui->lInfo->setText("ups");
