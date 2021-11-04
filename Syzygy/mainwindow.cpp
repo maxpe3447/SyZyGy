@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     initPlanetsImage();
     initMenuButton();
 
-    mngSession.GetLastSession(planets);
+    //mngSession.GetLastSession(planets);
 
     clock->Start();
 
