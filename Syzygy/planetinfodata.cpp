@@ -50,6 +50,11 @@ QByteArray PlanetInfoData::GetImg() const
     return img;
 }
 
+QString PlanetInfoData::GetImgStyle() const
+{
+    return stylePlanet;
+}
+
 int PlanetInfoData::GetWidthForm() const
 {
     return widthForm;
@@ -121,8 +126,10 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
                             imgWidth = atr.value().toInt();
                         else if (atr.name().toString() == "imgHeight")
                             imgHeight = atr.value().toInt();
+                        else if (atr.name().toString() == "type")
+                            stylePlanet = atr.value().toString();
                     }
-                    img = planetImageSetter->GetImageOf(xmlReader.readElementText());
+                    img = planetImageSetter->GetImageOf(xmlReader.readElementText(), stylePlanet);
                 }
             }
         }

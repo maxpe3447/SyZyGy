@@ -17,7 +17,8 @@ public:
     SetPlanetImage();
     ~SetPlanetImage();
 
-    QByteArray GetImageOf(QString namePlanet);
+    QByteArray GetImageOf(QString namePlanet, QString type);
+    QByteArray GetSysImage(QString name);
 private:
     QSqlDatabase db;
 };

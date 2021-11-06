@@ -41,7 +41,7 @@ void MainWindow::initPlanetsImage(){
     for(int i = 0; i < planets.size(); i++){
         if(planets[i] != nullptr){
 
-            auto data = imageSetter->GetImageOf(planets[i]->GetName());
+            auto data = imageSetter->GetImageOf(planets[i]->GetName(), "cartoon");
             planets[i]->SetParams(data);
         }
     }
@@ -51,7 +51,8 @@ void MainWindow::initTime(){
 
 }
 void MainWindow::initMenuButton(){
-    QPixmap obj("Image/menu.png");
+    QPixmap obj;
+    obj.loadFromData(imageSetter->GetSysImage("Menu"));
     QIcon ico(obj);
     ui->pbMenu->setIcon(ico);
     ui->pbMenu->setIconSize(ui->pbMenu->size());

@@ -25,6 +25,7 @@ public:
     QString GetUkrName() const;
 
     QByteArray GetImg() const;
+    QString GetImgStyle() const;
 
     int GetWidthForm() const;
     int GetHeighForm() const;
@@ -39,6 +40,7 @@ private:
     QString name;
     QString info;
     QString ukrName;
+    QString stylePlanet;
 
     QByteArray img;
 

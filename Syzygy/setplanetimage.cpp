@@ -18,10 +18,10 @@ SetPlanetImage::SetPlanetImage()
         db.close();
     }
 
-    QByteArray SetPlanetImage::GetImageOf(QString namePlanet)
+    QByteArray SetPlanetImage::GetImageOf(QString namePlanet, QString type)
     {
         QSqlQuery query(db);
-        if (!query.exec("SELECT * FROM cartoon WHERE Name = \"" + namePlanet + "\"")) {
+        if (!query.exec("SELECT * FROM " + type + " WHERE Name = \"" + namePlanet + "\"")) {
             qDebug() << "Даже селект не получается, я пас.";
         }
 
@@ -30,4 +30,17 @@ SetPlanetImage::SetPlanetImage()
         QSqlRecord rec = query.record();
         return query.value(rec.indexOf("Img")).toByteArray();
 
+    }
+
+    QByteArray SetPlanetImage::GetSysImage(QString name)
+    {
+        QSqlQuery query(db);
+        if (!query.exec("SELECT * FROM systemImage WHERE Name = \"" + name + "\"")) {
+            qDebug() << "Даже селект не получается, я пас.";
+        }
+
+        query.last();
+
+        QSqlRecord rec = query.record();
+        return query.value(rec.indexOf("Img")).toByteArray();
     }
