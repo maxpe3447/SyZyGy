@@ -2,8 +2,8 @@
 
 Algorithms::Algorithms()
 {
-    systemCenterX = 405; //window test center
-    systemCenterY = 300;
+    systemCenterX = 472; //window test center
+    systemCenterY = 384;
     manager = new QNetworkAccessManager();
     //movePlanet = new QPropertyAnimation();
 }
@@ -71,7 +71,7 @@ void Algorithms::HeliocentricLon(Planet* planet, QDate date)
         replyRes.mid(start, end - start).contains(QRegularExpression("\\d+[.]\\d+"), &match);
         double result = match.captured().toDouble() - 90;
         qDebug() << qSetRealNumberPrecision( 10 ) << ((result < 0) ? (360 + result) : result);
-        //PlanetMovement(planet, (result < 0) ? (360 + result) : result);
+        PlanetMovement(planet, (result < 0) ? (360 + result) : result);
 
         reply->deleteLater();
     });

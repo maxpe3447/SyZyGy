@@ -74,7 +74,7 @@ void MainWindow::initPlanet()
 
 void MainWindow::on_pbMenu_clicked()
 {
-    //algorithms.HeliocentricLon(earth, QDate::currentDate());
+    algorithms.HeliocentricLon(earth, QDate::currentDate());
     //algorithms.PlanetMovement(saturn, 4.71238898038469); //movement test (270=4.71238898038469)
     int deltaX = 1, deltaY = 30;
     if(!isMenuShow)
