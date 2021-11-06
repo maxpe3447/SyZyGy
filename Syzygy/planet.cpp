@@ -25,22 +25,22 @@ void Planet::SetPos(int x, int y)
 
 }
 
-int Planet::GetX()
+int Planet::GetX() const
 {
     return planet->geometry().x();
 }
 
-int Planet::GetY()
+int Planet::GetY() const
 {
     return planet->geometry().y();
 }
 
-int Planet::GetWidth()
+int Planet::GetWidth() const
 {
     return planet->width();
 }
 
-int Planet::GetHeight()
+int Planet::GetHeight() const
 {
     return planet->height();
 }
@@ -52,7 +52,7 @@ QString Planet::GetName() const
 
 void Planet::SetImg(QPixmap &pxm)
 {
-//qDebug() << GetName();
+
     this->planet->setPixmap(pxm.scaled(planet->width(), planet->height()));
     planet->setStyleSheet("background: transparent;");
 

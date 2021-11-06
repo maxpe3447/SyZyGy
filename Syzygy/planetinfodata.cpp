@@ -40,6 +40,11 @@ QString PlanetInfoData::GetInfo() const
     return info;
 }
 
+QString PlanetInfoData::GetUkrName() const
+{
+    return ukrName;
+}
+
 QByteArray PlanetInfoData::GetImg() const
 {
     return img;
@@ -55,14 +60,23 @@ int PlanetInfoData::GetHeighForm() const
     return heightForm;
 }
 
-bool PlanetInfoData::isEmpty()
+int PlanetInfoData::GetImgWidth() const
+{
+    return imgWidth;
+}
+
+int PlanetInfoData::GetImgHeight() const
+{
+    return imgHeight;
+}
+
+bool PlanetInfoData::isEmpty() const
 {
     return empty;
 }
 
 PlanetInfoData* PlanetInfoData::Parse(QString planetName)
 {
-    //QString data;
     QFile file(fileXML);
 
     if(!file.open(QFile::ReadOnly| QFile::Text)){
@@ -85,6 +99,8 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
                         widthForm = atr.value().toInt();
                     else if(atr.name().toString() == "formHeight")
                         heightForm = atr.value().toInt();
+                    else if(atr.name().toString() == "ukrName")
+                        ukrName = atr.value().toString();
                 }
 
                 xmlReader.readNext();
@@ -100,6 +116,12 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
                 xmlReader.readNextStartElement();
 
                 if(xmlReader.isStartElement()&& xmlReader.name().toString() == "img"){
+                    foreach(const QXmlStreamAttribute &atr, xmlReader.attributes()){
+                        if(atr.name().toString() == "imgWidth")
+                            imgWidth = atr.value().toInt();
+                        else if (atr.name().toString() == "imgHeight")
+                            imgHeight = atr.value().toInt();
+                    }
                     img = planetImageSetter->GetImageOf(xmlReader.readElementText());
                 }
             }

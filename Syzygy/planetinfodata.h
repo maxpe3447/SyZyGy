@@ -22,21 +22,31 @@ public:
 
     QString GetName() const;
     QString GetInfo() const;
+    QString GetUkrName() const;
+
     QByteArray GetImg() const;
 
     int GetWidthForm() const;
     int GetHeighForm() const;
 
-    bool isEmpty();
+    int GetImgWidth() const;
+    int GetImgHeight() const;
+
+    bool isEmpty() const;
 
     PlanetInfoData* Parse(QString);
 private:
     QString name;
     QString info;
+    QString ukrName;
+
     QByteArray img;
 
     int widthForm;
     int heightForm;
+
+    int imgWidth;
+    int imgHeight;
 
     bool empty;
 
