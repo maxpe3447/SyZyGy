@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
     initPlanetsImage();
     initMenuButton();
 
+    ui->toolBar->setStyleSheet("background: transparent;"
+                               "color: rgb(255, 255, 255)");
     //mngSession.GetLastSession(planets);
 
     clock->Start();
