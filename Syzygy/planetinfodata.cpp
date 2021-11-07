@@ -40,9 +40,19 @@ QString PlanetInfoData::GetInfo() const
     return info;
 }
 
+QString PlanetInfoData::GetUkrName() const
+{
+    return ukrName;
+}
+
 QByteArray PlanetInfoData::GetImg() const
 {
     return img;
+}
+
+QString PlanetInfoData::GetImgStyle() const
+{
+    return stylePlanet;
 }
 
 int PlanetInfoData::GetWidthForm() const
@@ -55,14 +65,23 @@ int PlanetInfoData::GetHeighForm() const
     return heightForm;
 }
 
-bool PlanetInfoData::isEmpty()
+int PlanetInfoData::GetImgWidth() const
+{
+    return imgWidth;
+}
+
+int PlanetInfoData::GetImgHeight() const
+{
+    return imgHeight;
+}
+
+bool PlanetInfoData::isEmpty() const
 {
     return empty;
 }
 
 PlanetInfoData* PlanetInfoData::Parse(QString planetName)
 {
-    //QString data;
     QFile file(fileXML);
 
     if(!file.open(QFile::ReadOnly| QFile::Text)){
@@ -85,6 +104,8 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
                         widthForm = atr.value().toInt();
                     else if(atr.name().toString() == "formHeight")
                         heightForm = atr.value().toInt();
+                    else if(atr.name().toString() == "ukrName")
+                        ukrName = atr.value().toString();
                 }
 
                 xmlReader.readNext();
@@ -100,7 +121,15 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
                 xmlReader.readNextStartElement();
 
                 if(xmlReader.isStartElement()&& xmlReader.name().toString() == "img"){
-                    img = planetImageSetter->GetImageOf(xmlReader.readElementText());
+                    foreach(const QXmlStreamAttribute &atr, xmlReader.attributes()){
+                        if(atr.name().toString() == "imgWidth")
+                            imgWidth = atr.value().toInt();
+                        else if (atr.name().toString() == "imgHeight")
+                            imgHeight = atr.value().toInt();
+                        else if (atr.name().toString() == "type")
+                            stylePlanet = atr.value().toString();
+                    }
+                    img = planetImageSetter->GetImageOf(xmlReader.readElementText(), stylePlanet);
                 }
             }
         }

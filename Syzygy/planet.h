@@ -20,11 +20,11 @@ public:
     void SetParams(const QString& img);
 
     void SetPos(int x, int y);
-    int GetX();
-    int GetY();
+    int GetX() const;
+    int GetY() const;
 
-    int GetWidth();
-    int GetHeight();
+    int GetWidth() const;
+    int GetHeight() const;
 
     QString GetName() const;
 private:

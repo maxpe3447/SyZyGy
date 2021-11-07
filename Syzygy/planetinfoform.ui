@@ -58,6 +58,19 @@
      <string>info</string>
     </property>
    </widget>
+   <widget class="QLabel" name="lPlanetName">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>30</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Planet Name</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

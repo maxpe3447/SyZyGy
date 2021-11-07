@@ -61,6 +61,8 @@ private:
     void initPlanet();
 
     bool isMenuShow;
+    bool isTraveling;
+    QCursor travelCursor;
 
     SetPlanetImage* imageSetter;
     Clock* clock;
