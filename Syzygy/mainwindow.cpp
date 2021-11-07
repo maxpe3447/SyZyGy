@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow), isMenuShow{false}
+    , ui(new Ui::MainWindow), isMenuShow{false}, isTraveling{false}
 {
     ui->setupUi(this);
     ui->groupBox->setStyleSheet("background: transparent;");
@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
     //mngSession.GetLastSession(planets);
 
     clock->Start();
+
+    travelCursor = QCursor(QPixmap("Image/rocket.png"), 0, 0);
 
     connect(this, &MainWindow::SendOptionsAndInfo, infoForm, &PlanetInfoForm::GetOptionsAndInfo);
 }
@@ -101,7 +103,8 @@ void MainWindow::on_pbDisMenu_clicked()
 
 void MainWindow::on_pbTravelToPlanet_clicked()
 {
-
+    this->setCursor(travelCursor);
+    isTraveling = true;
 }
 
 
@@ -118,7 +121,7 @@ void MainWindow::on_pb___clicked()
 
 void MainWindow::mouseDoubleClickEvent(QMouseEvent *me)
 {
-    if(me->button() == Qt::LeftButton){
+    if(me->button() == Qt::LeftButton && isTraveling){
         qDebug() <<"Preses" << me->pos().x();
         for(auto planet: planets){
             //qDebug() <<"("<< me->pos().x() << me->pos().y()<<")\t(" << planet->GetX() << planet->GetY()<<")\t(" << planet->GetX()+planet->GetWidth() << planet->GetY()<<")";
@@ -129,6 +132,8 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *me)
                 PlanetInfoData* data = new PlanetInfoData(this->imageSetter);
                 emit SendOptionsAndInfo(data->Parse(planet->GetName()));
                 infoForm->show();
+                this->setCursor(Qt::ArrowCursor);
+                isTraveling = false;
                 break;
             }
         }

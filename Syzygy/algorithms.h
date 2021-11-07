@@ -1,7 +1,7 @@
 #ifndef ALGORITHMS_H
 #define ALGORITHMS_H
 
-#define PI 3,1415926535897932
+#define PI 3.1415926535897932
 
 #include <QPropertyAnimation>
 #include <QtNetwork/QNetworkAccessManager>

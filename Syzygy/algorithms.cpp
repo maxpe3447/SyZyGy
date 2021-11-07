@@ -33,9 +33,9 @@ void Algorithms::PlanetMovement(Planet* planet, double angle)
     //double currentAngle = 6.28318531 - CurrentAngularPos(planet, radius);
     //double currentAngle = 360 - CurrentAngularPos(planet, radius) * (180 / PI);
     //double moveAngle = 6.28318531 - angle;
-    double moveAngle = (360 - angle) * (PI / 180);
-    int newX = systemCenterX + cos(moveAngle)*radius;
-    int newY = systemCenterY + sin(moveAngle)*radius;
+    double moveAngle = (360. - angle) * (PI / 180.);
+    int newX = systemCenterX + cos(moveAngle) * radius;
+    int newY = systemCenterY + sin(moveAngle) * radius;
     planet->SetPos(newX, newY);
 
 //    movePlanet->setTargetObject(planet->planet);
