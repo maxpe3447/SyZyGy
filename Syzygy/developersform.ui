@@ -31,6 +31,13 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background: transparent;
+color: rgb(255, 255, 255);
+border-style: outset;
+border-width: 1px;
+border-color: rgb(255, 255, 255)</string>
+   </property>
    <property name="title">
     <string>Катерина Паничук</string>
    </property>
@@ -62,6 +69,13 @@
      <family>Sitka Text</family>
      <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: transparent;
+color: rgb(255, 255, 255);
+border-style: outset;
+border-width: 1px;
+border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="title">
     <string>Максим Печерський</string>
@@ -95,6 +109,13 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background: transparent;
+color: rgb(255, 255, 255);
+border-style: outset;
+border-width: 1px;
+border-color: rgb(255, 255, 255)</string>
+   </property>
    <property name="title">
     <string>Анастасія Нікуліна</string>
    </property>
@@ -126,6 +147,13 @@
      <family>Sitka Text</family>
      <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: transparent;
+color: rgb(255, 255, 255);
+border-style: outset;
+border-width: 1px;
+border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Розробники&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>

@@ -1,13 +1,14 @@
 #ifndef DEVELOPERSFORM_H
 #define DEVELOPERSFORM_H
 
-#include <QWidget>
+#include <QMainWindow>
+#include <QLabel>
 
 namespace Ui {
 class DevelopersForm;
 }
 
-class DevelopersForm : public QWidget
+class DevelopersForm : public QMainWindow
 {
     Q_OBJECT
 

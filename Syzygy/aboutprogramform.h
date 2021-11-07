@@ -1,7 +1,7 @@
 #ifndef ABOUTPROGRAMFORM_H
 #define ABOUTPROGRAMFORM_H
 
-#include <QWidget>
+#include <QMainWindow>
 #include <QLabel>
 #include <QDebug>
 
@@ -9,7 +9,7 @@ namespace Ui {
 class AboutProgramForm;
 }
 
-class AboutProgramForm : public QWidget
+class AboutProgramForm : public QMainWindow
 {
     Q_OBJECT
 
@@ -19,7 +19,6 @@ public:
 
 private:
     Ui::AboutProgramForm *ui;
-    void SetLabelStyle(QLabel* l);
 };
 
 #endif // ABOUTPROGRAMFORM_H
