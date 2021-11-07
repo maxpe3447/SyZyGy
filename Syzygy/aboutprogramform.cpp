@@ -7,7 +7,6 @@ AboutProgramForm::AboutProgramForm(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //this->setStyleSheet("background: url(BackGroun.jpg);");
     this->setStyleSheet("background-image: url(:/BackGround/Image/BackGroun.jpg);");
     qDebug() <<this->styleSheet();
     SetLabelStyle(ui->lname);
