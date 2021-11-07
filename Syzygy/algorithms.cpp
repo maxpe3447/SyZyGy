@@ -2,15 +2,15 @@
 
 Algorithms::Algorithms()
 {
-    systemCenterX = 472; //window test center
-    systemCenterY = 384;
+    systemCenterX = 360; //window test center
+    systemCenterY = 360;
     manager = new QNetworkAccessManager();
-    //movePlanet = new QPropertyAnimation();
+    movePlanetsGroup = new QParallelAnimationGroup();
 }
 
 Algorithms::~Algorithms()
 {
-    //movePlanet->deleteLater();
+    movePlanetsGroup->deleteLater();
     manager->deleteLater();
 }
 
@@ -19,36 +19,39 @@ Algorithms::Algorithms(Planet* star)
     systemCenterX = star->GetX(); //Coordinates of The Sun(system center)
     systemCenterY = star->GetY();
     manager = new QNetworkAccessManager();
-    //movePlanet = new QPropertyAnimation();
-}
-
-double Algorithms::CurrentAngularPos(Planet* planet, int radius)
-{
-    return acos((planet->GetX()-systemCenterX)/radius);
+    movePlanetsGroup = new QParallelAnimationGroup();
 }
 
 void Algorithms::PlanetMovement(Planet* planet, double angle)
 {
-    int radius = sqrt(pow((planet->GetX()-systemCenterX), 2)+pow((planet->GetY()-systemCenterY), 2));
-    //double currentAngle = 6.28318531 - CurrentAngularPos(planet, radius);
+    double radius = sqrt(pow((planet->GetX()-systemCenterX), 2)+pow((planet->GetY()-systemCenterY), 2));
+    double currentAngle = 6.28318531 - acos((planet->GetX() - systemCenterX) / radius);
     //double currentAngle = 360 - CurrentAngularPos(planet, radius) * (180 / PI);
     //double moveAngle = 6.28318531 - angle;
-    double moveAngle = (360 - angle) * (PI / 180);
-    int newX = systemCenterX + cos(moveAngle)*radius;
-    int newY = systemCenterY + sin(moveAngle)*radius;
-    planet->SetPos(newX, newY);
-
-//    movePlanet->setTargetObject(planet->planet);
-//    movePlanet->setPropertyName("pos");
-//    movePlanet->setDuration(3000);
-//    movePlanet->setStartValue(planet->planet->pos());
-//    movePlanet->setEndValue(QPoint(newX, newY));
-//    movePlanet->start();
+    double moveAngle = (360. - angle) * (PI / 180.);
+    int newX = planet->GetX();
+    int newY = planet->GetY();
+    int step = (currentAngle - moveAngle) / 0.01745329;
+    if(step < 0) step += 360;
+    QSequentialAnimationGroup* movePlanetGroup = new QSequentialAnimationGroup();
+    for(int i = 0; i < step; ++i){
+        currentAngle -= 0.01745329;
+        if(currentAngle < 0) currentAngle += 6.28318531;
+        QPropertyAnimation* movePlanet = new QPropertyAnimation(planet->planet, "pos");
+        movePlanet->setDuration(25);
+        movePlanet->setStartValue(QPoint(newX, newY));
+        newX = systemCenterX + cos(currentAngle) * radius;
+        newY = systemCenterY + sin(currentAngle) * radius;
+        movePlanet->setEndValue(QPoint(newX, newY));
+        movePlanetGroup->addAnimation(movePlanet);
+    }
+    movePlanetsGroup->addAnimation(movePlanetGroup);
 }
 
-void Algorithms::HeliocentricLon(Planet* planet, QDate date)
+void Algorithms::HeliocentricLon(Planet* planet, QString planetId, QDate date)
 {
-    QString path = "https://ssd.jpl.nasa.gov/api/horizons.api?COMMAND='399'&CENTER='500@10'&START_TIME='" + date.toString("yyyy-MM-dd") + "'&STOP_TIME='" + date.addDays(1).toString("yyyy-MM-dd") + "'&STEP_SIZE='1%20d'&QUANTITIES='18'";
+    //manager = new QNetworkAccessManager();
+    QString path = "https://ssd.jpl.nasa.gov/api/horizons.api?COMMAND='" + planetId + "'&CENTER='500@10'&START_TIME='" + date.toString("yyyy-MM-dd") + "'&STOP_TIME='" + date.addDays(1).toString("yyyy-MM-dd") + "'&STEP_SIZE='1%20d'&QUANTITIES='18'";
     QObject::connect(manager, &QNetworkAccessManager::finished, [=](QNetworkReply *reply)
     {
         // TODO: Situation -> get_reply_error
@@ -76,4 +79,26 @@ void Algorithms::HeliocentricLon(Planet* planet, QDate date)
         reply->deleteLater();
     });
     manager->get(QNetworkRequest(QUrl(path)));
+}
+
+void Algorithms::AllPlanetsMovement(QVector<Planet *> &planets, QDate date)
+{
+    /*HeliocentricLon(planets[0], "399", date);
+    HeliocentricLon(planets[1], "599", date);
+    HeliocentricLon(planets[2], "499", date);
+    HeliocentricLon(planets[3], "199", date);
+    HeliocentricLon(planets[4], "899", date);
+    HeliocentricLon(planets[5], "699", date);
+    HeliocentricLon(planets[7], "799", date);
+    HeliocentricLon(planets[8], "299", date);*/
+    PlanetMovement(planets[0], 290);
+    PlanetMovement(planets[1], 310);
+    PlanetMovement(planets[2], 300);
+    PlanetMovement(planets[3], 270);
+    PlanetMovement(planets[4], 340);
+    PlanetMovement(planets[5], 320);
+    PlanetMovement(planets[7], 330);
+    PlanetMovement(planets[8], 280);
+
+    movePlanetsGroup->start();
 }

@@ -18,6 +18,8 @@
 #include "setplanetimage.h"
 #include "setplanetimage.h"
 #include "syzygyexception.h"
+#include "aboutprogramform.h"
+#include "developersform.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -43,6 +45,10 @@ private slots:
     void on_pbSetDate_clicked();
 
     void on_pb___clicked();
+
+    void on_pbAboutProg_clicked();
+
+    void on_dvlprs_clicked();
 private:
 signals:
     void SendOptionsAndInfo(PlanetInfoData*);
@@ -56,6 +62,8 @@ private:
     void initPlanet();
 
     bool isMenuShow;
+    bool isTraveling;
+    QCursor travelCursor;
 
     SetPlanetImage* imageSetter;
     Clock* clock;
@@ -65,5 +73,7 @@ private:
     QVector<Planet*> planets;
     ManageSession mngSession;
     Algorithms algorithms;
+    AboutProgramForm *aboutProgForm;
+    DevelopersForm *dvlprsForm;
 };
 #endif // MAINWINDOW_H
