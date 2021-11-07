@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>974</width>
-    <height>575</height>
+    <width>880</width>
+    <height>570</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,121 @@
   <property name="styleSheet">
    <string notr="true">background-image: url(:/BackGround/Image/BackGroun.jpg);</string>
   </property>
+  <widget class="QGroupBox" name="KateBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>260</width>
+     <height>370</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Sitka Text</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="title">
+    <string>Катерина Паничук</string>
+   </property>
+   <widget class="QLabel" name="kate">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>200</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="MaxBox">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>120</y>
+     <width>260</width>
+     <height>370</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Sitka Text</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="title">
+    <string>Максим Печерський</string>
+   </property>
+   <widget class="QLabel" name="max">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>200</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="AsyaBox">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>120</y>
+     <width>260</width>
+     <height>370</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Sitka Text</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="title">
+    <string>Анастасія Нікуліна</string>
+   </property>
+   <widget class="QLabel" name="asya">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>200</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>30</y>
+     <width>321</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Sitka Text</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Розробники&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -7,6 +7,9 @@ AboutProgramForm::AboutProgramForm(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //this->setStyleSheet("background: url(BackGroun.jpg);");
+    this->setStyleSheet("background-image: url(:/BackGround/Image/BackGroun.jpg);");
+    qDebug() <<this->styleSheet();
     SetLabelStyle(ui->lname);
     SetLabelStyle(ui->ltext);
     SetLabelStyle(ui->ltexttravel);
@@ -26,6 +29,7 @@ void AboutProgramForm::SetLabelStyle(QLabel *l)
                      "border-style: outset;"
                      "border-width: 3px;"
                      "border-color: rgb(255, 255, 255)");
+
 }
 
 

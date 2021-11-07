@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QDebug>
 
 namespace Ui {
 class AboutProgramForm;

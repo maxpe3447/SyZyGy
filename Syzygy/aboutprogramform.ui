@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>501</width>
-    <height>309</height>
+    <width>890</width>
+    <height>570</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,10 +19,10 @@
   <widget class="QLabel" name="ltext">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>40</y>
-     <width>451</width>
-     <height>91</height>
+     <x>50</x>
+     <y>90</y>
+     <width>791</width>
+     <height>161</height>
     </rect>
    </property>
    <property name="font">
@@ -33,16 +33,16 @@
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Перед Вами планети які обертаются навколо Сонця.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Також Ви бачите кнопку &amp;quot;МЕНЮ&amp;quot;, яка відкриє вам можливості програми, а саме:&lt;br/&gt;- Мандрівка планетами;&lt;br/&gt;- Вибір дати для перегляду позицій планет;&lt;br/&gt;- Функція в розробці&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Перед Вами планети які обертаются навколо Сонця.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Також Ви бачите кнопку &amp;quot;МЕНЮ&amp;quot;, яка відкриє вам можливості програми, а саме:&lt;br/&gt;- Мандрівка планетами;&lt;br/&gt;- Вибір дати для перегляду позицій планет;&lt;br/&gt;- Функція в розробці&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="lname">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>10</y>
-     <width>181</width>
-     <height>21</height>
+     <x>320</x>
+     <y>20</y>
+     <width>281</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -52,16 +52,16 @@
     </font>
    </property>
    <property name="text">
-    <string>Моделювання Сонячної Системи</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Моделювання Сонячної Системи&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="ltexttravel">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>140</y>
-     <width>141</width>
-     <height>151</height>
+     <x>60</x>
+     <y>280</y>
+     <width>231</width>
+     <height>271</height>
     </rect>
    </property>
    <property name="font">
@@ -71,16 +71,16 @@
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt; text-decoration: underline;&quot;&gt;Мандрівка до планети &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Тут на планеті &amp;quot;Земля&amp;quot;, &lt;br/&gt;з'явиться невелика ракета, &lt;br/&gt;після чого Вам, &lt;br/&gt;як користувачу програми, &lt;br/&gt;необхідно обрати планету &lt;br/&gt;для так названої мандрівки, &lt;br/&gt;та двічі натиснути на неї, &lt;br/&gt;після чого буде виведена &lt;br/&gt;інформація про обрану &lt;br/&gt;Вами планету.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Мандрівка до планети &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Тут на планеті &amp;quot;Земля&amp;quot;, &lt;br/&gt;з'явиться невелика ракета, &lt;br/&gt;після чого Вам, &lt;br/&gt;як користувачу програми, &lt;br/&gt;необхідно обрати планету &lt;br/&gt;для так названої мандрівки, &lt;br/&gt;та двічі натиснути на неї, &lt;br/&gt;після чого буде виведена &lt;br/&gt;інформація про обрану &lt;br/&gt;Вами планету.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="ltextdata">
    <property name="geometry">
     <rect>
-     <x>175</x>
-     <y>140</y>
-     <width>141</width>
-     <height>151</height>
+     <x>330</x>
+     <y>280</y>
+     <width>231</width>
+     <height>271</height>
     </rect>
    </property>
    <property name="font">
@@ -90,16 +90,16 @@
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt; text-decoration: underline;&quot;&gt;Вибір дати &lt;br/&gt;для перегляду позіцій &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Натиснувши на цю &lt;br/&gt;кнопку, Ви повинні &lt;br/&gt;будете ввести, &lt;br/&gt;будь яку дату, &lt;br/&gt;для перегляду &lt;br/&gt;позицій планет, &lt;br/&gt;в які планети &lt;br/&gt;будуть встановлені.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Вибір дати &lt;br/&gt;для перегляду позіцій &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Натиснувши на цю &lt;br/&gt;кнопку, Ви повинні &lt;br/&gt;будете ввести, &lt;br/&gt;будь яку дату, &lt;br/&gt;для перегляду &lt;br/&gt;позицій планет, &lt;br/&gt;в які планети &lt;br/&gt;будуть встановлені.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="ltextfunc">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>140</y>
-     <width>141</width>
-     <height>151</height>
+     <x>600</x>
+     <y>280</y>
+     <width>231</width>
+     <height>271</height>
     </rect>
    </property>
    <property name="font">
@@ -109,7 +109,7 @@
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;  Функція в розробці  &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Функція в розробці &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>
