@@ -5,6 +5,7 @@
 
 #include <QPropertyAnimation>
 #include <QSequentialAnimationGroup>
+#include <QParallelAnimationGroup>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QtNetwork/QNetworkRequest>
@@ -21,12 +22,13 @@ public:
     ~Algorithms();
     Algorithms(Planet*);
     void PlanetMovement(Planet*, double);
-    void HeliocentricLon(Planet*, QDate);
+    void HeliocentricLon(Planet*, QString, QDate);
+    void AllPlanetsMovement(QVector<Planet*>&, QDate);
 private:
     int systemCenterX;
     int systemCenterY;
 
-    QSequentialAnimationGroup* movePlanetGroup;
+    QParallelAnimationGroup* movePlanetsGroup;
     QNetworkAccessManager* manager;
 
     QJsonDocument parseReply;

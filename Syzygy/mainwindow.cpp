@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->dvlprs, &QAction::triggered, this, &MainWindow::on_dvlprs_clicked);
 
     travelCursor = QCursor(QPixmap("Image/rocket.png"), 0, 0);
+    //algorithms = Algorithms(sun);
 
 
     connect(this, &MainWindow::SendOptionsAndInfo, infoForm, &PlanetInfoForm::GetOptionsAndInfo);
@@ -86,7 +87,8 @@ void MainWindow::initPlanet()
 
 void MainWindow::on_pbMenu_clicked()
 {
-    algorithms.HeliocentricLon(earth, QDate::currentDate());
+    algorithms.AllPlanetsMovement(planets, QDate::currentDate());
+    //algorithms.HeliocentricLon(earth, QDate::currentDate());
     //algorithms.PlanetMovement(saturn, 4.71238898038469); //movement test (270=4.71238898038469)
     int deltaX = 1, deltaY = 30;
     if(!isMenuShow)
