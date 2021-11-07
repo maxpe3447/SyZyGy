@@ -2,16 +2,18 @@
 
 SetPlanetImage::SetPlanetImage()
 {
-
-
     db = QSqlDatabase::addDatabase("QSQLITE");
+
+    if(!QFile::exists("images.db")){
+        throw SyzygyException("На пристрої немає зображень!\nПеревстановіть додаток", true, false);
+    }
 
     db.setDatabaseName("images.db");
 
     if(!db.open()){
         qDebug() << "error! no open"<< db.lastError().text();
+        throw SyzygyException("Помилка відкриття файлу який містить зображення", false, true);
     }
-     qDebug() << "1";
 }
     SetPlanetImage::~SetPlanetImage()
     {

@@ -8,6 +8,7 @@
 #include <QDebug>
 
 #include "setplanetimage.h"
+#include "syzygyexception.h"
 
 class PlanetInfoData
 {

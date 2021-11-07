@@ -9,7 +9,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->groupBox->setStyleSheet("background: transparent;");
 
     clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
-    imageSetter = new SetPlanetImage();
+    try {
+        imageSetter = new SetPlanetImage();
+}  catch(const SyzygyException& ex){
+        auto res = SyzygyException::WhatShow(ex);
+        switch (res) {
+            case QMessageBox::StandardButton::Ok:
+            close();
+            break;
+        case QMessageBox::StandardButton::Cancel:
+        ui->statusBar->showMessage("Ok, programm in work");
+        break;
+        }
+    }
     infoForm = new PlanetInfoForm();
 
     initTime();
@@ -37,23 +49,46 @@ MainWindow::~MainWindow()
     delete infoForm;
 }
 void MainWindow::initPlanetsImage(){
+    try{
+        for(int i = 0; i < planets.size(); i++){
+            if(planets[i] != nullptr){
 
-    for(int i = 0; i < planets.size(); i++){
-        if(planets[i] != nullptr){
-
-            auto data = imageSetter->GetImageOf(planets[i]->GetName(), "cartoon");
-            planets[i]->SetParams(data);
+                auto data = imageSetter->GetImageOf(planets[i]->GetName(), "cartoon");
+                planets[i]->SetParams(data);
+            }
         }
     }
-
+    catch(const SyzygyException& ex){
+        auto res = SyzygyException::WhatShow(ex);
+        switch (res) {
+            case QMessageBox::StandardButton::Ok:
+            close();
+            break;
+        case QMessageBox::StandardButton::Cancel:
+        ui->statusBar->showMessage("Ok, programm in work");
+        break;
+        }
+    }
 }
 void MainWindow::initTime(){
 
 }
 void MainWindow::initMenuButton(){
     QPixmap obj;
+    try {
     obj.loadFromData(imageSetter->GetSysImage("Menu"));
-    QIcon ico(obj);
+}  catch(const SyzygyException& ex){
+        auto res = SyzygyException::WhatShow(ex);
+        switch (res) {
+            case QMessageBox::StandardButton::Ok:
+            close();
+            break;
+        case QMessageBox::StandardButton::Cancel:
+        ui->statusBar->showMessage("Ok, programm in work");
+        break;
+        }
+    }
+        QIcon ico(obj);
     ui->pbMenu->setIcon(ico);
     ui->pbMenu->setIconSize(ui->pbMenu->size());
 }
@@ -118,19 +153,25 @@ void MainWindow::on_pb___clicked()
 
 void MainWindow::mouseDoubleClickEvent(QMouseEvent *me)
 {
-    if(me->button() == Qt::LeftButton){
+    if(me->button() == Qt::LeftButton)
+    {
         qDebug() <<"Preses" << me->pos().x();
-        for(auto planet: planets){
-            //qDebug() <<"("<< me->pos().x() << me->pos().y()<<")\t(" << planet->GetX() << planet->GetY()<<")\t(" << planet->GetX()+planet->GetWidth() << planet->GetY()<<")";
-            if(planet->GetX() <= me->pos().x() && planet->GetY() <= me->pos().y() &&
-                    me->pos().x() <= planet->GetX()+planet->GetWidth() && me->pos().y() <= planet->GetY()+planet->GetHeight())
+        try
+        {
+            for(auto planet: planets)
             {
-//qDebug() <<"!!!!!!!!";
-                PlanetInfoData* data = new PlanetInfoData(this->imageSetter);
-                emit SendOptionsAndInfo(data->Parse(planet->GetName()));
-                infoForm->show();
-                break;
+                if(planet->GetX() <= me->pos().x() && planet->GetY() <= me->pos().y() &&
+                    me->pos().x() <= planet->GetX()+planet->GetWidth() && me->pos().y() <= planet->GetY()+planet->GetHeight())
+                {
+                    PlanetInfoData* data = new PlanetInfoData(this->imageSetter);
+                    emit SendOptionsAndInfo(data->Parse(planet->GetName()));
+                    infoForm->show();
+                    break;
+                }
             }
+        }
+        catch(const SyzygyException& ex){
+            SyzygyException::WhatShow(ex);
         }
     }
 }

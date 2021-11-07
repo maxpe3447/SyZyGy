@@ -17,6 +17,7 @@
 #include "algorithms.h"
 #include "setplanetimage.h"
 #include "setplanetimage.h"
+#include "syzygyexception.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
