@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DevelopersForm</class>
+ <widget class="QWidget" name="DevelopersForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>974</width>
+    <height>575</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Розробники</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/BackGround/Image/BackGroun.jpg);</string>
+  </property>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

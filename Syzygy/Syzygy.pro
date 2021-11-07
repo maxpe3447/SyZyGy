@@ -10,8 +10,10 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    aboutprogramform.cpp \
     algorithms.cpp \
     clock.cpp \
+    developersform.cpp \
     main.cpp \
     mainwindow.cpp \
     managesession.cpp \
@@ -21,8 +23,10 @@ SOURCES += \
     setplanetimage.cpp
 
 HEADERS += \
+    aboutprogramform.h \
     algorithms.h \
     clock.h \
+    developersform.h \
     mainwindow.h \
     managesession.h \
     planet.h \
@@ -31,6 +35,8 @@ HEADERS += \
     setplanetimage.h
 
 FORMS += \
+    aboutprogramform.ui \
+    developersform.ui \
     mainwindow.ui \
     planetinfoform.ui
 

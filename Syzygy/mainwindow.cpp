@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
     imageSetter = new SetPlanetImage();
     infoForm = new PlanetInfoForm();
+    aboutProgForm = new AboutProgramForm();
+    dvlprsForm = new DevelopersForm();
 
     initTime();
     initPlanet();
@@ -21,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     clock->Start();
 
+    connect(ui->aboutProg, &QAction::triggered, this, &MainWindow::on_pbAboutProg_clicked);
+    connect(ui->dvlprs, &QAction::triggered, this, &MainWindow::on_dvlprs_clicked);
     connect(this, &MainWindow::SendOptionsAndInfo, infoForm, &PlanetInfoForm::GetOptionsAndInfo);
 }
 
@@ -35,6 +39,8 @@ MainWindow::~MainWindow()
     delete ui;
     delete clock;
     delete infoForm;
+    delete aboutProgForm;
+    delete dvlprsForm;
 }
 void MainWindow::initPlanetsImage(){
 
@@ -113,6 +119,16 @@ void MainWindow::on_pbSetDate_clicked()
 void MainWindow::on_pb___clicked()
 {
 
+}
+
+void MainWindow::on_pbAboutProg_clicked()
+{
+    aboutProgForm->show();
+}
+
+void MainWindow::on_dvlprs_clicked()
+{
+    dvlprsForm->show();
 }
 
 void MainWindow::mouseDoubleClickEvent(QMouseEvent *me)
