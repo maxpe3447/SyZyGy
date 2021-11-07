@@ -4,6 +4,7 @@
 #define PI 3.1415926535897932
 
 #include <QPropertyAnimation>
+#include <QSequentialAnimationGroup>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QtNetwork/QNetworkRequest>
@@ -20,13 +21,12 @@ public:
     ~Algorithms();
     Algorithms(Planet*);
     void PlanetMovement(Planet*, double);
-    double CurrentAngularPos(Planet*, int);
     void HeliocentricLon(Planet*, QDate);
 private:
     int systemCenterX;
     int systemCenterY;
 
-    //QPropertyAnimation* movePlanet;
+    QSequentialAnimationGroup* movePlanetGroup;
     QNetworkAccessManager* manager;
 
     QJsonDocument parseReply;

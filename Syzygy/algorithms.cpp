@@ -5,12 +5,12 @@ Algorithms::Algorithms()
     systemCenterX = 472; //window test center
     systemCenterY = 384;
     manager = new QNetworkAccessManager();
-    //movePlanet = new QPropertyAnimation();
+    movePlanetGroup = new QSequentialAnimationGroup();
 }
 
 Algorithms::~Algorithms()
 {
-    //movePlanet->deleteLater();
+    movePlanetGroup->deleteLater();
     manager->deleteLater();
 }
 
@@ -19,31 +19,31 @@ Algorithms::Algorithms(Planet* star)
     systemCenterX = star->GetX(); //Coordinates of The Sun(system center)
     systemCenterY = star->GetY();
     manager = new QNetworkAccessManager();
-    //movePlanet = new QPropertyAnimation();
-}
-
-double Algorithms::CurrentAngularPos(Planet* planet, int radius)
-{
-    return acos((planet->GetX()-systemCenterX)/radius);
+    movePlanetGroup = new QSequentialAnimationGroup();
 }
 
 void Algorithms::PlanetMovement(Planet* planet, double angle)
 {
-    int radius = sqrt(pow((planet->GetX()-systemCenterX), 2)+pow((planet->GetY()-systemCenterY), 2));
-    //double currentAngle = 6.28318531 - CurrentAngularPos(planet, radius);
+    double radius = sqrt(pow((planet->GetX()-systemCenterX), 2)+pow((planet->GetY()-systemCenterY), 2));
+    double currentAngle = 6.28318531 - acos((planet->GetX() - systemCenterX) / radius);
     //double currentAngle = 360 - CurrentAngularPos(planet, radius) * (180 / PI);
     //double moveAngle = 6.28318531 - angle;
     double moveAngle = (360. - angle) * (PI / 180.);
-    int newX = systemCenterX + cos(moveAngle) * radius;
-    int newY = systemCenterY + sin(moveAngle) * radius;
-    planet->SetPos(newX, newY);
-
-//    movePlanet->setTargetObject(planet->planet);
-//    movePlanet->setPropertyName("pos");
-//    movePlanet->setDuration(3000);
-//    movePlanet->setStartValue(planet->planet->pos());
-//    movePlanet->setEndValue(QPoint(newX, newY));
-//    movePlanet->start();
+    int newX = planet->GetX();
+    int newY = planet->GetY();
+    int step = (currentAngle - moveAngle) / 0.01745329; // 6=0.10472
+    if(step < 0) step += 360;
+    for(int i = 0; i < step; ++i){
+        currentAngle -= 0.01745329;
+        QPropertyAnimation* movePlanet = new QPropertyAnimation(planet->planet, "pos");
+        movePlanet->setDuration(25);
+        movePlanet->setStartValue(QPoint(newX, newY));
+        newX = systemCenterX + cos(currentAngle) * radius;
+        newY = systemCenterY + sin(currentAngle) * radius;
+        movePlanet->setEndValue(QPoint(newX, newY));
+        movePlanetGroup->addAnimation(movePlanet);
+    }
+    movePlanetGroup->start();
 }
 
 void Algorithms::HeliocentricLon(Planet* planet, QDate date)
