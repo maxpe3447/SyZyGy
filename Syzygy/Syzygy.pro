@@ -21,7 +21,8 @@ SOURCES += \
     planet.cpp \
     planetinfodata.cpp \
     planetinfoform.cpp \
-    setplanetimage.cpp
+    setplanetimage.cpp \
+    syzygyexception.cpp
 
 HEADERS += \
     aboutprogramform.h \
@@ -33,7 +34,8 @@ HEADERS += \
     planet.h \
     planetinfodata.h \
     planetinfoform.h \
-    setplanetimage.h
+    setplanetimage.h \
+    syzygyexception.h
 
 FORMS += \
     aboutprogramform.ui \

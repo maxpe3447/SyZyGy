@@ -17,6 +17,7 @@
 #include "algorithms.h"
 #include "setplanetimage.h"
 #include "setplanetimage.h"
+#include "syzygyexception.h"
 #include "aboutprogramform.h"
 #include "developersform.h"
 

@@ -7,6 +7,9 @@
 #include <QByteArray>
 #include <QSqlQuery>
 #include <QSqlRecord>
+#include <QFile>
+
+#include "syzygyexception.h"
 
 #define TABLE_KEY_IMG    "Img"
 #define TABLE_IMG_FORMAT "PNG"

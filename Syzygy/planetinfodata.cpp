@@ -85,7 +85,8 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
     QFile file(fileXML);
 
     if(!file.open(QFile::ReadOnly| QFile::Text)){
-       //TODO
+
+        throw SyzygyException("Нажаль немає XML файлу");
         return this;
     }
 
