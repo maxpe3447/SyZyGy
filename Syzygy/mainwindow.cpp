@@ -14,12 +14,15 @@ MainWindow::MainWindow(QWidget *parent)
 }  catch(const SyzygyException& ex){
         auto res = SyzygyException::WhatShow(ex);
         switch (res) {
-            case QMessageBox::StandardButton::Ok:
+        case QMessageBox::StandardButton::Ok:
             close();
             break;
         case QMessageBox::StandardButton::Cancel:
-        ui->statusBar->showMessage("Ok, programm in work");
-        break;
+            ui->statusBar->showMessage("Ok, programm in work");
+            break;
+        default:
+            ui->statusBar->showMessage("Ok, programm in work");
+            break;
         }
     }
     infoForm = new PlanetInfoForm();
@@ -75,12 +78,15 @@ void MainWindow::initPlanetsImage(){
     catch(const SyzygyException& ex){
         auto res = SyzygyException::WhatShow(ex);
         switch (res) {
-            case QMessageBox::StandardButton::Ok:
+        case QMessageBox::StandardButton::Ok:
             close();
             break;
         case QMessageBox::StandardButton::Cancel:
-        ui->statusBar->showMessage("Ok, programm in work");
+            ui->statusBar->showMessage("Ok, programm in work");
         break;
+        default:
+            ui->statusBar->showMessage("Ok, programm in work");
+            break;
         }
     }
 }
@@ -94,12 +100,15 @@ void MainWindow::initMenuButton(){
 }  catch(const SyzygyException& ex){
         auto res = SyzygyException::WhatShow(ex);
         switch (res) {
-            case QMessageBox::StandardButton::Ok:
+        case QMessageBox::StandardButton::Ok:
             close();
             break;
         case QMessageBox::StandardButton::Cancel:
-        ui->statusBar->showMessage("Ok, programm in work");
-        break;
+            ui->statusBar->showMessage("Ok, programm in work");
+            break;
+        default:
+            ui->statusBar->showMessage("Ok, programm in work");
+            break;
         }
     }
         QIcon ico(obj);
