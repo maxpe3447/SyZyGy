@@ -51,7 +51,7 @@ border-color: rgb(255, 255, 255)</string>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Kate photo</string>
     </property>
    </widget>
   </widget>
@@ -90,7 +90,7 @@ border-color: rgb(255, 255, 255)</string>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Max photo</string>
     </property>
    </widget>
   </widget>
@@ -129,7 +129,7 @@ border-color: rgb(255, 255, 255)</string>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Asya photo</string>
     </property>
    </widget>
   </widget>
