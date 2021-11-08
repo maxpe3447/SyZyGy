@@ -39,7 +39,7 @@
 			<text>газу, а тиск на поверхні</text>
 			<text>в 92 рази більший за земний.</text>
 		</info>
-		<img imgWidth = "200" imgHeight = "200 type ="cartoon"">venus</img>
+		<img imgWidth = "200" imgHeight = "200" type ="cartoon">venus</img>
 	</venus>	
 	<earth name = "earth" formWidth = "600" formHeight = "500" ukrName="Земля">
 		<info>

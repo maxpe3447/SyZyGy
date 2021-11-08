@@ -25,7 +25,7 @@ Algorithms::Algorithms(Planet* star)
 void Algorithms::PlanetMovement(Planet* planet, double angle)
 {
     double radius = sqrt(pow((planet->GetX()-systemCenterX), 2)+pow((planet->GetY()-systemCenterY), 2));
-    double currentAngle = 6.28318531 - acos((planet->GetX() - systemCenterX) / radius);
+    double currentAngle = acos((planet->GetX() - systemCenterX) / radius);
     //double currentAngle = 360 - CurrentAngularPos(planet, radius) * (180 / PI);
     //double moveAngle = 6.28318531 - angle;
     double moveAngle = (360. - angle) * (PI / 180.);
@@ -91,14 +91,14 @@ void Algorithms::AllPlanetsMovement(QVector<Planet *> &planets, QDate date)
     HeliocentricLon(planets[5], "699", date);
     HeliocentricLon(planets[7], "799", date);
     HeliocentricLon(planets[8], "299", date);*/
-    PlanetMovement(planets[0], 290);
-    PlanetMovement(planets[1], 310);
-    PlanetMovement(planets[2], 300);
-    PlanetMovement(planets[3], 270);
-    PlanetMovement(planets[4], 340);
-    PlanetMovement(planets[5], 320);
-    PlanetMovement(planets[7], 330);
-    PlanetMovement(planets[8], 280);
+    PlanetMovement(planets[0], 130);
+    PlanetMovement(planets[1], 150);
+    PlanetMovement(planets[2], 140);
+    PlanetMovement(planets[3], 110);
+    PlanetMovement(planets[4], 180);
+    PlanetMovement(planets[5], 160);
+    PlanetMovement(planets[7], 170);
+    PlanetMovement(planets[8], 120);
 
     movePlanetsGroup->start();
 }
