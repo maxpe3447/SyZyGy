@@ -27,8 +27,8 @@
    </property>
    <property name="font">
     <font>
-     <family>Sitka Text</family>
-     <pointsize>12</pointsize>
+     <family>Gabriola</family>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -50,6 +50,12 @@ border-color: rgb(255, 255, 255)</string>
       <height>200</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Kate photo</string>
     </property>
@@ -66,8 +72,8 @@ border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="font">
     <font>
-     <family>Sitka Text</family>
-     <pointsize>12</pointsize>
+     <family>Gabriola</family>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -89,6 +95,12 @@ border-color: rgb(255, 255, 255)</string>
       <height>200</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Max photo</string>
     </property>
@@ -105,8 +117,8 @@ border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="font">
     <font>
-     <family>Sitka Text</family>
-     <pointsize>12</pointsize>
+     <family>Gabriola</family>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -128,6 +140,12 @@ border-color: rgb(255, 255, 255)</string>
       <height>200</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Asya photo</string>
     </property>
@@ -144,8 +162,8 @@ border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="font">
     <font>
-     <family>Sitka Text</family>
-     <pointsize>12</pointsize>
+     <family>Gabriola</family>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="styleSheet">

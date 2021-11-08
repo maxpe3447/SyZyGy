@@ -29,6 +29,12 @@
       <height>33</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>earth</string>
     </property>
@@ -41,6 +47,12 @@
       <width>37</width>
       <height>37</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>jupiter</string>
@@ -55,6 +67,12 @@
       <height>30</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>mars</string>
     </property>
@@ -67,6 +85,12 @@
       <width>27</width>
       <height>27</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>mercury</string>
@@ -81,6 +105,12 @@
       <height>32</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>neptune</string>
     </property>
@@ -93,6 +123,12 @@
       <width>35</width>
       <height>35</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>saturn</string>
@@ -107,6 +143,12 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>sun</string>
     </property>
@@ -119,6 +161,12 @@
       <width>37</width>
       <height>37</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>uranus</string>
@@ -133,6 +181,12 @@
       <height>32</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>venus</string>
     </property>
@@ -146,6 +200,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -158,6 +218,12 @@
       <width>221</width>
       <height>131</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="title">
      <string>Date Time</string>
@@ -173,6 +239,8 @@
      </property>
      <property name="font">
       <font>
+       <family>Gabriola</family>
+       <pointsize>14</pointsize>
        <kerning>true</kerning>
       </font>
      </property>
@@ -186,6 +254,12 @@
        <height>55</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Gabriola</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
     </widget>
     <widget class="QLCDNumber" name="LCDHourMin">
      <property name="geometry">
@@ -196,6 +270,12 @@
        <height>61</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Gabriola</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
     </widget>
     <widget class="QLCDNumber" name="LCDSecond">
      <property name="geometry">
@@ -205,6 +285,12 @@
        <width>121</width>
        <height>61</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Gabriola</family>
+       <pointsize>14</pointsize>
+      </font>
      </property>
     </widget>
     <zorder>LCDSecond</zorder>
@@ -223,7 +309,8 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -244,7 +331,8 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -263,6 +351,12 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">color:white;</string>
     </property>
@@ -278,6 +372,12 @@
       <width>161</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gabriola</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color:white;</string>
@@ -327,10 +427,22 @@
    <property name="text">
     <string>Розробники</string>
    </property>
+   <property name="font">
+    <font>
+     <family>Gabriola</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
   </action>
   <action name="aboutProg">
    <property name="text">
     <string>Як користуватися...</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Gabriola</family>
+     <pointsize>11</pointsize>
+    </font>
    </property>
   </action>
  </widget>
