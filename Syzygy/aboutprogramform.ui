@@ -118,7 +118,7 @@ border-width: 1px;
 border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Вибір дати &lt;br/&gt;для перегляду позіцій &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Натиснувши на цю &lt;br/&gt;кнопку, Ви повинні &lt;br/&gt;будете ввести &lt;br/&gt;будь-яку дату &lt;br/&gt;для перегляду &lt;br/&gt;позицій планет, &lt;br/&gt;в які планети &lt;br/&gt;будуть встановлені.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Вибір дати &lt;br/&gt;для перегляду позицій &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Натиснувши на цю &lt;br/&gt;кнопку, Ви повинні &lt;br/&gt;будете ввести &lt;br/&gt;будь-яку дату &lt;br/&gt;для перегляду &lt;br/&gt;позицій планет, &lt;br/&gt;в які планети &lt;br/&gt;будуть встановлені.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="ltextfunc">
