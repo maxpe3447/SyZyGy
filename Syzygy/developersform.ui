@@ -27,7 +27,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Gabriola</family>
+     <family>Garamond</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -52,7 +52,7 @@ border-color: rgb(255, 255, 255)</string>
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -72,7 +72,7 @@ border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="font">
     <font>
-     <family>Gabriola</family>
+     <family>Garamond</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -97,7 +97,7 @@ border-color: rgb(255, 255, 255)</string>
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -117,7 +117,7 @@ border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="font">
     <font>
-     <family>Gabriola</family>
+     <family>Garamond</family>
      <pointsize>14</pointsize>
     </font>
    </property>
@@ -142,7 +142,7 @@ border-color: rgb(255, 255, 255)</string>
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -155,14 +155,14 @@ border-color: rgb(255, 255, 255)</string>
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>30</y>
+     <y>20</y>
      <width>321</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Gabriola</family>
+     <family>Garamond</family>
      <pointsize>14</pointsize>
     </font>
    </property>

@@ -31,7 +31,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -50,7 +50,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -69,7 +69,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -88,7 +88,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -107,7 +107,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -126,7 +126,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -145,7 +145,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -164,7 +164,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -183,7 +183,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -202,7 +202,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -221,7 +221,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -239,7 +239,7 @@
      </property>
      <property name="font">
       <font>
-       <family>Gabriola</family>
+       <family>Garamond</family>
        <pointsize>14</pointsize>
        <kerning>true</kerning>
       </font>
@@ -256,7 +256,7 @@
      </property>
      <property name="font">
       <font>
-       <family>Gabriola</family>
+       <family>Garamond</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -272,7 +272,7 @@
      </property>
      <property name="font">
       <font>
-       <family>Gabriola</family>
+       <family>Garamond</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -288,7 +288,7 @@
      </property>
      <property name="font">
       <font>
-       <family>Gabriola</family>
+       <family>Garamond</family>
        <pointsize>14</pointsize>
       </font>
      </property>
@@ -309,7 +309,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -331,7 +331,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -353,7 +353,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -375,7 +375,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Gabriola</family>
+      <family>Garamond</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -429,8 +429,8 @@
    </property>
    <property name="font">
     <font>
-     <family>Gabriola</family>
-     <pointsize>11</pointsize>
+     <family>Garamond</family>
+     <pointsize>14</pointsize>
     </font>
    </property>
   </action>
@@ -440,8 +440,8 @@
    </property>
    <property name="font">
     <font>
-     <family>Gabriola</family>
-     <pointsize>11</pointsize>
+     <family>Garamond</family>
+     <pointsize>14</pointsize>
     </font>
    </property>
   </action>
