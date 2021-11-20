@@ -7,7 +7,18 @@ DevelopersForm::DevelopersForm(QWidget *parent) :
     ui(new Ui::DevelopersForm)
 {
     ui->setupUi(this);
+    DataFromDB databd;
 
+    auto img = databd.GetImageOf("Asya", databd.GitHubTable);
+    QPixmap imgAsya;
+    //qDebug()<< img;
+
+    imgAsya.loadFromData(img);
+    ui->asya->setPixmap(imgAsya.scaled(ui->asya->width(), ui->asya->height()));
+    ui->asya->setStyleSheet("background: transparent;");
+
+    //ui->max->setText(databd.GetTextOf("Asya", databd.GitHubTable));
+    databd.CloseConnect();
 }
 
 DevelopersForm::~DevelopersForm()

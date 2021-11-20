@@ -20,8 +20,13 @@ public:
     DataFromDB();
     ~DataFromDB();
 
-    QByteArray GetImageOf(QString namePlanet, QString type);
+    QByteArray GetImageOf(QString nameImg, QString type);
     //QByteArray GetSysImage(QString name);
+
+    void CloseConnect();
+    void OpenConnect();
+
+    QString GetTextOf(QString name, QString table, QString type = "*");
 
     static QString CartoonTable;
     static QString GitHubTable;

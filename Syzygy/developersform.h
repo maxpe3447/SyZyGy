@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include <QDebug>
 
 namespace Ui {
 class DevelopersForm;

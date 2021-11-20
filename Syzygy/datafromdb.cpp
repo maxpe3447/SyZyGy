@@ -10,14 +10,11 @@ DataFromDB::DataFromDB()
 
     db.setDatabaseName(fileName);
 
-    if(!db.open()){
-        qDebug() << "error! no open"<< db.lastError().text();
-        throw SyzygyException("Помилка відкриття файлу який містить зображення", false, true);
-    }
+    OpenConnect();
 }
     DataFromDB::~DataFromDB()
     {
-        db.close();
+        CloseConnect();
     }
 
     QByteArray DataFromDB::GetImageOf(QString imageName, QString table)
@@ -34,17 +31,34 @@ DataFromDB::DataFromDB()
 
     }
 
+    QString DataFromDB::GetTextOf(QString name, QString table, QString type){
+        QSqlQuery query(db);
+        if (!query.exec("SELECT " +type +" FROM " + table + " WHERE Name = \"" + name + "\"")) {
+            qDebug() << "Даже селект не получается, я пас.";
+        }
+
+        query.last();
+
+        QSqlRecord rec = query.record();
+
+        QString res = query.value(rec.indexOf("Url")).toString();
+        qDebug() << "Label: " << res;
+        return res;
+    }
+
+    void DataFromDB::CloseConnect(){
+        if(db.isOpen()){
+            db.close();
+        }
+    }
+    void DataFromDB::OpenConnect(){
+        if(!db.open()){
+            qDebug() << "error! no open"<< db.lastError().text();
+            throw SyzygyException("Помилка відкриття файлу який містить зображення", false, true);
+        }
+    }
     QString DataFromDB::CartoonTable = "cartoon";
-    QString DataFromDB::GitHubTable = "GitHub";
-//    QByteArray DataFromDB::GetSysImage(QString name)
-//    {
-//        QSqlQuery query(db);
-//        if (!query.exec("SELECT * FROM systemImage WHERE Name = \"" + name + "\"")) {
-//            qDebug() << "Даже селект не получается, я пас.";
-//        }
+    QString DataFromDB::GitHubTable = "GitHab";
 
-//        query.last();
 
-//        QSqlRecord rec = query.record();
-//        return query.value(rec.indexOf("Img")).toByteArray();
-//    }
+

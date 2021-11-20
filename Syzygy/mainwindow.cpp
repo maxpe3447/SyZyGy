@@ -8,6 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->groupBox->setStyleSheet("background: transparent;");
 
+    infoForm = new PlanetInfoForm();
+    aboutProgForm = new AboutProgramForm();
+    dvlprsForm = new DevelopersForm();
+
     clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
     try {
         dataDB = new DataFromDB();
@@ -25,9 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
             break;
         }
     }
-    infoForm = new PlanetInfoForm();
-    aboutProgForm = new AboutProgramForm();
-    dvlprsForm = new DevelopersForm();
+
 
     initTime();
     initPlanet();
@@ -89,6 +91,8 @@ void MainWindow::initPlanetsImage(){
             break;
         }
     }
+
+    dataDB->CloseConnect();
 }
 void MainWindow::initTime(){
 

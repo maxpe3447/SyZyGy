@@ -146,5 +146,6 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
     }
 
     empty = false;
+    planetImageSetter->CloseConnect();
     return this;
 }
