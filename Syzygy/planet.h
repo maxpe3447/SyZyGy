@@ -4,7 +4,7 @@
 #include <QLabel>
 #include <QString>
 #include <QByteArray>
-#include <setplanetimage.h>
+#include <datafromdb.h>
 
 class Planet
 {
@@ -20,6 +20,7 @@ public:
     void SetParams(const QString& img);
 
     void SetPos(int x, int y);
+
     int GetX() const;
     int GetY() const;
 

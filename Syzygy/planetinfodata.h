@@ -7,13 +7,13 @@
 #include <QFile>
 #include <QDebug>
 
-#include "setplanetimage.h"
+#include "datafromdb.h"
 #include "syzygyexception.h"
 
 class PlanetInfoData
 {
 public:
-    PlanetInfoData(SetPlanetImage* planetImageSetter);
+    PlanetInfoData(DataFromDB* planetImageSetter);
 
     void SetName(QString name);
     void SetInfo(QString info);
@@ -55,7 +55,7 @@ private:
 
     QString fileXML = "planets.xml";
 
-    SetPlanetImage* planetImageSetter;
+    DataFromDB* planetImageSetter;
 };
 
 #endif // PLANETINFODATA_H

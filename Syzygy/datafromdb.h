@@ -1,5 +1,5 @@
-#ifndef SETPLANETIMAGE_H
-#define SETPLANETIMAGE_H
+#ifndef DATAFROMDB_H
+#define DATAFROMDB_H
 
 #include <QSqlDatabase>
 #include <QSqlError>
@@ -14,16 +14,21 @@
 #define TABLE_KEY_IMG    "Img"
 #define TABLE_IMG_FORMAT "PNG"
 
-class SetPlanetImage
+class DataFromDB
 {
 public:
-    SetPlanetImage();
-    ~SetPlanetImage();
+    DataFromDB();
+    ~DataFromDB();
 
     QByteArray GetImageOf(QString namePlanet, QString type);
-    QByteArray GetSysImage(QString name);
+    //QByteArray GetSysImage(QString name);
+
+    static QString CartoonTable;
+    static QString GitHubTable;
 private:
     QSqlDatabase db;
+
+    QString fileName = "images.db";
 };
 
-#endif // SETPLANETIMAGE_H
+#endif // DATAFROMDB_H

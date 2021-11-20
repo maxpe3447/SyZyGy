@@ -1,6 +1,6 @@
 #include "planetinfodata.h"
 
-PlanetInfoData::PlanetInfoData(SetPlanetImage* planetImageSetter): empty{true}
+PlanetInfoData::PlanetInfoData(DataFromDB* planetImageSetter): empty{true}
 {
     this->planetImageSetter = planetImageSetter;
 }

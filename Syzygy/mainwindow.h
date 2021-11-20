@@ -15,8 +15,8 @@
 #include "planetinfoform.h"
 #include "planetinfodata.h"
 #include "algorithms.h"
-#include "setplanetimage.h"
-#include "setplanetimage.h"
+#include "datafromdb.h"
+#include "datafromdb.h"
 #include "syzygyexception.h"
 #include "aboutprogramform.h"
 #include "developersform.h"
@@ -34,17 +34,15 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pbMenu_clicked();
+    //void on_pbMenu_clicked();
 
     void Tick_of_clock();
 
-    void on_pbDisMenu_clicked();
+    //void on_pbDisMenu_clicked();
 
     void on_pbTravelToPlanet_clicked();
 
     void on_pbSetDate_clicked();
-
-    void on_pb___clicked();
 
     void on_pbAboutProg_clicked();
 
@@ -53,19 +51,19 @@ private:
 signals:
     void SendOptionsAndInfo(PlanetInfoData*);
 protected:
-    void mouseDoubleClickEvent(QMouseEvent*)override;
+    void mousePressEvent(QMouseEvent*)override;
 private:
     Ui::MainWindow *ui;
     void initPlanetsImage();
     void initTime();
-    void initMenuButton();
+    //void initMenuButton();
     void initPlanet();
 
-    bool isMenuShow;
+    //bool isMenuShow;
     bool isTraveling;
     QCursor travelCursor;
 
-    SetPlanetImage* imageSetter;
+    DataFromDB* dataDB;
     Clock* clock;
     PlanetInfoForm *infoForm;
     Planet  *earth = nullptr, *jupiter = nullptr, *mars = nullptr, *mercury = nullptr,

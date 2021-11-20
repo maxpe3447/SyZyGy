@@ -191,25 +191,6 @@
      <string>venus</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pbMenu">
-    <property name="geometry">
-     <rect>
-      <x>930</x>
-      <y>660</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Garamond</family>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
@@ -364,28 +345,6 @@
      <string>Обрати дату</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pb__">
-    <property name="geometry">
-     <rect>
-      <x>1130</x>
-      <y>310</y>
-      <width>161</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Garamond</family>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:white;</string>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
    <zorder>earth</zorder>
    <zorder>jupiter</zorder>
    <zorder>mars</zorder>
@@ -395,11 +354,9 @@
    <zorder>sun</zorder>
    <zorder>uranus</zorder>
    <zorder>venus</zorder>
-   <zorder>pbMenu</zorder>
    <zorder>groupBox</zorder>
    <zorder>pbTravelToPlanet</zorder>
    <zorder>pbSetDate</zorder>
-   <zorder>pb__</zorder>
    <zorder>pbDisMenu</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar">

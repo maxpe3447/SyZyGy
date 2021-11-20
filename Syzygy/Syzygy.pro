@@ -14,6 +14,7 @@ SOURCES += \
     aboutprogramform.cpp \
     algorithms.cpp \
     clock.cpp \
+    datafromdb.cpp \
     developersform.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -21,20 +22,19 @@ SOURCES += \
     planet.cpp \
     planetinfodata.cpp \
     planetinfoform.cpp \
-    setplanetimage.cpp \
     syzygyexception.cpp
 
 HEADERS += \
     aboutprogramform.h \
     algorithms.h \
     clock.h \
+    datafromdb.h \
     developersform.h \
     mainwindow.h \
     managesession.h \
     planet.h \
     planetinfodata.h \
     planetinfoform.h \
-    setplanetimage.h \
     syzygyexception.h
 
 FORMS += \
