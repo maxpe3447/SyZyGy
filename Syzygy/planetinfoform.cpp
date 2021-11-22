@@ -37,8 +37,8 @@ void PlanetInfoForm::GetOptionsAndInfo(PlanetInfoData* data)
                                  "border-width: 3px;"
                                  "border-color: rgb(255, 255, 255)");
 
-        this->setGeometry(this->x(),this->y(),data->GetWidthForm(),data->GetHeighForm());
-        this->setWindowTitle(data->GetName());
+        //this->setGeometry(this->x(),this->y(),data->GetWidthForm(),data->GetHeighForm());
+        this->setWindowTitle(data->GetUkrName());
     }
     else
         ui->lInfo->setText("ups");

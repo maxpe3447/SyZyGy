@@ -42,7 +42,7 @@ DataFromDB::DataFromDB()
         QSqlRecord rec = query.record();
 
         QString res = query.value(rec.indexOf("Url")).toString();
-        qDebug() << "Label: " << res;
+        //qDebug() << "Label: " << res;
         return res;
     }
 

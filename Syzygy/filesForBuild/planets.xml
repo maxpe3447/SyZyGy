@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <planets>	
-	<sun name = "sun" formWidth = "800" formHeight = "600" ukrName="Сонце">
+	<sun name = "sun" formWidth = "900" formHeight = "700" ukrName="Сонце">
 		<info>
 			<text>Сонце — одна з зірок</text>
 			<text>нашої Галактики.</text>
@@ -13,7 +13,7 @@
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">sun</img>
 	</sun>	
-	<mercury name = "mercury" formWidth = "600" formHeight = "500" ukrName="Меркурій">
+	<mercury name = "mercury" formWidth = "900" formHeight = "700" ukrName="Меркурій">
 		<info>
 			<text>Серед усіх інших планет</text>
 			<text>Меркурій розташований</text>
@@ -26,7 +26,7 @@
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">mercury</img>
 	</mercury>	
-	<venus name = "venus" formWidth = "600" formHeight = "500" ukrName="Венера">
+	<venus name = "venus" formWidth = "900" formHeight = "700" ukrName="Венера">
 		<info>
 			<text>За розміром і масою</text>
 			<text>Венера дуже схожа на</text>
@@ -41,7 +41,7 @@
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">venus</img>
 	</venus>	
-	<earth name = "earth" formWidth = "600" formHeight = "500" ukrName="Земля">
+	<earth name = "earth" formWidth = "900" formHeight = "700" ukrName="Земля">
 		<info>
 			<text>Це єдина планета,</text>
 			<text>придатна для існування</text>
@@ -61,7 +61,7 @@
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">earth</img>
 	</earth>	
-	<mars name = "mars" formWidth = "600" formHeight = "500" ukrName="Марс">
+	<mars name = "mars" formWidth = "900" formHeight = "700" ukrName="Марс">
 		<info>
 			<text>Марс є четвертою за</text>
 			<text>віддаленістю від Сонця</text>
@@ -78,7 +78,7 @@
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">mars</img>
 	</mars>	
-	<jupiter name = "jupiter" formWidth = "600" formHeight = "500" ukrName="Юпітер">
+	<jupiter name = "jupiter" formWidth = "900" formHeight = "700" ukrName="Юпітер">
 		<info>
 			<text>Юпітер — найбільша планета</text>
 			<text>Сонячної системи. Його</text>
@@ -94,7 +94,7 @@
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">jupiter</img>
 	</jupiter>	
-	<saturn name = "saturn" formWidth = "600" formHeight = "500" ukrName="Сатурн">
+	<saturn name = "saturn" formWidth = "900" formHeight = "700" ukrName="Сатурн">
 		<info>
 			<text>Сатурн з багатьох поглядів</text>
 			<text>подібний до Юпітера, але</text>
@@ -109,7 +109,7 @@
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">saturn</img>
 	</saturn>	
-	<uranus name = "uranus" formWidth = "600" formHeight = "500" ukrName="Уран">
+	<uranus name = "uranus" formWidth = "900" formHeight = "700" ukrName="Уран">
 		<info>
 			<text>Уран — планета Сонячної системи,</text>
 			<text>сьома за віддаленістю від Сонця,</text>
@@ -122,7 +122,7 @@
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">uranus</img>
 	</uranus>	
-	<neptune name = "neptune" formWidth = "600" formHeight = "500" ukrName="Нептун">
+	<neptune name = "neptune" formWidth = "900" formHeight = "700" ukrName="Нептун">
 		<info>
 			<text>Нептун — восьма планета</text>
 			<text>Сонячної системи, яка </text>

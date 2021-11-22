@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow), /*isMenuShow{false},*/ isTraveling{false}
 {
     ui->setupUi(this);
-    ui->groupBox->setStyleSheet("background: transparent;");
+    ui->groupBox->setStyleSheet("background: transparent; color: rgb(255, 255, 255)");
 
     infoForm = new PlanetInfoForm();
     aboutProgForm = new AboutProgramForm();

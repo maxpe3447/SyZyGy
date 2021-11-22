@@ -90,6 +90,8 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
         return this;
     }
 
+    planetImageSetter->OpenConnect();
+
     QXmlStreamReader xmlReader;
 
     xmlReader.setDevice(&file);

@@ -2,4 +2,7 @@
     <qresource prefix="/BackGround">
         <file>Image/BackGroun.jpg</file>
     </qresource>
+    <qresource prefix="/btnPhoto">
+        <file>Image/BtnsBackGround.jpg</file>
+    </qresource>
 </RCC>
