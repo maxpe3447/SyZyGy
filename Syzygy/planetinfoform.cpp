@@ -8,6 +8,7 @@ PlanetInfoForm::PlanetInfoForm(QWidget *parent) :
     ui(new Ui::PlanetInfoForm)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/Image/solar-system.png"));
 }
 
 PlanetInfoForm::~PlanetInfoForm()

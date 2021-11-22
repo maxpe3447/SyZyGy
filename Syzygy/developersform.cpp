@@ -7,6 +7,7 @@ DevelopersForm::DevelopersForm(QWidget *parent) :
     ui(new Ui::DevelopersForm)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/Image/solar-system.png"));
     DataFromDB databd;
 
 

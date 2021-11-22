@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow), /*isMenuShow{false},*/ isTraveling{false}
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/Image/solar-system.png"));
     ui->groupBox->setStyleSheet("background: transparent; color: rgb(255, 255, 255)");
 
     infoForm = new PlanetInfoForm();

@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Syzygy</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>filesForBuild/Image/solar-system.ico</normaloff>filesForBuild/Image/solar-system.ico</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-image: url(:/BackGround/Image/BackGroun.jpg);</string>
   </property>
