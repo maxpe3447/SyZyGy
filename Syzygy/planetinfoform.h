@@ -2,6 +2,7 @@
 #define PLANETINFOFORM_H
 
 #include <QMainWindow>
+#include <QIcon>
 #include "planetinfodata.h"
 
 namespace Ui {
