@@ -8,6 +8,7 @@
 #include <QVector>
 #include <QDebug>
 #include <QMouseEvent>
+#include <QDateTimeEdit>
 
 #include "planet.h"
 #include "clock.h"
@@ -20,6 +21,7 @@
 #include "syzygyexception.h"
 #include "aboutprogramform.h"
 #include "developersform.h"
+#include "setdateform.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -62,6 +64,7 @@ private:
     //bool isMenuShow;
     bool isTraveling;
     QCursor travelCursor;
+    QDateTime dateTime;
 
     DataFromDB* dataDB;
     Clock* clock;
@@ -73,5 +76,7 @@ private:
     Algorithms algorithms;
     AboutProgramForm *aboutProgForm;
     DevelopersForm *dvlprsForm;
+    SetDateForm *setDateForm;
+
 };
 #endif // MAINWINDOW_H

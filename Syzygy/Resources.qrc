@@ -6,7 +6,6 @@
         <file>Image/BtnsBackGround.jpg</file>
     </qresource>
     <qresource prefix="/">
-        <file>Image/solar-system.ico</file>
         <file>Image/solar-system.png</file>
     </qresource>
 </RCC>

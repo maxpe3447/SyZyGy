@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     infoForm = new PlanetInfoForm();
     aboutProgForm = new AboutProgramForm();
     dvlprsForm = new DevelopersForm();
+    setDateForm = new SetDateForm(&dateTime);
 
     clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
     try {
@@ -172,7 +173,7 @@ void MainWindow::on_pbTravelToPlanet_clicked()
 
 void MainWindow::on_pbSetDate_clicked()
 {
-
+    setDateForm->show();
 }
 
 void MainWindow::on_pbAboutProg_clicked()
