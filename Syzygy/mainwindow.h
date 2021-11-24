@@ -8,7 +8,7 @@
 #include <QVector>
 #include <QDebug>
 #include <QMouseEvent>
-#include <QDateTimeEdit>
+#include <QDate>
 
 #include "planet.h"
 #include "clock.h"
@@ -64,7 +64,7 @@ private:
     //bool isMenuShow;
     bool isTraveling;
     QCursor travelCursor;
-    QDateTime dateTime;
+    QDate dateTime;
 
     DataFromDB* dataDB;
     Clock* clock;

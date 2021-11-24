@@ -36,22 +36,6 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Введіть дату та час&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;для певного розташування планет!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QDateTimeEdit" name="setDate">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>150</y>
-      <width>330</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Palatino Linotype</family>
-      <pointsize>19</pointsize>
-     </font>
-    </property>
-   </widget>
    <widget class="QPushButton" name="passDate">
     <property name="geometry">
      <rect>
@@ -74,6 +58,22 @@ color: rgb(255, 255, 255)</string>
     <property name="text">
      <string>Подивитись
 розташування</string>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="setDate">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>150</y>
+      <width>230</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Palatino Linotype</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
    </widget>
   </widget>

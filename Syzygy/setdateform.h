@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QLabel>
 #include <QPushButton>
-#include <QDateTimeEdit>
+#include <QDate>
 
 namespace Ui {
 class SetDateForm;
@@ -15,7 +15,7 @@ class SetDateForm : public QMainWindow
     Q_OBJECT
 
 public:
-    SetDateForm(QDateTime *dateTime, QWidget *parent = nullptr);
+    SetDateForm(QDate *dateTime, QWidget *parent = nullptr);
     ~SetDateForm();
 
 private slots:
@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::SetDateForm *ui;
-    QDateTime *dateTime;
+    QDate *date;
 };
 
 

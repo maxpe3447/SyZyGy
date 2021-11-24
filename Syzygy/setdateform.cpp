@@ -1,7 +1,7 @@
 #include "setdateform.h"
 #include "ui_setdateform.h"
 
-SetDateForm::SetDateForm(QDateTime *dateTime, QWidget *parent) :
+SetDateForm::SetDateForm(QDate *date, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SetDateForm)
 {
@@ -11,7 +11,8 @@ SetDateForm::SetDateForm(QDateTime *dateTime, QWidget *parent) :
 
     ui->lInfo->setStyleSheet("background: transparent;"
                              "color: rgb(255, 255, 255);");
-    this->dateTime = dateTime;
+    ui->setDate->setDate(QDate::currentDate());
+    this->date = date;
 }
 
 SetDateForm::~SetDateForm()
@@ -21,5 +22,5 @@ SetDateForm::~SetDateForm()
 
 void SetDateForm::on_passDate_clicked()
 {
-    *dateTime = ui->setDate->dateTime();
+    *date = ui->setDate->date();
 }
