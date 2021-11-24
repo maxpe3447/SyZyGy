@@ -49,8 +49,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->dvlprs, &QAction::triggered, this, &MainWindow::on_dvlprs_clicked);
 
     travelCursor = QCursor(QPixmap("Image/rocket.png"), 0, 0);
-    //algorithms = Algorithms(sun);
-
+    algorithms = new Algorithms(planets);
+    algorithms->AllPlanetsMovement(QDate::currentDate());
 
     connect(this, &MainWindow::SendOptionsAndInfo, infoForm, &PlanetInfoForm::GetOptionsAndInfo);
 }
@@ -65,6 +65,7 @@ MainWindow::~MainWindow()
     delete dataDB;
     delete ui;
     delete clock;
+    delete algorithms;
     delete infoForm;
     delete aboutProgForm;
     delete dvlprsForm;
@@ -134,7 +135,8 @@ void MainWindow::initPlanet()
     uranus  = new Planet(ui->uranus);
     venus   = new Planet(ui->venus);
 
-    planets = {earth, jupiter, mars, mercury, neptune, saturn, sun, uranus, venus};
+    //planets = {earth, jupiter, mars, mercury, neptune, saturn, sun, uranus, venus};
+    planets = {sun, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune};
 }
 
 //void MainWindow::on_pbMenu_clicked()

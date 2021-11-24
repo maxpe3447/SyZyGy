@@ -1,43 +1,43 @@
 #include "algorithms.h"
 
-Algorithms::Algorithms()
+Algorithms::Algorithms(QVector<Planet*> &planets, QObject *parent) : QObject(parent), planetsAlg(planets)
 {
     systemCenterX = 360; //window test center
     systemCenterY = 360;
     manager = new QNetworkAccessManager();
-    movePlanetsGroup = new QParallelAnimationGroup();
+    //movePlanetsGroup = new QParallelAnimationGroup();
+    movePlanetGroup = new QSequentialAnimationGroup();
+    connect(manager, SIGNAL(finished(QNetworkReply*)), SLOT(GetResponse(QNetworkReply*)));
 }
 
 Algorithms::~Algorithms()
 {
-    movePlanetsGroup->deleteLater();
+    //movePlanetsGroup->deleteLater();
+    movePlanetGroup->deleteLater();
     manager->deleteLater();
 }
 
-Algorithms::Algorithms(Planet* star)
+void Algorithms::PlanetMovement(int planetId, double angle)
 {
-    systemCenterX = star->GetX(); //Coordinates of The Sun(system center)
-    systemCenterY = star->GetY();
-    manager = new QNetworkAccessManager();
-    movePlanetsGroup = new QParallelAnimationGroup();
-}
-
-void Algorithms::PlanetMovement(Planet* planet, double angle)
-{
-    double radius = sqrt(pow((planet->GetX()-systemCenterX), 2)+pow((planet->GetY()-systemCenterY), 2));
-    double currentAngle = acos((planet->GetX() - systemCenterX) / radius);
+    double radius = sqrt(pow((planetsAlg[planetId]->GetX() - systemCenterX), 2) + pow((planetsAlg[planetId]->GetY() - systemCenterY), 2));
+    double currentAngle = acos((planetsAlg[planetId]->GetX() - systemCenterX) / radius);
     //double currentAngle = 360 - CurrentAngularPos(planet, radius) * (180 / PI);
     //double moveAngle = 6.28318531 - angle;
-    double moveAngle = (360. - angle) * (PI / 180.);
-    int newX = planet->GetX();
-    int newY = planet->GetY();
+    double moveAngle = (360.0 - angle) * (PI / 180.0);
+
+    int newX = planetsAlg[planetId]->GetX();
+    int newY = planetsAlg[planetId]->GetY();
     int step = (currentAngle - moveAngle) / 0.01745329;
-    if(step < 0) step += 360;
-    QSequentialAnimationGroup* movePlanetGroup = new QSequentialAnimationGroup();
-    for(int i = 0; i < step; ++i){
+    if(step < 0){
+        step += 360;
+    }
+
+    //QSequentialAnimationGroup* movePlanetGroup = new QSequentialAnimationGroup();
+    for(int i = 0; i < step; i++){
         currentAngle -= 0.01745329;
         if(currentAngle < 0) currentAngle += 6.28318531;
-        QPropertyAnimation* movePlanet = new QPropertyAnimation(planet->planet, "pos");
+
+        QPropertyAnimation* movePlanet = new QPropertyAnimation(planetsAlg[planetId]->planet, "pos");
         movePlanet->setDuration(25);
         movePlanet->setStartValue(QPoint(newX, newY));
         newX = systemCenterX + cos(currentAngle) * radius;
@@ -45,60 +45,54 @@ void Algorithms::PlanetMovement(Planet* planet, double angle)
         movePlanet->setEndValue(QPoint(newX, newY));
         movePlanetGroup->addAnimation(movePlanet);
     }
-    movePlanetsGroup->addAnimation(movePlanetGroup);
+    movePlanetGroup->start();
+    //movePlanetsGroup->addAnimation(movePlanetGroup);
 }
 
-void Algorithms::HeliocentricLon(Planet* planet, QString planetId, QDate date)
+void Algorithms::AllPlanetsMovement(QDate date)
 {
-    //manager = new QNetworkAccessManager();
-    QString path = "https://ssd.jpl.nasa.gov/api/horizons.api?COMMAND='" + planetId + "'&CENTER='500@10'&START_TIME='" + date.toString("yyyy-MM-dd") + "'&STOP_TIME='" + date.addDays(1).toString("yyyy-MM-dd") + "'&STEP_SIZE='1%20d'&QUANTITIES='18'";
-    QObject::connect(manager, &QNetworkAccessManager::finished, [=](QNetworkReply *reply)
-    {
-        // TODO: Situation -> get_reply_error
-        if (reply->error()) {
-            qDebug() << QString("Error %1").arg(reply->errorString());
-            return ;
-        }
+    for(int i = 1; i < 9; i++){
+        QString path = "https://ssp.imcce.fr/webservices/miriade/api/ephemcc.php?-name=p:" + QString::number(i) + "&-observer=@sun&-ep=" + date.toString("yyyy-MM-dd") + "T00:00:00.000&-rplane=2&-mime=json&-from=Syzygy";
+        manager->get(QNetworkRequest(QUrl(path)));
+    }
 
-        QByteArray responseData = reply->readAll();
-        parseReply = QJsonDocument::fromJson(responseData, &parseErr);
-
-        // TODO: Situation -> get_jsonParse_error
-        if(parseErr.errorString().toInt() == QJsonParseError::NoError){
-            replyRes = QJsonValue(parseReply.object().value("result")).toString();
-        }
-
-        int start = replyRes.indexOf("$$SOE");
-        int end = replyRes.indexOf("$$EOE");
-        QRegularExpressionMatch match;
-        replyRes.mid(start, end - start).contains(QRegularExpression("\\d+[.]\\d+"), &match);
-        double result = match.captured().toDouble() - 90;
-        qDebug() << qSetRealNumberPrecision( 10 ) << ((result < 0) ? (360 + result) : result);
-        PlanetMovement(planet, (result < 0) ? (360 + result) : result);
-
-        reply->deleteLater();
-    });
-    manager->get(QNetworkRequest(QUrl(path)));
+    //movePlanetsGroup->start();
 }
 
-void Algorithms::AllPlanetsMovement(QVector<Planet *> &planets, QDate date)
+void Algorithms::GetResponse(QNetworkReply *reply)
 {
-    /*HeliocentricLon(planets[0], "399", date);
-    HeliocentricLon(planets[1], "599", date);
-    HeliocentricLon(planets[2], "499", date);
-    HeliocentricLon(planets[3], "199", date);
-    HeliocentricLon(planets[4], "899", date);
-    HeliocentricLon(planets[5], "699", date);
-    HeliocentricLon(planets[7], "799", date);
-    HeliocentricLon(planets[8], "299", date);*/
-    PlanetMovement(planets[0], 130);
-    PlanetMovement(planets[1], 150);
-    PlanetMovement(planets[2], 140);
-    PlanetMovement(planets[3], 110);
-    PlanetMovement(planets[4], 180);
-    PlanetMovement(planets[5], 160);
-    PlanetMovement(planets[7], 170);
-    PlanetMovement(planets[8], 120);
+    // TODO: Situation -> get_reply_error
+    if (reply->error()) {
+        qDebug() << QString("Error %1").arg(reply->errorString());
+        return;
+    }
 
-    movePlanetsGroup->start();
+    QJsonDocument parseReply;
+    QJsonParseError parseErr;
+    QJsonArray arrayReply;
+    QString replyRes;
+    int planetNum = 0;
+
+    QByteArray responseData = reply->readAll();
+    parseReply = QJsonDocument::fromJson(responseData, &parseErr);
+
+    // TODO: Situation -> get_jsonParse_error
+    if(parseErr.errorString().toInt() == QJsonParseError::NoError){
+        arrayReply = QJsonValue(parseReply.object().value("data")).toArray();
+        planetNum = parseReply.object().value("sso").toObject().value("num").toString().toInt();
+    }
+    for(int i = 0; i < arrayReply.count(); i++){
+        if(arrayReply.at(i).toObject().contains("Longitude")){
+            replyRes = arrayReply.at(i).toObject().value("Longitude").toString();
+        }
+    }
+
+    // TODO: Situation -> get_captured_error (hasMatch())
+    QRegularExpression pattern("\\d+");
+    QRegularExpressionMatchIterator matchParts = pattern.globalMatch(replyRes);
+    double result = (matchParts.next().captured().toDouble() + matchParts.next().captured().toDouble() / 60.0) - 90.0;
+    qDebug() << qSetRealNumberPrecision( 10 ) << ((result < 0) ? (360 + result) : result);
+    PlanetMovement(planetNum, (result < 0) ? (360 + result) : result);
+
+    reply->deleteLater();
 }

@@ -73,7 +73,7 @@ private:
             *neptune = nullptr, *saturn = nullptr, *sun = nullptr, *uranus = nullptr, *venus = nullptr;
     QVector<Planet*> planets;
     ManageSession mngSession;
-    Algorithms algorithms;
+    Algorithms* algorithms;
     AboutProgramForm *aboutProgForm;
     DevelopersForm *dvlprsForm;
     SetDateForm *setDateForm;
