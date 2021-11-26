@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowIcon(QIcon(":/Image/solar-system.png"));
     ui->groupBox->setStyleSheet("background: transparent; color: rgb(255, 255, 255)");
 
+    dateTime = QDate::currentDate();
     infoForm = new PlanetInfoForm();
     aboutProgForm = new AboutProgramForm();
     dvlprsForm = new DevelopersForm();
@@ -50,9 +51,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     travelCursor = QCursor(QPixmap("Image/rocket.png"), 0, 0);
     algorithms = new Algorithms(planets);
-    algorithms->AllPlanetsMovement(QDate::currentDate());
+    algorithms->AllPlanetsMovement(&dateTime);
 
     connect(this, &MainWindow::SendOptionsAndInfo, infoForm, &PlanetInfoForm::GetOptionsAndInfo);
+    connect(setDateForm, &SetDateForm::SendDate, algorithms, &Algorithms::AllPlanetsMovement);
 }
 
 MainWindow::~MainWindow()
@@ -69,7 +71,9 @@ MainWindow::~MainWindow()
     delete infoForm;
     delete aboutProgForm;
     delete dvlprsForm;
+    delete setDateForm;
 }
+
 void MainWindow::initPlanetsImage(){
     try{
         for(int i = 0; i < planets.size(); i++){
@@ -97,6 +101,7 @@ void MainWindow::initPlanetsImage(){
 
     dataDB->CloseConnect();
 }
+
 void MainWindow::initTime(){
 
 }

@@ -18,6 +18,9 @@ public:
     SetDateForm(QDate *dateTime, QWidget *parent = nullptr);
     ~SetDateForm();
 
+signals:
+    void SendDate(QDate*);
+
 private slots:
     void on_passDate_clicked();
 

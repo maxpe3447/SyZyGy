@@ -24,16 +24,15 @@ class Algorithms : public QObject
 public:
     Algorithms(QVector<Planet*>&, QObject *parent = 0);
     ~Algorithms();
-    void PlanetMovement(int, double);
-    void AllPlanetsMovement(QDate);
 public slots:
+    void AllPlanetsMovement(QDate*);
     void GetResponse(QNetworkReply*);
 private:
+    void PlanetMovement(int, double);
+
     int systemCenterX;
     int systemCenterY;
 
-    //QParallelAnimationGroup* movePlanetsGroup;
-    QSequentialAnimationGroup* movePlanetGroup;
     QNetworkAccessManager* manager;
 
     QVector<Planet*>& planetsAlg;

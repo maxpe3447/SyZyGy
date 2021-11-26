@@ -23,4 +23,5 @@ SetDateForm::~SetDateForm()
 void SetDateForm::on_passDate_clicked()
 {
     *date = ui->setDate->date();
+    emit SendDate(date);
 }
