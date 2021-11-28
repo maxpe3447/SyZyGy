@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -219,3 +219,51 @@ void MainWindow::mousePressEvent(QMouseEvent *me)
     }
 }
 
+void MainWindow::paintEvent(QPaintEvent *e) {
+
+  Q_UNUSED(e);
+
+  doPainting(10, 29, 43, 58, 92, 110, 130, 146);
+}
+
+void MainWindow::doPainting(double disMerc, double disVen, double disEar, double disMrs, double disJpt, double disSat, double disUrn, double disNep) {
+
+    QPainter painter(this);
+    painter.drawPixmap(this->rect(),QPixmap(":/BackGround/Image/BackGroun.jpg").scaled(this->size()));
+
+    painter.setPen(QPen(QBrush("#dbdbdb"), 1));
+
+    /////////////////////////////////////////////////////////////////////////
+
+    painter.drawEllipse(336, 376, 88, 88); // меркурий
+
+    /////////////////////////////////////////////////////////////////////////
+
+    painter.drawEllipse(292, 332, 176, 176); // венера
+
+    /////////////////////////////////////////////////////////////////////////
+
+    painter.drawEllipse(245, 285, 270, 270); // земля
+
+    /////////////////////////////////////////////////////////////////////////
+
+    painter.drawEllipse(202, 242, 356, 356); // марс
+
+    /////////////////////////////////////////////////////////////////////////
+
+    painter.drawEllipse(161, 201, 438, 438); // юпитер
+
+    /////////////////////////////////////////////////////////////////////////
+
+    painter.drawEllipse(112, 152, 536, 536); // сатурн
+
+    /////////////////////////////////////////////////////////////////////////
+
+    painter.drawEllipse(76, 116, 608, 608); // уран
+
+    /////////////////////////////////////////////////////////////////////////
+
+    painter.drawEllipse(24, 64, 712, 712); // плутон
+
+    /////////////////////////////////////////////////////////////////////////
+}

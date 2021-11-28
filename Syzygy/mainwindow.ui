@@ -18,7 +18,7 @@
     <normaloff>filesForBuild/Image/solar-system.ico</normaloff>filesForBuild/Image/solar-system.ico</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/BackGround/Image/BackGroun.jpg);</string>
+   <string notr="true"/>
   </property>
   <property name="documentMode">
    <bool>false</bool>

@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include <QDate>
+#include <QPainter>
 
 #include "planet.h"
 #include "clock.h"
@@ -54,12 +55,15 @@ signals:
     void SendOptionsAndInfo(PlanetInfoData*);
 protected:
     void mousePressEvent(QMouseEvent*)override;
+    void paintEvent(QPaintEvent *e) override;
 private:
     Ui::MainWindow *ui;
     void initPlanetsImage();
     void initTime();
     //void initMenuButton();
     void initPlanet();
+
+    void doPainting(double disMerc, double disVen, double disEar, double disMrs, double disJpt, double disSat, double disUrn, double disNep);
 
     //bool isMenuShow;
     bool isTraveling;
