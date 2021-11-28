@@ -30,8 +30,8 @@ public slots:
 private:
     void PlanetMovement(int, double);
 
-    int systemCenterX;
-    int systemCenterY;
+    double systemCenterX;
+    double systemCenterY;
 
     QNetworkAccessManager* manager;
 
