@@ -6,6 +6,7 @@ AboutProgramForm::AboutProgramForm(QWidget *parent) :
     ui(new Ui::AboutProgramForm)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/Image/solar-system.png"));
 }
 
 AboutProgramForm::~AboutProgramForm()

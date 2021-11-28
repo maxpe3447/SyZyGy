@@ -22,6 +22,7 @@ SOURCES += \
     planet.cpp \
     planetinfodata.cpp \
     planetinfoform.cpp \
+    setdateform.cpp \
     syzygyexception.cpp
 
 HEADERS += \
@@ -35,13 +36,15 @@ HEADERS += \
     planet.h \
     planetinfodata.h \
     planetinfoform.h \
+    setdateform.h \
     syzygyexception.h
 
 FORMS += \
     aboutprogramform.ui \
     developersform.ui \
     mainwindow.ui \
-    planetinfoform.ui
+    planetinfoform.ui \
+    setdateform.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

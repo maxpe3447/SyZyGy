@@ -6,34 +6,36 @@
 #include <QPropertyAnimation>
 #include <QSequentialAnimationGroup>
 #include <QParallelAnimationGroup>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QtNetwork/QNetworkRequest>
 #include <QJsonDocument>
+#include <QJsonArray>
 #include <QJsonObject>
 #include <QDate>
 #include <cmath>
 #include "planet.h"
 
-class Algorithms
+class Algorithms : public QObject
 {
+    Q_OBJECT
 public:
-    Algorithms();
+    Algorithms(QVector<Planet*>&, QObject *parent = 0);
     ~Algorithms();
-    Algorithms(Planet*);
-    void PlanetMovement(Planet*, double);
-    void HeliocentricLon(Planet*, QString, QDate);
-    void AllPlanetsMovement(QVector<Planet*>&, QDate);
+public slots:
+    void AllPlanetsMovement(QDate*);
+    void GetResponse(QNetworkReply*);
 private:
-    int systemCenterX;
-    int systemCenterY;
+    void PlanetMovement(int, double);
 
-    QParallelAnimationGroup* movePlanetsGroup;
+    double systemCenterX;
+    double systemCenterY;
+
     QNetworkAccessManager* manager;
 
-    QJsonDocument parseReply;
-    QJsonParseError parseErr;
-    QString replyRes;
+    QVector<Planet*>& planetsAlg;
 };
 
 #endif // ALGORITHMS_H

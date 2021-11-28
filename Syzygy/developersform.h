@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QLabel>
 #include <QDebug>
+#include <QDesktopServices>
+#include <QUrl>
 
 namespace Ui {
 class DevelopersForm;
@@ -16,6 +18,11 @@ class DevelopersForm : public QMainWindow
 public:
     explicit DevelopersForm(QWidget *parent = nullptr);
     ~DevelopersForm();
+
+private slots:
+    void on_pbAsyaLink_clicked();
+    void on_pbMaxLink_clicked();
+    void on_pbKateLink_clicked();
 
 private:
     Ui::DevelopersForm *ui;

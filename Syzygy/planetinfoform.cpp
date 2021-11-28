@@ -8,6 +8,7 @@ PlanetInfoForm::PlanetInfoForm(QWidget *parent) :
     ui(new Ui::PlanetInfoForm)
 {
     ui->setupUi(this);
+
 }
 
 PlanetInfoForm::~PlanetInfoForm()
@@ -20,7 +21,7 @@ void PlanetInfoForm::GetOptionsAndInfo(PlanetInfoData* data)
     if(!data->isEmpty()){
         ui->lInfo->setText(data->GetInfo());
         QPixmap pixmap;
-        pixmap.loadFromData(data->GetImg());
+        pixmap.loadFromData(data->GetImg());        
 
         ui->planeyImg->setPixmap(pixmap.scaled(ui->planeyImg->width(), ui->planeyImg->height()));
         ui->planeyImg->setStyleSheet("background: transparent;");
@@ -37,8 +38,9 @@ void PlanetInfoForm::GetOptionsAndInfo(PlanetInfoData* data)
                                  "border-width: 3px;"
                                  "border-color: rgb(255, 255, 255)");
 
-        this->setGeometry(this->x(),this->y(),data->GetWidthForm(),data->GetHeighForm());
-        this->setWindowTitle(data->GetName());
+        //this->setGeometry(this->x(),this->y(),data->GetWidthForm(),data->GetHeighForm());
+        this->setWindowTitle(data->GetUkrName());
+        this->setWindowIcon(QIcon(pixmap));
     }
     else
         ui->lInfo->setText("ups");

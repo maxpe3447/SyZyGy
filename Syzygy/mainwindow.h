@@ -8,6 +8,8 @@
 #include <QVector>
 #include <QDebug>
 #include <QMouseEvent>
+#include <QDate>
+#include <QPainter>
 
 #include "planet.h"
 #include "clock.h"
@@ -20,6 +22,7 @@
 #include "syzygyexception.h"
 #include "aboutprogramform.h"
 #include "developersform.h"
+#include "setdateform.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -52,6 +55,7 @@ signals:
     void SendOptionsAndInfo(PlanetInfoData*);
 protected:
     void mousePressEvent(QMouseEvent*)override;
+    void paintEvent(QPaintEvent *e) override;
 private:
     Ui::MainWindow *ui;
     void initPlanetsImage();
@@ -59,9 +63,12 @@ private:
     //void initMenuButton();
     void initPlanet();
 
+    void doPainting();
+
     //bool isMenuShow;
     bool isTraveling;
     QCursor travelCursor;
+    QDate dateTime;
 
     DataFromDB* dataDB;
     Clock* clock;
@@ -70,8 +77,10 @@ private:
             *neptune = nullptr, *saturn = nullptr, *sun = nullptr, *uranus = nullptr, *venus = nullptr;
     QVector<Planet*> planets;
     ManageSession mngSession;
-    Algorithms algorithms;
+    Algorithms* algorithms;
     AboutProgramForm *aboutProgForm;
     DevelopersForm *dvlprsForm;
+    SetDateForm *setDateForm;
+
 };
 #endif // MAINWINDOW_H
