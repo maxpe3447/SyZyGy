@@ -223,10 +223,10 @@ void MainWindow::paintEvent(QPaintEvent *e) {
 
   Q_UNUSED(e);
 
-  doPainting(10, 29, 43, 58, 92, 110, 130, 146);
+  doPainting();
 }
 
-void MainWindow::doPainting(double disMerc, double disVen, double disEar, double disMrs, double disJpt, double disSat, double disUrn, double disNep) {
+void MainWindow::doPainting() {
 
     QPainter painter(this);
     painter.drawPixmap(this->rect(),QPixmap(":/BackGround/Image/BackGroun.jpg").scaled(this->size()));

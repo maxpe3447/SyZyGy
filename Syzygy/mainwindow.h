@@ -63,7 +63,7 @@ private:
     //void initMenuButton();
     void initPlanet();
 
-    void doPainting(double disMerc, double disVen, double disEar, double disMrs, double disJpt, double disSat, double disUrn, double disNep);
+    void doPainting();
 
     //bool isMenuShow;
     bool isTraveling;
