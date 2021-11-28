@@ -2,8 +2,8 @@
 
 Algorithms::Algorithms(QVector<Planet*> &planets, QObject *parent) : QObject(parent), planetsAlg(planets)
 {
-    systemCenterX = 360; //window test center
-    systemCenterY = 360;
+    systemCenterX = planetsAlg[0]->GetX() + planetsAlg[0]->GetWidth() / 2.0;
+    systemCenterY = planetsAlg[0]->GetY() + planetsAlg[0]->GetHeight() / 2.0;
     manager = new QNetworkAccessManager();
     connect(manager, SIGNAL(finished(QNetworkReply*)), SLOT(GetResponse(QNetworkReply*)));
 }
@@ -15,19 +15,25 @@ Algorithms::~Algorithms()
 
 void Algorithms::PlanetMovement(int planetId, double angle)
 {
-    int newX = planetsAlg[planetId]->GetX();
-    int newY = planetsAlg[planetId]->GetY();
+    double newX = planetsAlg[planetId]->GetX() + planetsAlg[planetId]->GetWidth() / 2.0;
+    double newY = planetsAlg[planetId]->GetY() + planetsAlg[planetId]->GetHeight() / 2.0;
     double radius = sqrt(pow((newX - systemCenterX), 2) + pow((newY - systemCenterY), 2));
-    double currentAngle = acos((newX - systemCenterX) / radius);
-    //double currentAngle = 360 - CurrentAngularPos(planet, radius) * (180 / PI);
-    //double moveAngle = 6.28318531 - angle;
-    double moveAngle = (360.0 - angle) * (PI / 180.0);
+    double currentAngle = 0;
+    if(newX < systemCenterX){
+        currentAngle = 3.14159265 - asin((newY - systemCenterY) / radius);
+    }
+    else{
+        currentAngle = asin((newY - systemCenterY) / radius);
+    }
+    double moveAngle = 6.28318531 - (angle * (PI / 180.0));
 
     int step = (currentAngle - moveAngle) / 0.01745329;
     if(step < 0){
         step += 360;
     }
 
+    newX = planetsAlg[planetId]->GetX();
+    newY = planetsAlg[planetId]->GetY();
     QSequentialAnimationGroup* movePlanetGroup = new QSequentialAnimationGroup();
     for(int i = 0; i < step; i++){
         currentAngle -= 0.01745329;
@@ -36,8 +42,8 @@ void Algorithms::PlanetMovement(int planetId, double angle)
         QPropertyAnimation* movePlanet = new QPropertyAnimation(planetsAlg[planetId]->planet, "pos");
         movePlanet->setDuration(25);
         movePlanet->setStartValue(QPoint(newX, newY));
-        newX = systemCenterX + cos(currentAngle) * radius;
-        newY = systemCenterY + sin(currentAngle) * radius;
+        newX = systemCenterX + cos(currentAngle) * radius - planetsAlg[planetId]->GetWidth() / 2.0;
+        newY = systemCenterY + sin(currentAngle) * radius - planetsAlg[planetId]->GetHeight() / 2.0;
         movePlanet->setEndValue(QPoint(newX, newY));
         movePlanetGroup->addAnimation(movePlanet);
     }
@@ -84,7 +90,7 @@ void Algorithms::GetResponse(QNetworkReply *reply)
     QRegularExpression pattern("\\d+");
     QRegularExpressionMatchIterator matchParts = pattern.globalMatch(replyRes);
     double result = (matchParts.next().captured().toDouble() + matchParts.next().captured().toDouble() / 60.0) - 90.0;
-    qDebug() << qSetRealNumberPrecision( 10 ) << ((result < 0) ? (360 + result) : result);
+    //qDebug() << qSetRealNumberPrecision( 10 ) << ((result < 0) ? (360 + result) : result);
 
     reply->deleteLater();
 
