@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow), /*isMenuShow{false},*/ isTraveling{false}
+    , ui(new Ui::MainWindow), isTraveling{false}
 {
     ui->setupUi(this);
     ui->groupBox->setStyleSheet("background: transparent;");
@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     aboutProgForm = new AboutProgramForm();
     dvlprsForm = new DevelopersForm();
 
-    clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
     try {
         dataDB = new DataFromDB();
 }  catch(const SyzygyException& ex){
@@ -34,7 +33,6 @@ MainWindow::MainWindow(QWidget *parent)
     initTime();
     initPlanet();
     initPlanetsImage();
-    //initMenuButton();
 
     ui->toolBar->setStyleSheet("background: transparent;"
                                "color: rgb(255, 255, 255)");
@@ -95,30 +93,9 @@ void MainWindow::initPlanetsImage(){
     dataDB->CloseConnect();
 }
 void MainWindow::initTime(){
-
+    clock = new Clock(ui->LCDdayAndMonth, ui->LCDYear, ui->LCDHourMin, ui->LCDSecond, this);
 }
-//void MainWindow::initMenuButton(){
-//    QPixmap obj;
-//    try {
-//    obj.loadFromData(dataDB->GetImageOf("Menu", dataDB->SystemTable));
-//}  catch(const SyzygyException& ex){
-//        auto res = SyzygyException::WhatShow(ex);
-//        switch (res) {
-//        case QMessageBox::StandardButton::Ok:
-//            close();
-//            break;
-//        case QMessageBox::StandardButton::Cancel:
-//            ui->statusBar->showMessage("Ok, programm in work");
-//            break;
-//        default:
-//            ui->statusBar->showMessage("Ok, programm in work");
-//            break;
-//        }
-//    }
-//        QIcon ico(obj);
-//    //ui->pbMenu->setIcon(ico);
-//    //ui->pbMenu->setIconSize(ui->pbMenu->size());
-//}
+
 
 void MainWindow::initPlanet()
 {
@@ -135,31 +112,10 @@ void MainWindow::initPlanet()
     planets = {earth, jupiter, mars, mercury, neptune, saturn, sun, uranus, venus};
 }
 
-//void MainWindow::on_pbMenu_clicked()
-//{
-//    algorithms.AllPlanetsMovement(planets, QDate::currentDate());
-//    //algorithms.HeliocentricLon(earth, QDate::currentDate());
-//    //algorithms.PlanetMovement(saturn, 4.71238898038469); //movement test (270=4.71238898038469)
-//    int deltaX = 1, deltaY = 30;
-//    if(!isMenuShow)
-//        this->setGeometry(this->x()+deltaX, this->y()+deltaY, this->width()+ui->pbMenu->width()*1.5,this->height());
-//    isMenuShow = true;
-//}
 void MainWindow::Tick_of_clock()
 {
     clock->Tick();
 }
-
-
-//void MainWindow::on_pbDisMenu_clicked()
-//{
-//    int deltaX = 1, deltaY = 30;
-
-//    if(isMenuShow)
-//        this->setGeometry(this->x()+deltaX, this->y()+deltaY, this->width()- ui->pbMenu->width()*1.5,this->height());
-
-//    isMenuShow = false;
-//}
 
 
 void MainWindow::on_pbTravelToPlanet_clicked()
@@ -187,7 +143,6 @@ void MainWindow::on_dvlprs_clicked()
 void MainWindow::mousePressEvent(QMouseEvent *me)
 {
     if(me->button() == Qt::LeftButton && isTraveling){
-        qDebug() <<"Preses" << me->pos().x();
         try
         {
             for(auto planet: planets)

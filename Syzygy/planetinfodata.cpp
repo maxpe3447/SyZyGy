@@ -90,6 +90,8 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
         return this;
     }
 
+    planetImageSetter->OpenConnect();
+
     QXmlStreamReader xmlReader;
 
     xmlReader.setDevice(&file);
@@ -141,7 +143,7 @@ PlanetInfoData* PlanetInfoData::Parse(QString planetName)
                 qDebug() << "  Line Number:" << xmlReader.lineNumber();
                 qDebug() << "Column Number:" << xmlReader.columnNumber();
                 qDebug() << " Char. Offset:" << xmlReader.characterOffset();
-
+                throw SyzygyException("Зчитування відбулось з помилкою", false, true);
             }
     }
 
