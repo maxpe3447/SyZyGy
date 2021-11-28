@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     try {
         dataDB = new DataFromDB();
-}  catch(const SyzygyException& ex){
+    }  catch(const SyzygyException& ex){
         auto res = SyzygyException::WhatShow(ex);
         switch (res) {
         case QMessageBox::StandardButton::Ok:
