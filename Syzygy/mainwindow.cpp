@@ -24,10 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
             close();
             break;
         case QMessageBox::StandardButton::Cancel:
-            ui->statusBar->showMessage("Ok, programm in work");
+            //ui->statusBar->showMessage("Ok, programm in work");
             break;
         default:
-            ui->statusBar->showMessage("Ok, programm in work");
+            //ui->statusBar->showMessage("Ok, programm in work");
             break;
         }
     }
@@ -89,10 +89,10 @@ void MainWindow::initPlanetsImage(){
             close();
             break;
         case QMessageBox::StandardButton::Cancel:
-            ui->statusBar->showMessage("Ok, programm in work");
+            //ui->statusBar->showMessage("Ok, programm in work");
         break;
         default:
-            ui->statusBar->showMessage("Ok, programm in work");
+            //ui->statusBar->showMessage("Ok, programm in work");
             break;
         }
     }
@@ -190,35 +190,35 @@ void MainWindow::doPainting() {
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(336, 376, 88, 88); // меркурий
+    painter.drawEllipse(336, 371, 88, 88); // меркурий
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(292, 332, 176, 176); // венера
+    painter.drawEllipse(292, 327, 176, 176); // венера
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(245, 285, 270, 270); // земля
+    painter.drawEllipse(245, 280, 270, 270); // земля
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(202, 242, 356, 356); // марс
+    painter.drawEllipse(202, 237, 356, 356); // марс
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(161, 201, 438, 438); // юпитер
+    painter.drawEllipse(161, 196, 438, 438); // юпитер
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(112, 152, 536, 536); // сатурн
+    painter.drawEllipse(112, 147, 536, 536); // сатурн
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(76, 116, 608, 608); // уран
+    painter.drawEllipse(76, 111, 608, 608); // уран
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(24, 64, 712, 712); // плутон
+    painter.drawEllipse(24, 59, 712, 712); // плутон
 
     /////////////////////////////////////////////////////////////////////////
 }

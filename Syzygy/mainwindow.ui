@@ -39,6 +39,9 @@
       <pointsize>14</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
+    </property>
     <property name="text">
      <string>earth</string>
     </property>
@@ -57,6 +60,9 @@
       <family>Palatino Linotype</family>
       <pointsize>14</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
     </property>
     <property name="text">
      <string>jupiter</string>
@@ -77,6 +83,9 @@
       <pointsize>14</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
+    </property>
     <property name="text">
      <string>mars</string>
     </property>
@@ -95,6 +104,9 @@
       <family>Palatino Linotype</family>
       <pointsize>14</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
     </property>
     <property name="text">
      <string>mercury</string>
@@ -115,6 +127,9 @@
       <pointsize>14</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
+    </property>
     <property name="text">
      <string>neptune</string>
     </property>
@@ -133,6 +148,9 @@
       <family>Palatino Linotype</family>
       <pointsize>14</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
     </property>
     <property name="text">
      <string>saturn</string>
@@ -153,6 +171,9 @@
       <pointsize>14</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
+    </property>
     <property name="text">
      <string>sun</string>
     </property>
@@ -172,6 +193,9 @@
       <pointsize>14</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
+    </property>
     <property name="text">
      <string>uranus</string>
     </property>
@@ -190,6 +214,9 @@
       <family>Palatino Linotype</family>
       <pointsize>14</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
     </property>
     <property name="text">
      <string>venus</string>
@@ -332,14 +359,6 @@ color: rgb(255, 255, 255)</string>
      <string>Обрати дату</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QStatusBar" name="statusBar">
-   <property name="statusTip">
-    <string/>
-   </property>
-   <property name="whatsThis">
-    <string/>
-   </property>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
