@@ -31,11 +31,10 @@ public:
     int GetWidth() const;
     int GetHeight() const;
 
-    QLabel* GetBase()const;
+    QLabel* GetBase() const;
     QString GetName() const;
 private:
     friend class ManageSession;
-    friend class Algorithms;
 
     void SetImg(QPixmap& pxm);
     QLabel *planet;

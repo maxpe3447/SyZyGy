@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow), isTraveling{false}
+    , ui(new Ui::MainWindow), isTraveling(false)
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon(":/Image/solar-system.png"));
@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->dvlprs, &QAction::triggered, this, &MainWindow::on_dvlprs_clicked);
 
     travelCursor = QCursor(QPixmap("Image/rocket.png"), 0, 0);
-    algorithms = new Algorithms(planets);
+    algorithms = new Algorithms(this, planets);
 
     SessionRestore();
 
