@@ -10,6 +10,18 @@
     <height>570</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>880</width>
+    <height>570</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>880</width>
+    <height>570</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Як користуватися</string>
   </property>
@@ -40,7 +52,7 @@ border-width: 1px;
 border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Перед Вами планети, які обертаются навколо Сонця.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Також Ви бачите кнопки, які відкривають Вам можливості &lt;br/&gt;програми, а саме:&lt;br/&gt;- Подорож до планети;&lt;br/&gt;- Вибір дати для перегляду позицій планет.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Перед Вами планети, які обертаются навколо Сонця.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Також Ви бачите кнопки, які відкривають Вам можливості &lt;br/&gt;програми, а саме:&lt;br/&gt;- Подорож до небесних тіл;&lt;br/&gt;- Вибір дати для перегляду позицій планет.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="lname">
@@ -72,10 +84,10 @@ border-color: rgb(255, 255, 255)</string>
   <widget class="QLabel" name="ltexttravel">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>60</x>
      <y>290</y>
-     <width>311</width>
-     <height>261</height>
+     <width>370</width>
+     <height>265</height>
     </rect>
    </property>
    <property name="font">
@@ -92,16 +104,16 @@ border-width: 1px;
 border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Подорож до планети &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Після натискання кнопки &lt;br/&gt;з'явиться невелика ракета, &lt;br/&gt;після чого Вам, як користувачу, &lt;br/&gt;необхідно обрати планету &lt;br/&gt;для так званої мандрівки та &lt;br/&gt;натиснути на неї, після &lt;br/&gt;чого буде виведена інформація &lt;br/&gt;про обрану Вами планету.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Подорож до небесних тіл &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Після натискання кнопки з'явиться &lt;br/&gt;невелика ракета, після чого Вам, &lt;br/&gt;як користувачу, необхідно обрати &lt;br/&gt;космічне тіло для так званої &lt;br/&gt;мандрівки та натиснути на нього, &lt;br/&gt;після чого буде виведена інформація &lt;br/&gt;про обране Вами тіло.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="ltextdata">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>460</x>
      <y>290</y>
-     <width>311</width>
-     <height>261</height>
+     <width>370</width>
+     <height>265</height>
     </rect>
    </property>
    <property name="font">
@@ -118,7 +130,7 @@ border-width: 1px;
 border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Вибір дати &lt;br/&gt;для перегляду позицій &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Натиснувши на цю кнопку, &lt;br/&gt;Ви повинні будете ввести &lt;br/&gt;будь-яку дату для перегляду &lt;br/&gt;позицій планет, в які вони &lt;br/&gt;будуть встановлені.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Подорож до небесних тіл &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Після натискання кнопки з'явиться &lt;br/&gt;невелика ракета, після чого Вам, &lt;br/&gt;як користувачу, необхідно обрати &lt;br/&gt;космічне тіло для так званої &lt;br/&gt;мандрівки та натиснути на нього, &lt;br/&gt;після чого буде виведена інформація &lt;br/&gt;про обране Вами тіло.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>510</width>
-    <height>298</height>
+    <height>350</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>510</width>
+    <height>350</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>510</width>
+    <height>350</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -21,9 +33,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>30</y>
-      <width>411</width>
-      <height>101</height>
+      <y>20</y>
+      <width>410</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="font">
@@ -33,16 +45,16 @@
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Введіть дату та час&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;для певного розташування планет!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Введіть дату та час&lt;br/&gt;для певного розташування планет!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Або оберіть цікаву дату нижче!)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="passDate">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>200</y>
-      <width>171</width>
-      <height>51</height>
+      <x>176</x>
+      <y>270</y>
+      <width>170</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="font">
@@ -63,8 +75,8 @@ color: rgb(255, 255, 255)</string>
    <widget class="QDateEdit" name="setDate">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>150</y>
+      <x>150</x>
+      <y>160</y>
       <width>230</width>
       <height>30</height>
      </rect>
@@ -76,8 +88,17 @@ color: rgb(255, 255, 255)</string>
      </font>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>210</y>
+      <width>230</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
