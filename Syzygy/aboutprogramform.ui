@@ -20,9 +20,9 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>90</y>
+     <y>80</y>
      <width>821</width>
-     <height>181</height>
+     <height>191</height>
     </rect>
    </property>
    <property name="font">
@@ -40,7 +40,7 @@ border-width: 1px;
 border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Перед Вами планети, які обертаются навколо Сонця.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Також Ви бачите кнопку &amp;quot;МЕНЮ&amp;quot;, яка відкриє вам можливості &lt;br/&gt;програми, а саме:&lt;br/&gt;- Подорож до планети;&lt;br/&gt;- Вибір дати для перегляду позицій планет;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Перед Вами планети, які обертаются навколо Сонця.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Також Ви бачите кнопки, які відкривають Вам можливості &lt;br/&gt;програми, а саме:&lt;br/&gt;- Подорож до планети;&lt;br/&gt;- Вибір дати для перегляду позицій планет.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="lname">
@@ -92,7 +92,7 @@ border-width: 1px;
 border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Подорож до планети &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Після натискання кнопки &lt;br/&gt;з'явиться невелика ракета, &lt;br/&gt;після чого Вам, як користувачу, &lt;br/&gt;необхідно обрати планету &lt;br/&gt;для так званої мандрівки, та &lt;br/&gt;двічі натиснути на неї, після &lt;br/&gt;чого буде виведена інформація &lt;br/&gt;про обрану Вами планету.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Подорож до планети &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Після натискання кнопки &lt;br/&gt;з'явиться невелика ракета, &lt;br/&gt;після чого Вам, як користувачу, &lt;br/&gt;необхідно обрати планету &lt;br/&gt;для так званої мандрівки та &lt;br/&gt;натиснути на неї, після &lt;br/&gt;чого буде виведена інформація &lt;br/&gt;про обрану Вами планету.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="ltextdata">
@@ -118,7 +118,7 @@ border-width: 1px;
 border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Вибір дати &lt;br/&gt;для перегляду позицій &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Натиснувши на цю кнопку, &lt;br/&gt;Ви повинні будете ввести &lt;br/&gt;будь-яку дату для перегляду &lt;br/&gt;позицій планет, &lt;br/&gt;в які планети &lt;br/&gt;будуть встановлені.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Вибір дати &lt;br/&gt;для перегляду позицій &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Натиснувши на цю кнопку, &lt;br/&gt;Ви повинні будете ввести &lt;br/&gt;будь-яку дату для перегляду &lt;br/&gt;позицій планет, в які вони &lt;br/&gt;будуть встановлені.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

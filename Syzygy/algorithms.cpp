@@ -64,41 +64,41 @@ void Algorithms::GetResponse(QNetworkReply *reply)
         if (reply->error() != QNetworkReply::NoError) {
             switch (reply->error()) {
                 case QNetworkReply::ConnectionRefusedError:
-                    throw SyzygyException("Сервер відмовив у з'єднані!");
+                    throw SyzygyException("Сервер відмовив у з'єднані! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::HostNotFoundError:
-                    throw SyzygyException("Недійсне ім'я серверу!");
+                    throw SyzygyException("Недійсне ім'я серверу! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::TimeoutError:
-                    throw SyzygyException("Минув час очікування підключення до серверу!");
+                    throw SyzygyException("Минув час очікування підключення до серверу!", false, true);
                     break;
                 case QNetworkReply::TemporaryNetworkFailureError:
                 case QNetworkReply::NetworkSessionFailedError:
-                    throw SyzygyException("З'єднання було розірвано через відключення від мережі! Перевірте Інтернет-з'єднання!");
+                    throw SyzygyException("З'єднання було розірвано через відключення від мережі! Перевірте Інтернет-з'єднання!", false, true);
                     break;
                 case QNetworkReply::ContentAccessDenied:
-                    throw SyzygyException("Було відмовлено в доступі до вмісту серверу!");
+                    throw SyzygyException("Було відмовлено в доступі до вмісту серверу! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::ContentNotFoundError:
-                    throw SyzygyException("Віддалений вміст не знайдено на сервері!");
+                    throw SyzygyException("Віддалений вміст не знайдено на сервері! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::ContentConflictError:
-                    throw SyzygyException("Не вдалося виконати запит до серверу через конфлікт із поточним станом ресурсу!");
+                    throw SyzygyException("Не вдалося виконати запит до серверу через конфлікт із поточним станом ресурсу! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::ContentGoneError:
-                    throw SyzygyException("Запитаний ресурс більше не доступний на сервері!");
+                    throw SyzygyException("Запитаний ресурс більше не доступний на сервері! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::InternalServerError:
-                    throw SyzygyException("Сервер зіткнувся з несподіваною умовою, яка завадила йому виконати запит!");
+                    throw SyzygyException("Сервер зіткнувся з несподіваною умовою, яка завадила йому виконати запит! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::OperationNotImplementedError:
-                    throw SyzygyException("Сервер не підтримує функціональні можливості, необхідні для виконання запиту!");
+                    throw SyzygyException("Сервер не підтримує функціональні можливості, необхідні для виконання запиту! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::ServiceUnavailableError:
-                    throw SyzygyException("Сервер не може обробити запит на даний момент! Спробуйте пізніше!");
+                    throw SyzygyException("Сервер не може обробити запит на даний момент! Спробуйте пізніше!", false, true);
                     break;
                 default:
-                    throw SyzygyException("Сталася помилка під час взаємодії з сервером!");
+                    throw SyzygyException("Сталася помилка під час взаємодії з сервером! Зверніться до розробників!", true, false);
                     break;
             }
         }
@@ -117,7 +117,7 @@ void Algorithms::GetResponse(QNetworkReply *reply)
             planetNum = parseReply.object().value("sso").toObject().value("num").toString().toInt();
         }
         else{
-            throw SyzygyException("Під час обробки відповіді від серверу сталася помилка!");
+            throw SyzygyException("Під час обробки відповіді від серверу сталася помилка!", false, true);
         }
         for(int i = 0; i < arrayReply.count(); i++){
             if(arrayReply.at(i).toObject().contains("Longitude")){
@@ -132,7 +132,7 @@ void Algorithms::GetResponse(QNetworkReply *reply)
             result = (matchParts.next().captured().toDouble() + matchParts.next().captured().toDouble() / 60.0) - 90.0;
         }
         else{
-            throw SyzygyException("Потрібних даних у відповіді від серверу не знайдено!");
+            throw SyzygyException("Потрібних даних у відповіді від серверу не знайдено!", false, true);
         }
         //qDebug() << qSetRealNumberPrecision( 10 ) << ((result < 0) ? (360 + result) : result);
 

@@ -9,7 +9,7 @@
 			<text>навколо нього, воно</text>
 			<text>становить Сонячну систему.</text>
 			<text>Це космічне тіло є</text>
-			<text>розжареною кулею</text>		
+			<text>розжареною кулею.</text>		
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">sun</img>
 	</sun>	
@@ -90,7 +90,7 @@
 			<text>Землі, у 12 разів! Юпітер</text>
 			<text>обертається дуже швидко:</text>
 			<text>доба на ньому триває лише</text>
-			<text>9 годин 50 хвилин</text>
+			<text>9 годин 50 хвилин.</text>
 		</info>
 		<img imgWidth = "200" imgHeight = "200" type ="cartoon">jupiter</img>
 	</jupiter>	

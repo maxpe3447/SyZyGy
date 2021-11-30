@@ -184,6 +184,7 @@ void MainWindow::paintEvent(QPaintEvent *e) {
 void MainWindow::doPainting() {
 
     QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
     painter.drawPixmap(this->rect(),QPixmap(":/BackGround/Image/BackGroun.jpg").scaled(this->size()));
 
     painter.setPen(QPen(QBrush("#dbdbdb"), 1));
