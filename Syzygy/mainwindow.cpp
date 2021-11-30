@@ -129,7 +129,7 @@ void MainWindow::Tick_of_clock()
 
 void MainWindow::on_pbTravelToPlanet_clicked()
 {
-    this->setCursor(travelCursor);
+    //this->setCursor(travelCursor);
     isTraveling = true;
 }
 
