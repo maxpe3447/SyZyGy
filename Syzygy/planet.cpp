@@ -25,6 +25,16 @@ void Planet::SetPos(int x, int y)
 
 }
 
+void Planet::SetRadius(int radius)
+{
+    this->radius = radius;
+}
+
+int Planet::GetRadius() const
+{
+    return radius;
+}
+
 int Planet::GetX() const
 {
     return planet->geometry().x();
@@ -43,6 +53,11 @@ int Planet::GetWidth() const
 int Planet::GetHeight() const
 {
     return planet->height();
+}
+
+QLabel *Planet::GetBase() const
+{
+    return  this->planet;
 }
 
 QString Planet::GetName() const

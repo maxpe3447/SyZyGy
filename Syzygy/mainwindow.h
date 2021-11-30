@@ -60,12 +60,12 @@ private:
     Ui::MainWindow *ui;
     void initPlanetsImage();
     void initTime();
-    //void initMenuButton();
     void initPlanet();
 
     void doPainting();
 
-    //bool isMenuShow;
+    void SessionRestore();
+
     bool isTraveling;
     QCursor travelCursor;
     QDate dateTime;

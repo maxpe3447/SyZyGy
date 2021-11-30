@@ -14,7 +14,7 @@ public:
     ~Clock();
     void Start();
     void Stop();
-    bool GetisEnable();
+    bool GetisEnable() const;
 private:
     QTimer* timer;
     QLCDNumber *dayAndMonth, *year, *hourAndMin, *second;

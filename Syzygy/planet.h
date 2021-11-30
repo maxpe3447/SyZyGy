@@ -21,19 +21,24 @@ public:
 
     void SetPos(int x, int y);
 
+    void SetRadius(int radius);
+
+    int GetRadius() const;
+
     int GetX() const;
     int GetY() const;
 
     int GetWidth() const;
     int GetHeight() const;
 
+    QLabel* GetBase() const;
     QString GetName() const;
 private:
     friend class ManageSession;
-    friend class Algorithms;
 
     void SetImg(QPixmap& pxm);
     QLabel *planet;
+    int radius;
 };
 
 #endif // PLANET_H

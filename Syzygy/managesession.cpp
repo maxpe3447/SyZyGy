@@ -27,6 +27,7 @@ void ManageSession::GetLastSession(QVector<Planet*> & planets)
            }
        }
     }
+    file.close();
 }
 
 void ManageSession::SetCurrentSession(QVector<Planet *> & planets)
@@ -53,6 +54,30 @@ void ManageSession::SetCurrentSession(QVector<Planet *> & planets)
     file.write(title.toUtf8());
     file.close();
 }
+
+//void ManageSession::ReadRadiusFromFile(QVector<Planet *> & planets)
+//{
+//    if(!QFile::exists(fileName)){
+//        Default(planets);
+//        return;
+//    }
+//    QFile file(fileName);
+//    if(file.open(QIODevice::ReadOnly | QFile::Text)){
+//       doc = QJsonDocument::fromJson(QByteArray(file.readAll()), &docErr);
+//       file.close();
+
+//       if(docErr.errorString().toInt() == QJsonParseError::NoError){
+//           docArr = QJsonValue(doc.object().value(arrKey)).toArray();
+//           for(int i = 0; i< docArr.count(); i++){
+
+//               int radius = docArr.at(i).toObject().value(radiusKey).toInt();
+
+//               planets[i]->SetRadius(radius);
+//           }
+//       }
+//    }
+//    file.close();
+//}
 
 void ManageSession::Default(QVector<Planet*>& planets){
     int x = 50, y = 90;

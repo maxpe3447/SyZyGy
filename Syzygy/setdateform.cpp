@@ -13,6 +13,9 @@ SetDateForm::SetDateForm(QDate *date, QWidget *parent) :
                              "color: rgb(255, 255, 255);");
     ui->setDate->setDate(QDate::currentDate());
     this->date = date;
+
+    ui->setDate->setMinimumDate(QDate(973, 6, 5));
+    ui->setDate->setMaximumDate(QDate(3026, 7, 25));
 }
 
 SetDateForm::~SetDateForm()

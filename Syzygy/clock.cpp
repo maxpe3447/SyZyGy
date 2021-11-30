@@ -34,7 +34,7 @@ void Clock::Stop(){
     timer->stop();
 }
 
-bool Clock::GetisEnable()
+bool Clock::GetisEnable() const
 {
     return isEnable;
 }

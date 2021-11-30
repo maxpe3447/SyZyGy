@@ -1,11 +1,12 @@
 #include "algorithms.h"
 
-Algorithms::Algorithms(QVector<Planet*> &planets, QObject *parent) : QObject(parent), planetsAlg(planets)
+Algorithms::Algorithms(QMainWindow* mw, QVector<Planet*> &planets, QObject *parent) : QObject(parent), mainWindow(mw), planetsAlg(planets)
 {
+    animationCounter = 0;
     systemCenterX = planetsAlg[0]->GetX() + planetsAlg[0]->GetWidth() / 2.0;
     systemCenterY = planetsAlg[0]->GetY() + planetsAlg[0]->GetHeight() / 2.0;
     manager = new QNetworkAccessManager();
-    connect(manager, SIGNAL(finished(QNetworkReply*)), SLOT(GetResponse(QNetworkReply*)));
+    connect(manager, &QNetworkAccessManager::finished, this, &Algorithms::GetResponse);
 }
 
 Algorithms::~Algorithms()
@@ -35,11 +36,12 @@ void Algorithms::PlanetMovement(int planetId, double angle)
     newX = planetsAlg[planetId]->GetX();
     newY = planetsAlg[planetId]->GetY();
     QSequentialAnimationGroup* movePlanetGroup = new QSequentialAnimationGroup();
+    connect(movePlanetGroup, &QSequentialAnimationGroup::stateChanged, this, &Algorithms::PlanetsCheck);
     for(int i = 0; i < step; i++){
         currentAngle -= 0.01745329;
         if(currentAngle < 0) currentAngle += 6.28318531;
 
-        QPropertyAnimation* movePlanet = new QPropertyAnimation(planetsAlg[planetId]->planet, "pos");
+        QPropertyAnimation* movePlanet = new QPropertyAnimation(planetsAlg[planetId]->GetBase(), "pos");
         movePlanet->setDuration(25);
         movePlanet->setStartValue(QPoint(newX, newY));
         newX = systemCenterX + cos(currentAngle) * radius - planetsAlg[planetId]->GetWidth() / 2.0;
@@ -52,7 +54,7 @@ void Algorithms::PlanetMovement(int planetId, double angle)
 
 void Algorithms::AllPlanetsMovement(QDate* date)
 {
-    for(int i = 1; i < 9; i++){
+    for(int i = 1; i < planetsAlg.size(); i++){
         QString path = "https://ssp.imcce.fr/webservices/miriade/api/ephemcc.php?-name=p:" + QString::number(i) + "&-observer=@sun&-ep=" + date->toString("yyyy-MM-dd") + "T00:00:00.000&-rplane=2&-mime=json&-from=Syzygy";
         manager->get(QNetworkRequest(QUrl(path)));
     }
@@ -139,7 +141,39 @@ void Algorithms::GetResponse(QNetworkReply *reply)
         reply->deleteLater();
 
         PlanetMovement(planetNum, (result < 0) ? (360 + result) : result);
-    }  catch (const SyzygyException& ex) {
+    }
+    catch (const SyzygyException& ex) {
         SyzygyException::WhatShow(ex);
+    }
+}
+
+void Algorithms::PlanetsCheck()
+{
+    ++animationCounter;
+    if(animationCounter == 8){
+        try {
+            for(int i = 0; i < planetsAlg.size(); i++){
+                int iposX = planetsAlg[i]->GetX();
+                int iposY = planetsAlg[i]->GetY();
+                int iposR = iposX + planetsAlg[i]->GetWidth();
+                int iposB = iposY + planetsAlg[i]->GetHeight();
+                if(iposX < mainWindow->geometry().x() || iposY < mainWindow->geometry().y() || iposR > mainWindow->geometry().width() || iposB > mainWindow->geometry().height()){
+                    throw SyzygyException("Небесне тіло вийшло за межі вікна!", false, true);
+                }
+                for (int j = i + 1; j < planetsAlg.size(); j++) {
+                    int jposX = planetsAlg[j]->GetX();
+                    int jposY = planetsAlg[j]->GetY();
+                    int jposR = jposX + planetsAlg[j]->GetWidth();
+                    int jposB = jposY + planetsAlg[j]->GetHeight();
+                    if((iposX < jposR && iposX > jposX) && (iposY < jposB && iposY > jposY)){
+                        throw SyzygyException("Зіткнення двох небесних тіл!", false, true);
+                    }
+                }
+            }
+        }
+        catch(const SyzygyException& ex){
+            SyzygyException::WhatShow(ex);
+        }
+        animationCounter = 0;
     }
 }
