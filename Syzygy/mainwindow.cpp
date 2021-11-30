@@ -18,17 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
     try {
         dataDB = new DataFromDB();
     }  catch(const SyzygyException& ex){
-        auto res = SyzygyException::WhatShow(ex);
-        switch (res) {
-        case QMessageBox::StandardButton::Ok:
+
+        if(QMessageBox::StandardButton::Ok == SyzygyException::WhatShow(ex)){
             close();
-            break;
-        case QMessageBox::StandardButton::Cancel:
-            //ui->statusBar->showMessage("Ok, programm in work");
-            break;
-        default:
-            //ui->statusBar->showMessage("Ok, programm in work");
-            break;
         }
     }
 
@@ -39,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->toolBar->setStyleSheet("background: transparent;"
                                "color: rgb(255, 255, 255)");
-    //mngSession.GetLastSession(planets);
+
 
     clock->Start();
 
@@ -49,7 +41,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     travelCursor = QCursor(QPixmap("Image/rocket.png"), 0, 0);
     algorithms = new Algorithms(planets);
-    algorithms->AllPlanetsMovement(&dateTime);
+
+    SessionRestore();
 
     connect(this, &MainWindow::SendOptionsAndInfo, infoForm, &PlanetInfoForm::GetOptionsAndInfo);
     connect(setDateForm, &SetDateForm::SendDate, algorithms, &Algorithms::AllPlanetsMovement);
@@ -83,17 +76,9 @@ void MainWindow::initPlanetsImage(){
         }
     }
     catch(const SyzygyException& ex){
-        auto res = SyzygyException::WhatShow(ex);
-        switch (res) {
-        case QMessageBox::StandardButton::Ok:
+
+        if(QMessageBox::StandardButton::Ok  == SyzygyException::WhatShow(ex)){
             close();
-            break;
-        case QMessageBox::StandardButton::Cancel:
-            //ui->statusBar->showMessage("Ok, programm in work");
-        break;
-        default:
-            //ui->statusBar->showMessage("Ok, programm in work");
-            break;
         }
     }
 
@@ -117,8 +102,19 @@ void MainWindow::initPlanet()
     uranus  = new Planet(ui->uranus);
     venus   = new Planet(ui->venus);
 
-    //planets = {earth, jupiter, mars, mercury, neptune, saturn, sun, uranus, venus};
     planets = {sun, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune};
+}
+
+void MainWindow::SessionRestore(){
+    auto req = QMessageBox::question(nullptr, "Ви маєте збережену сесію!", "Бажаєте продовжити з попереднього моменту?");
+    switch (req) {
+     case QMessageBox::StandardButton::Yes:
+        mngSession.GetLastSession(planets);
+        break;
+    default:
+        algorithms->AllPlanetsMovement(&dateTime);
+        break;
+    }
 }
 
 void MainWindow::Tick_of_clock()
@@ -129,7 +125,7 @@ void MainWindow::Tick_of_clock()
 
 void MainWindow::on_pbTravelToPlanet_clicked()
 {
-    //this->setCursor(travelCursor);
+    this->setCursor(travelCursor);
     isTraveling = true;
 }
 
@@ -152,13 +148,15 @@ void MainWindow::on_dvlprs_clicked()
 void MainWindow::mousePressEvent(QMouseEvent *me)
 {
     if(me->button() == Qt::LeftButton && isTraveling){
+        qDebug()<<"Cursor: " <<me->pos().x() << " " << me->pos().y();
         try
         {
             for(auto planet: planets)
             {
-                if(planet->GetX() <= me->pos().x() && planet->GetY() <= me->pos().y() &&
-                    me->pos().x() <= planet->GetX()+planet->GetWidth() && me->pos().y() <= planet->GetY()+planet->GetHeight())
+                if(planet->GetX() <= me->pos().x() && planet->GetY()+ planet->GetHeight() <= me->pos().y() &&
+                    me->pos().x() <= planet->GetX()+planet->GetWidth() && me->pos().y() <= planet->GetY()+planet->GetHeight()*2)
                 {
+                    qDebug()<<"Planet: " <<planet->GetX() << " " << planet->GetY() << "w: " << planet->GetWidth() << "h: " << planet->GetHeight();
                     PlanetInfoData* data = new PlanetInfoData(this->dataDB);
                     emit SendOptionsAndInfo(data->Parse(planet->GetName()));
                     infoForm->show();
@@ -222,4 +220,5 @@ void MainWindow::doPainting() {
     painter.drawEllipse(24, 59, 712, 712); // плутон
 
     /////////////////////////////////////////////////////////////////////////
+
 }
