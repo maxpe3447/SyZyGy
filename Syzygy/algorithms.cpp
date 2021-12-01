@@ -163,20 +163,20 @@ void Algorithms::PlanetsCheck()
             int iposY = planetsAlg[i]->GetY();
             int iposR = iposX + planetsAlg[i]->GetWidth();
             int iposB = iposY + planetsAlg[i]->GetHeight();
-            if(iposX < mainWindow->geometry().x() || iposY < mainWindow->geometry().y() || iposR > mainWindow->geometry().width() || iposB > mainWindow->geometry().height() - 36){
-                qDebug() << i << " Выход за окно";
-                //mutex.unlock();
-                //throw SyzygyException("Небесне тіло вийшло за межі вікна!", false, true);
+            if(iposX < 0 || iposY < 0 || iposR > mainWindow->geometry().width() || iposB > mainWindow->geometry().height() - 36){
+                mutex.unlock();
+                throw SyzygyException("Небесне тіло вийшло за межі вікна!", false, true);
             }
             for (int j = i + 1; j < planetsAlg.size(); j++) {
-                int jposX = planetsAlg[j]->GetX();
-                int jposY = planetsAlg[j]->GetY();
-                int jposR = jposX + planetsAlg[j]->GetWidth();
-                int jposB = jposY + planetsAlg[j]->GetHeight();
-                if((iposX < jposR && iposX > jposX) && (iposY < jposB && iposY > jposY)){
-                    qDebug() << i << " " << j << " Столкновение";
-                    //mutex.unlock();
-                    //throw SyzygyException("Зіткнення двох небесних тіл!", false, true);
+                int icenterX = iposX + planetsAlg[i]->GetWidth() / 2;
+                int icenterY = iposY + planetsAlg[i]->GetHeight() / 2;
+                int jcenterX = planetsAlg[j]->GetX() + planetsAlg[j]->GetWidth() / 2;
+                int jcenterY = planetsAlg[j]->GetY() + planetsAlg[j]->GetHeight() / 2;
+                double distance = sqrt(pow((icenterX - jcenterX), 2) + pow((icenterY - jcenterY), 2));
+                double ideal = planetsAlg[i]->GetWidth() / 2 + planetsAlg[j]->GetWidth() / 2;
+                if(distance <= ideal){
+                    mutex.unlock();
+                    throw SyzygyException("Зіткнення двох небесних тіл!", false, true);
                 }
             }
         }
