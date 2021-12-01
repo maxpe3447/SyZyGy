@@ -36,7 +36,7 @@ void Algorithms::PlanetMovement(int planetId, double angle)
     newX = planetsAlg[planetId]->GetX();
     newY = planetsAlg[planetId]->GetY();
     QSequentialAnimationGroup* movePlanetGroup = new QSequentialAnimationGroup();
-    connect(movePlanetGroup, &QSequentialAnimationGroup::stateChanged, this, &Algorithms::PlanetsCheck);
+    connect(movePlanetGroup, &QSequentialAnimationGroup::currentAnimationChanged, this, &Algorithms::PlanetsCheck);
     for(int i = 0; i < step; i++){
         currentAngle -= 0.01745329;
         if(currentAngle < 0) currentAngle += 6.28318531;
@@ -157,13 +157,16 @@ void Algorithms::GetResponse(QNetworkReply *reply)
 void Algorithms::PlanetsCheck()
 {
     try {
+        mutex.lock();
         for(int i = 0; i < planetsAlg.size(); i++){
             int iposX = planetsAlg[i]->GetX();
             int iposY = planetsAlg[i]->GetY();
             int iposR = iposX + planetsAlg[i]->GetWidth();
             int iposB = iposY + planetsAlg[i]->GetHeight();
-            if(iposX < mainWindow->geometry().x() || iposY < mainWindow->geometry().y() || iposR > mainWindow->geometry().width() || iposB > mainWindow->geometry().height()){
-                throw SyzygyException("Небесне тіло вийшло за межі вікна!", false, true);
+            if(iposX < mainWindow->geometry().x() || iposY < mainWindow->geometry().y() || iposR > mainWindow->geometry().width() || iposB > mainWindow->geometry().height() - 36){
+                qDebug() << i << " Выход за окно";
+                //mutex.unlock();
+                //throw SyzygyException("Небесне тіло вийшло за межі вікна!", false, true);
             }
             for (int j = i + 1; j < planetsAlg.size(); j++) {
                 int jposX = planetsAlg[j]->GetX();
@@ -171,10 +174,13 @@ void Algorithms::PlanetsCheck()
                 int jposR = jposX + planetsAlg[j]->GetWidth();
                 int jposB = jposY + planetsAlg[j]->GetHeight();
                 if((iposX < jposR && iposX > jposX) && (iposY < jposB && iposY > jposY)){
-                    throw SyzygyException("Зіткнення двох небесних тіл!", false, true);
+                    qDebug() << i << " " << j << " Столкновение";
+                    //mutex.unlock();
+                    //throw SyzygyException("Зіткнення двох небесних тіл!", false, true);
                 }
             }
         }
+        mutex.unlock();
     }
     catch(const SyzygyException& ex){
         mutex.lock();
