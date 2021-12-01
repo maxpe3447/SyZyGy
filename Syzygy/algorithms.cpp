@@ -1,8 +1,8 @@
 #include "algorithms.h"
 
-Algorithms::Algorithms(QMainWindow* mw, QVector<Planet*> &planets, QObject *parent) : QObject(parent), mainWindow(mw), planetsAlg(planets)
+Algorithms::Algorithms(QMainWindow* mw, QVector<Planet*> &planets, QObject *parent)
+    : QObject(parent), isAnimErrShown(false), isReplyErrShown(false), mainWindow(mw), planetsAlg(planets)
 {
-    animationCounter = 0;
     systemCenterX = planetsAlg[0]->GetX() + planetsAlg[0]->GetWidth() / 2.0;
     systemCenterY = planetsAlg[0]->GetY() + planetsAlg[0]->GetHeight() / 2.0;
     manager = new QNetworkAccessManager();
@@ -54,6 +54,8 @@ void Algorithms::PlanetMovement(int planetId, double angle)
 
 void Algorithms::AllPlanetsMovement(QDate* date)
 {
+    isAnimErrShown = false;
+    isReplyErrShown = false;
     for(int i = 1; i < planetsAlg.size(); i++){
         QString path = "https://ssp.imcce.fr/webservices/miriade/api/ephemcc.php?-name=p:" + QString::number(i) + "&-observer=@sun&-ep=" + date->toString("yyyy-MM-dd") + "T00:00:00.000&-rplane=2&-mime=json&-from=Syzygy";
         manager->get(QNetworkRequest(QUrl(path)));
@@ -136,44 +138,51 @@ void Algorithms::GetResponse(QNetworkReply *reply)
         else{
             throw SyzygyException("Потрібних даних у відповіді від серверу не знайдено!", false, true);
         }
-        //qDebug() << qSetRealNumberPrecision( 10 ) << ((result < 0) ? (360 + result) : result);
 
         reply->deleteLater();
 
         PlanetMovement(planetNum, (result < 0) ? (360 + result) : result);
     }
     catch (const SyzygyException& ex) {
-        SyzygyException::WhatShow(ex);
+        mutex.lock();
+        if(!isReplyErrShown){
+            isReplyErrShown = true;
+            mutex.unlock();
+            SyzygyException::WhatShow(ex);
+        }
+        else mutex.unlock();
     }
 }
 
 void Algorithms::PlanetsCheck()
 {
-    ++animationCounter;
-    if(animationCounter == 8){
-        try {
-            for(int i = 0; i < planetsAlg.size(); i++){
-                int iposX = planetsAlg[i]->GetX();
-                int iposY = planetsAlg[i]->GetY();
-                int iposR = iposX + planetsAlg[i]->GetWidth();
-                int iposB = iposY + planetsAlg[i]->GetHeight();
-                if(iposX < mainWindow->geometry().x() || iposY < mainWindow->geometry().y() || iposR > mainWindow->geometry().width() || iposB > mainWindow->geometry().height()){
-                    throw SyzygyException("Небесне тіло вийшло за межі вікна!", false, true);
-                }
-                for (int j = i + 1; j < planetsAlg.size(); j++) {
-                    int jposX = planetsAlg[j]->GetX();
-                    int jposY = planetsAlg[j]->GetY();
-                    int jposR = jposX + planetsAlg[j]->GetWidth();
-                    int jposB = jposY + planetsAlg[j]->GetHeight();
-                    if((iposX < jposR && iposX > jposX) && (iposY < jposB && iposY > jposY)){
-                        throw SyzygyException("Зіткнення двох небесних тіл!", false, true);
-                    }
+    try {
+        for(int i = 0; i < planetsAlg.size(); i++){
+            int iposX = planetsAlg[i]->GetX();
+            int iposY = planetsAlg[i]->GetY();
+            int iposR = iposX + planetsAlg[i]->GetWidth();
+            int iposB = iposY + planetsAlg[i]->GetHeight();
+            if(iposX < mainWindow->geometry().x() || iposY < mainWindow->geometry().y() || iposR > mainWindow->geometry().width() || iposB > mainWindow->geometry().height()){
+                throw SyzygyException("Небесне тіло вийшло за межі вікна!", false, true);
+            }
+            for (int j = i + 1; j < planetsAlg.size(); j++) {
+                int jposX = planetsAlg[j]->GetX();
+                int jposY = planetsAlg[j]->GetY();
+                int jposR = jposX + planetsAlg[j]->GetWidth();
+                int jposB = jposY + planetsAlg[j]->GetHeight();
+                if((iposX < jposR && iposX > jposX) && (iposY < jposB && iposY > jposY)){
+                    throw SyzygyException("Зіткнення двох небесних тіл!", false, true);
                 }
             }
         }
-        catch(const SyzygyException& ex){
+    }
+    catch(const SyzygyException& ex){
+        mutex.lock();
+        if(!isAnimErrShown){
+            isAnimErrShown = true;
+            mutex.unlock();
             SyzygyException::WhatShow(ex);
         }
-        animationCounter = 0;
+        else mutex.unlock();
     }
 }

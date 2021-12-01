@@ -29,7 +29,7 @@ bool SyzygyException::GetIsFatalError() const
 
 QMessageBox::StandardButton SyzygyException::WhatShow(const SyzygyException &ex)
 {
-    QString title = "Exception";
+    QString title = "Виняткова ситуація";
 
     if(ex.GetIsWarning()){
         return QMessageBox::warning(nullptr, title, ex.what());
@@ -37,6 +37,6 @@ QMessageBox::StandardButton SyzygyException::WhatShow(const SyzygyException &ex)
         return QMessageBox::critical(nullptr, title, ex.what());
     }
     else{
-        return QMessageBox::critical(nullptr, title, ex.what());
+        return QMessageBox::information(nullptr, title, ex.what());
     }
 }

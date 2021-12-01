@@ -130,7 +130,7 @@ border-width: 1px;
 border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Подорож до небесних тіл &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Після натискання кнопки з'явиться &lt;br/&gt;невелика ракета, після чого Вам, &lt;br/&gt;як користувачу, необхідно обрати &lt;br/&gt;космічне тіло для так званої &lt;br/&gt;мандрівки та натиснути на нього, &lt;br/&gt;після чого буде виведена інформація &lt;br/&gt;про обране Вами тіло.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot;text-decoration: underline&quot;&gt;Вибір дати &lt;br/&gt;для перегляду позицій &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Натиснувши на цю кнопку, &lt;br/&gt;Ви повинні будете ввести &lt;br/&gt;будь-яку дату для перегляду &lt;br/&gt;позицій планет, в які вони &lt;br/&gt;будуть встановлені.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

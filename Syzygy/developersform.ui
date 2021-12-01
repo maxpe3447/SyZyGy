@@ -111,7 +111,7 @@ color: rgb(255, 255, 255)</string>
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Відповідальна за:&lt;/p&gt;&lt;p&gt;- Алгоритми;&lt;/p&gt;&lt;p&gt;- Пояснюдвальну записку&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Відповідальна за:&lt;/p&gt;&lt;p&gt;- Алгоритми;&lt;/p&gt;&lt;p&gt;- Пояснювальну записку&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -198,7 +198,7 @@ color: rgb(255, 255, 255)</string>
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Відповідальний за:&lt;/p&gt;&lt;p&gt;- Роботу з даними;&lt;/p&gt;&lt;p&gt;- Роботу в мудлі&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Відповідальний за:&lt;/p&gt;&lt;p&gt;- Роботу з даними;&lt;/p&gt;&lt;p&gt;- Роботу в Мудлі&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -285,7 +285,7 @@ color: rgb(255, 255, 255)</string>
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Відповідальна за:&lt;/p&gt;&lt;p&gt;- Інтерфейс;&lt;/p&gt;&lt;p&gt;- Робота з трело&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Відповідальна за:&lt;/p&gt;&lt;p&gt;- Інтерфейс;&lt;/p&gt;&lt;p&gt;- Роботу з Трело&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -367,7 +367,7 @@ border-width: 1px;
 border-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Усі учасники відповідальні за вийняткові ситуації&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Усі учасники відповідальні за виняткові ситуації&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="openExternalLinks">
     <bool>true</bool>

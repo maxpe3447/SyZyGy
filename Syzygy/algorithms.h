@@ -15,6 +15,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QDate>
+#include <QMutex>
 #include <cmath>
 #include "planet.h"
 #include "syzygyexception.h"
@@ -35,10 +36,13 @@ private:
 
     double systemCenterX;
     double systemCenterY;
-    int animationCounter;
+    bool isAnimErrShown;
+    bool isReplyErrShown;
 
     QNetworkAccessManager* manager;
     QMainWindow* mainWindow;
+
+    QMutex mutex;
 
     QVector<Planet*>& planetsAlg;
 };
