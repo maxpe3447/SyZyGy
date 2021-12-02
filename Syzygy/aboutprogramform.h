@@ -14,7 +14,7 @@ class AboutProgramForm : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit AboutProgramForm(QWidget *parent = nullptr);
+    AboutProgramForm(QWidget *parent = nullptr);
     ~AboutProgramForm();
 
 private:

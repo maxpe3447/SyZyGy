@@ -16,7 +16,7 @@ class DevelopersForm : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit DevelopersForm(QWidget *parent = nullptr);
+    DevelopersForm(QWidget *parent = nullptr);
     ~DevelopersForm();
 
 private slots:

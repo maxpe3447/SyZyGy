@@ -5,6 +5,9 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QDate>
+#include <QComboBox>
+#include <QDebug>
+#include <QPainter>
 
 namespace Ui {
 class SetDateForm;
@@ -27,6 +30,8 @@ private slots:
 private:
     Ui::SetDateForm *ui;
     QDate *date;
+
+    void FillingDateBox();
 };
 
 

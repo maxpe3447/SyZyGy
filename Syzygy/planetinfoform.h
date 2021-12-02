@@ -14,7 +14,7 @@ class PlanetInfoForm : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit PlanetInfoForm(QWidget *parent = nullptr);
+    PlanetInfoForm(QWidget *parent = nullptr);
     ~PlanetInfoForm();
 
 private:
