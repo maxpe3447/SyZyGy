@@ -7,9 +7,7 @@
 #include <QSequentialAnimationGroup>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkReply>
-#include <QtNetwork/QNetworkRequest>
+#include <QtNetwork>
 #include <QMainWindow>
 #include <QJsonDocument>
 #include <QJsonArray>

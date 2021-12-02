@@ -12,9 +12,11 @@ Clock::Clock(QLCDNumber *dm,QLCDNumber *y, QLCDNumber *hm, QLCDNumber *s, QMainW
     connect(timer, SIGNAL(timeout()),mw, SLOT(Tick_of_clock()));
     timer->start(1000);
 }
+
 Clock::~Clock(){
     delete timer;
 }
+
 void Clock::initSetCurrentTime(){
     if(isShowCurDate){
     dayAndMonth->display(QDateTime::currentDateTime().toString("dd.MM"));
@@ -29,10 +31,12 @@ void Clock::initSetCurrentTime(){
     second->setStyleSheet("background: transparent;");
     second->display(QDateTime::currentDateTime().toString(":ss"));
 }
+
 void Clock::Start(){
     isEnable = true;
     timer->start(1000);
 }
+
 void Clock::Stop(){
     isEnable = false;
     timer->stop();

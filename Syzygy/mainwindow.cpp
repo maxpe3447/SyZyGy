@@ -24,7 +24,6 @@ MainWindow::MainWindow(QWidget *parent)
         }
     }
 
-
     initTime();
     initPlanet();
     initPlanetsImageAndData();
@@ -53,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     mngSession.SetCurrentSession(planets, clock->GetDate());
-qDebug() << clock->GetDate().toString("dd.MM.yyyy");
+    //qDebug() << clock->GetDate().toString("dd.MM.yyyy");
 
     delete dataDB;
     delete ui;
@@ -63,7 +62,6 @@ qDebug() << clock->GetDate().toString("dd.MM.yyyy");
     delete aboutProgForm;
     delete dvlprsForm;
     delete setDateForm;
-
 
     for(auto planet: planets)
         delete planet;
@@ -158,7 +156,7 @@ void MainWindow::on_dvlprs_clicked()
 void MainWindow::mousePressEvent(QMouseEvent *me)
 {
     if(me->button() == Qt::LeftButton && isTraveling){
-        qDebug()<<"Cursor: " <<me->pos().x() << " " << me->pos().y();
+        //qDebug()<<"Cursor: " <<me->pos().x() << " " << me->pos().y();
         try
         {
             for(auto planet: planets)
@@ -166,7 +164,7 @@ void MainWindow::mousePressEvent(QMouseEvent *me)
                 if(planet->GetX() <= me->pos().x() && planet->GetY()+ planet->GetHeight() <= me->pos().y() &&
                     me->pos().x() <= planet->GetX()+planet->GetWidth() && me->pos().y() <= planet->GetY()+planet->GetHeight()*2)
                 {
-                    qDebug()<<"Planet: " <<planet->GetX() << " " << planet->GetY() << "w: " << planet->GetWidth() << "h: " << planet->GetHeight();
+                    //qDebug()<<"Planet: " <<planet->GetX() << " " << planet->GetY() << "w: " << planet->GetWidth() << "h: " << planet->GetHeight();
                     PlanetInfoData* data = new PlanetInfoData(this->dataDB);
                     emit SendOptionsAndInfo(data->Parse(planet->GetName()));
                     infoForm->show();
@@ -224,7 +222,7 @@ void MainWindow::doPainting() {
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(76, 111, uranus->GetRadius()*2, uranus->GetRadius()*2); // уран
+    painter.drawEllipse(71, 107, uranus->GetRadius()*2, uranus->GetRadius()*2); // уран
 
     /////////////////////////////////////////////////////////////////////////
 

@@ -3,7 +3,6 @@
 
 #include <QSqlDatabase>
 #include <QSqlError>
-#include <QDebug>
 #include <QByteArray>
 #include <QSqlQuery>
 #include <QSqlRecord>

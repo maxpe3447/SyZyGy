@@ -6,7 +6,6 @@
 #include <QVector>
 #include <QFile>
 #include <QJsonArray>
-#include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonParseError>
@@ -22,7 +21,6 @@ public:
     void SetCurrentSession(QVector<Planet*>&, QDate);
 
     QString GetFileName() const;
-    //void ReadRadiusFromFile(QVector<Planet*>&);
 private:
     QString fileName = "last_session.json";
     QString arrKey = "planets";
