@@ -87,6 +87,10 @@ color: rgb(255, 255, 255)</string>
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(83, 122, 176);
+color: rgb(255, 255, 255)</string>
+    </property>
    </widget>
    <widget class="QComboBox" name="DateList">
     <property name="geometry">
@@ -98,7 +102,7 @@ color: rgb(255, 255, 255)</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">backcolor: darkgray;
+     <string notr="true">background-color: rgb(83, 122, 176);
 color: rgb(255, 255, 255)</string>
     </property>
    </widget>

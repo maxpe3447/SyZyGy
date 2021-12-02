@@ -17,8 +17,6 @@ SetDateForm::SetDateForm(QDate *date, QWidget *parent) :
     ui->setDate->setMinimumDate(QDate(973, 6, 5));
     ui->setDate->setMaximumDate(QDate(3026, 7, 25));
 
-    ui->DateList->setStyleSheet("QComboBox::view() {color: rgb(83, 122, 176);}");
-
     FillingDateBox();
 }
 
