@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     initTime();
     initPlanet();
-    initPlanetsImage();
+    initPlanetsImageAndData();
 
     ui->toolBar->setStyleSheet("background: transparent;"
                                "color: rgb(255, 255, 255)");
@@ -65,13 +65,16 @@ MainWindow::~MainWindow()
     delete setDateForm;
 }
 
-void MainWindow::initPlanetsImage(){
+void MainWindow::initPlanetsImageAndData(){
     try{
         for(int i = 0; i < planets.size(); i++){
             if(planets[i] != nullptr){
 
                 auto data = dataDB->GetImageOf(planets[i]->GetName(), "cartoon");
+                int radius = dataDB->GetRadiusOf(planets[i]->GetName());
                 planets[i]->SetParams(data);
+                planets[i]->SetRadius(radius);
+                qDebug() <<planets[i]->GetName() << ":" << radius;
             }
         }
     }
@@ -189,7 +192,7 @@ void MainWindow::doPainting() {
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(336, 371, 88, 88); // меркурий
+    painter.drawEllipse(336, 371, mercury->GetRadius()*2,  mercury->GetRadius()*2); // меркурий
 
     /////////////////////////////////////////////////////////////////////////
 

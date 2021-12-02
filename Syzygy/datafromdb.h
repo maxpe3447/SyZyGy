@@ -23,6 +23,8 @@ public:
     QByteArray GetImageOf(QString nameImg, QString type);
     //QByteArray GetSysImage(QString name);
 
+    int GetRadiusOf(QString nameImg);
+
     void CloseConnect();
     void OpenConnect();
 
@@ -30,6 +32,7 @@ public:
 
     static QString CartoonTable;
     static QString GitHubTable;
+    static QString PlanetData;
 private:
     QSqlDatabase db;
 

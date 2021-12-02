@@ -1,4 +1,4 @@
-    #ifndef PLANETINFODATA_H
+#ifndef PLANETINFODATA_H
 #define PLANETINFODATA_H
 
 #include <QString>

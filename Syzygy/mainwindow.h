@@ -58,7 +58,7 @@ protected:
     void paintEvent(QPaintEvent *e) override;
 private:
     Ui::MainWindow *ui;
-    void initPlanetsImage();
+    void initPlanetsImageAndData();
     void initTime();
     void initPlanet();
 
