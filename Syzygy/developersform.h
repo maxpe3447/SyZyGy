@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QLabel>
-#include <QDebug>
 #include <QDesktopServices>
 #include <QUrl>
 

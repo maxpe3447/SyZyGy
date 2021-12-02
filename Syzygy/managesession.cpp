@@ -8,7 +8,7 @@ ManageSession::ManageSession()
 void ManageSession::GetLastSession(QVector<Planet*> & planets, QDate& date)
 {
     if(!QFile::exists(fileName)){
-        throw SyzygyException("Файлу минулої сесії не уснує!", false, true);
+        throw SyzygyException("Файлу минулої сесії не існує!", false, true);
 
     }
     QFile file(fileName);

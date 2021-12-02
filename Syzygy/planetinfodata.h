@@ -5,7 +5,6 @@
 #include <QByteArray>
 #include <QXmlStreamReader>
 #include <QFile>
-#include <QDebug>
 
 #include "datafromdb.h"
 #include "syzygyexception.h"

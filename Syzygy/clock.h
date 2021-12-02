@@ -4,7 +4,6 @@
 #include <QLCDNumber>
 #include <QDateTime>
 #include <QObject>
-#include <QDebug>
 #include <QMainWindow>
 
 class Clock : public QObject

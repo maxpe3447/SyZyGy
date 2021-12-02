@@ -3,14 +3,12 @@
 
 #include <QMainWindow>
 #include <QPixmap>
-#include <QDateTime>
 #include <QIcon>
 #include <QVector>
-#include <QDebug>
 #include <QMouseEvent>
 #include <QDate>
 #include <QPainter>
-#include<QFile>
+#include <QFile>
 
 #include "planet.h"
 #include "clock.h"

@@ -3,10 +3,22 @@
 Algorithms::Algorithms(QMainWindow* mw, QVector<Planet*> &planets, QObject *parent)
     : QObject(parent), isAnimErrShown(false), isReplyErrShown(false), mainWindow(mw), planetsAlg(planets)
 {
-    systemCenterX = planetsAlg[0]->GetX() + planetsAlg[0]->GetWidth() / 2.0;
-    systemCenterY = planetsAlg[0]->GetY() + planetsAlg[0]->GetHeight() / 2.0;
+    systemCenterX = 380;
+    systemCenterY = 380;
     manager = new QNetworkAccessManager();
     connect(manager, &QNetworkAccessManager::finished, this, &Algorithms::GetResponse);
+
+    double sysX = systemCenterX - planetsAlg[0]->GetWidth() / 2;
+    double sysY = systemCenterY - planetsAlg[0]->GetHeight() / 2;
+    try {
+        if(planetsAlg[0]->GetX() != sysX || planetsAlg[0]->GetY() != sysY){
+            throw SyzygyException("Сонце не знаходиться в центрі системи!", false, true);
+        }
+    }
+    catch (const SyzygyException& ex) {
+        SyzygyException::WhatShow(ex);
+        planetsAlg[0]->SetPos(sysX, sysY);
+    }
 }
 
 Algorithms::~Algorithms()
@@ -19,12 +31,25 @@ void Algorithms::PlanetMovement(int planetId, double angle)
     double newX = planetsAlg[planetId]->GetX() + planetsAlg[planetId]->GetWidth() / 2.0;
     double newY = planetsAlg[planetId]->GetY() + planetsAlg[planetId]->GetHeight() / 2.0;
     double radius = sqrt(pow((newX - systemCenterX), 2) + pow((newY - systemCenterY), 2));
+
+    try {
+        if(abs(radius - planetsAlg[planetId]->GetRadius()) > 2){
+            throw SyzygyException("Вихід планети з орбіти!", false, true);
+        }
+    }
+    catch (const SyzygyException& ex) {
+        SyzygyException::WhatShow(ex);
+        newX = systemCenterX + cos(1.57079633) * planetsAlg[planetId]->GetRadius() - planetsAlg[planetId]->GetWidth() / 2.0;
+        newY = systemCenterY + sin(1.57079633) * planetsAlg[planetId]->GetRadius() - planetsAlg[planetId]->GetHeight() / 2.0;
+        planetsAlg[planetId]->SetPos(newX, newY);
+    }
+
     double currentAngle = 0;
     if(newX < systemCenterX){
-        currentAngle = 3.14159265 - asin((newY - systemCenterY) / radius);
+        currentAngle = 3.14159265 - asin((newY - systemCenterY) / planetsAlg[planetId]->GetRadius());
     }
     else{
-        currentAngle = asin((newY - systemCenterY) / radius);
+        currentAngle = asin((newY - systemCenterY) / planetsAlg[planetId]->GetRadius());
     }
     double moveAngle = 6.28318531 - (angle * (PI / 180.0));
 
@@ -44,8 +69,8 @@ void Algorithms::PlanetMovement(int planetId, double angle)
         QPropertyAnimation* movePlanet = new QPropertyAnimation(planetsAlg[planetId]->GetBase(), "pos");
         movePlanet->setDuration(25);
         movePlanet->setStartValue(QPoint(newX, newY));
-        newX = systemCenterX + cos(currentAngle) * radius - planetsAlg[planetId]->GetWidth() / 2.0;
-        newY = systemCenterY + sin(currentAngle) * radius - planetsAlg[planetId]->GetHeight() / 2.0;
+        newX = systemCenterX + cos(currentAngle) * planetsAlg[planetId]->GetRadius() - planetsAlg[planetId]->GetWidth() / 2.0;
+        newY = systemCenterY + sin(currentAngle) * planetsAlg[planetId]->GetRadius() - planetsAlg[planetId]->GetHeight() / 2.0;
         movePlanet->setEndValue(QPoint(newX, newY));
         movePlanetGroup->addAnimation(movePlanet);
     }

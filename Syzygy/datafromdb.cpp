@@ -22,7 +22,7 @@ DataFromDB::DataFromDB()
         QSqlQuery query(db);
         if (!query.exec("SELECT * FROM " + table + " WHERE Name = \"" + imageName + "\"")) {
             qDebug() << "Error bd read";
-            throw SyzygyException("Запит до бази данних залишився без відповіді!", true, false);
+            throw SyzygyException("Запит до бази даних залишився без відповіді!", true, false);
         }
 
         query.last();
@@ -37,7 +37,7 @@ DataFromDB::DataFromDB()
         QSqlQuery query(db);
         if (!query.exec("SELECT * FROM " + DataFromDB::PlanetData + " WHERE Name = \"" + nameImg + "\"")) {
             qDebug() << "Error bd read";
-            throw SyzygyException("Запит до бази данних залишився без відповіді!", true, false);
+            throw SyzygyException("Запит до бази даних залишився без відповіді!", true, false);
         }
         query.last();
 
@@ -49,7 +49,7 @@ DataFromDB::DataFromDB()
         QSqlQuery query(db);
         if (!query.exec("SELECT " +type +" FROM " + table + " WHERE Name = \"" + name + "\"")) {
             qDebug() << "Error bd read";
-            throw SyzygyException("Запит до бази данних залишився без відповіді!", true, false);
+            throw SyzygyException("Запит до бази даних залишився без відповіді!", true, false);
         }
 
         query.last();
@@ -71,7 +71,7 @@ DataFromDB::DataFromDB()
     void DataFromDB::OpenConnect(){
         if(!db.open()){
             qDebug() << "error! no open"<< db.lastError().text();
-            throw SyzygyException("Помилка відкриття файлу який містить зображення", false, true);
+            throw SyzygyException("Помилка відкриття файлу, який містить зображення", false, true);
         }
     }
     QString DataFromDB::CartoonTable = "cartoon";
