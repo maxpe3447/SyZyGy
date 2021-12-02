@@ -10,6 +10,7 @@
 #include <QMouseEvent>
 #include <QDate>
 #include <QPainter>
+#include<QFile>
 
 #include "planet.h"
 #include "clock.h"
@@ -37,11 +38,8 @@ public:
     ~MainWindow();
 
 private slots:
-    //void on_pbMenu_clicked();
 
     void Tick_of_clock();
-
-    //void on_pbDisMenu_clicked();
 
     void on_pbTravelToPlanet_clicked();
 
@@ -58,6 +56,7 @@ protected:
     void paintEvent(QPaintEvent *e) override;
 private:
     Ui::MainWindow *ui;
+
     void initPlanetsImageAndData();
     void initTime();
     void initPlanet();
@@ -68,7 +67,7 @@ private:
 
     bool isTraveling;
     QCursor travelCursor;
-    QDate dateTime;
+    QDate date;
 
     DataFromDB* dataDB;
     Clock* clock;
@@ -81,6 +80,5 @@ private:
     AboutProgramForm *aboutProgForm;
     DevelopersForm *dvlprsForm;
     SetDateForm *setDateForm;
-
 };
 #endif // MAINWINDOW_H

@@ -34,7 +34,6 @@ public:
     QLabel* GetBase() const;
     QString GetName() const;
 private:
-    friend class ManageSession;
 
     void SetImg(QPixmap& pxm);
     QLabel *planet;

@@ -9,11 +9,11 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowIcon(QIcon(":/Image/solar-system.png"));
     ui->groupBox->setStyleSheet("background: transparent; color: rgb(255, 255, 255)");
 
-    dateTime = QDate::currentDate();
+    date = QDate::currentDate();
     infoForm = new PlanetInfoForm();
     aboutProgForm = new AboutProgramForm();
     dvlprsForm = new DevelopersForm();
-    setDateForm = new SetDateForm(&dateTime);
+    setDateForm = new SetDateForm(&date);
 
     try {
         dataDB = new DataFromDB();
@@ -32,9 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->toolBar->setStyleSheet("background: transparent;"
                                "color: rgb(255, 255, 255)");
 
-
     clock->Start();
-
 
     connect(ui->aboutProg, &QAction::triggered, this, &MainWindow::on_pbAboutProg_clicked);
     connect(ui->dvlprs, &QAction::triggered, this, &MainWindow::on_dvlprs_clicked);
@@ -42,18 +40,20 @@ MainWindow::MainWindow(QWidget *parent)
     travelCursor = QCursor(QPixmap("Image/rocket.png"), 0, 0);
     algorithms = new Algorithms(this, planets);
 
-    SessionRestore();
-
+    try {
+        SessionRestore();
+    }  catch (SyzygyException& ex) {
+        SyzygyException::WhatShow(ex);
+    }
     connect(this, &MainWindow::SendOptionsAndInfo, infoForm, &PlanetInfoForm::GetOptionsAndInfo);
     connect(setDateForm, &SetDateForm::SendDate, algorithms, &Algorithms::AllPlanetsMovement);
+    connect(setDateForm, &SetDateForm::SendDate, clock, &Clock::DateSet);
 }
 
 MainWindow::~MainWindow()
 {
-    mngSession.SetCurrentSession(planets);
-
-    for(auto planet: planets)
-        delete planet;
+    mngSession.SetCurrentSession(planets, clock->GetDate());
+qDebug() << clock->GetDate().toString("dd.MM.yyyy");
 
     delete dataDB;
     delete ui;
@@ -63,6 +63,10 @@ MainWindow::~MainWindow()
     delete aboutProgForm;
     delete dvlprsForm;
     delete setDateForm;
+
+
+    for(auto planet: planets)
+        delete planet;
 }
 
 void MainWindow::initPlanetsImageAndData(){
@@ -109,15 +113,18 @@ void MainWindow::initPlanet()
 }
 
 void MainWindow::SessionRestore(){
+    if(!QFile::exists(mngSession.GetFileName())){
+        algorithms->AllPlanetsMovement(&date);
+        return;
+    }
     auto req = QMessageBox::question(nullptr, "Ви маєте збережену сесію!", "Бажаєте продовжити з попереднього моменту?");
     switch (req) {
      case QMessageBox::StandardButton::Yes:
-        mngSession.GetLastSession(planets);
-        break;
-    default:
-        algorithms->AllPlanetsMovement(&dateTime);
+        mngSession.GetLastSession(planets, date);
+        clock->SetDate(date);
         break;
     }
+    algorithms->AllPlanetsMovement(&date);
 }
 
 void MainWindow::Tick_of_clock()

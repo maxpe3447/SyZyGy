@@ -5,11 +5,11 @@ ManageSession::ManageSession()
 
 }
 
-void ManageSession::GetLastSession(QVector<Planet*> & planets)
+void ManageSession::GetLastSession(QVector<Planet*> & planets, QDate& date)
 {
     if(!QFile::exists(fileName)){
-        Default(planets);
-        return;
+        throw SyzygyException("Файлу минулої сесії не уснує!", false, true);
+
     }
     QFile file(fileName);
     if(file.open(QIODevice::ReadOnly | QFile::Text)){
@@ -17,6 +17,12 @@ void ManageSession::GetLastSession(QVector<Planet*> & planets)
        file.close();
 
        if(docErr.errorString().toInt() == QJsonParseError::NoError){
+
+
+            QString sDate = QJsonValue(doc.object().value(dateKey)).toString();//doc[dateKey].toString();
+            qDebug() << "Start: " <<sDate;
+            date = QDate::fromString(sDate, "dd.MM.yyyy");
+           qDebug() << "Start: " << date.toString("dd.MM.yyyy");
            docArr = QJsonValue(doc.object().value(arrKey)).toArray();
            for(int i = 0; i< docArr.count(); i++){
 
@@ -25,22 +31,22 @@ void ManageSession::GetLastSession(QVector<Planet*> & planets)
 
                planets[i]->SetPos(x, y);
            }
+           //throw SyzygyException("Помилка обробки json файлу: " + docErr.error,true, false);
        }
     }
     file.close();
 }
 
-void ManageSession::SetCurrentSession(QVector<Planet *> & planets)
+void ManageSession::SetCurrentSession(QVector<Planet *> & planets, QDate date)
 {
     QFile file(fileName);
     file.open(QIODevice::WriteOnly);
 
-
-    QJsonArray  docToWrite;// = doc.object().value(arrKey).toArray();
+    QJsonArray  docToWrite;
 
     for(int i = 0; i < planets.size(); i++){
         QVariantMap map;
-        map.insert(planetNameKey, planets[i]->planet->objectName());
+        map.insert(planetNameKey, planets[i]->GetName());
         map.insert(xKey, planets[i]->GetX());
         map.insert(yKey, planets[i]->GetY());
 
@@ -50,50 +56,16 @@ void ManageSession::SetCurrentSession(QVector<Planet *> & planets)
     }
     doc.setArray(docToWrite);
 
-    QString title("{\n\t\"" + arrKey +  "\":" + doc.toJson() + "}");
+    QString title(
+                "{\n"
+                "\t\"" + dateKey + "\" : \"" + date.toString("dd.MM.yyyy")+ "\",\n"
+                "\t\"" + arrKey +  "\":" + doc.toJson() + "}");
     file.write(title.toUtf8());
     file.close();
 }
 
-//void ManageSession::ReadRadiusFromFile(QVector<Planet *> & planets)
-//{
-//    if(!QFile::exists(fileName)){
-//        Default(planets);
-//        return;
-//    }
-//    QFile file(fileName);
-//    if(file.open(QIODevice::ReadOnly | QFile::Text)){
-//       doc = QJsonDocument::fromJson(QByteArray(file.readAll()), &docErr);
-//       file.close();
-
-//       if(docErr.errorString().toInt() == QJsonParseError::NoError){
-//           docArr = QJsonValue(doc.object().value(arrKey)).toArray();
-//           for(int i = 0; i< docArr.count(); i++){
-
-//               int radius = docArr.at(i).toObject().value(radiusKey).toInt();
-
-//               planets[i]->SetRadius(radius);
-//           }
-//       }
-//    }
-//    file.close();
-//}
-
-void ManageSession::Default(QVector<Planet*>& planets){
-    int x = 50, y = 90;
-
-    planets[0]->SetPos(x, y);
-    planets[1]->SetPos(x, y+90);
-
-    for(int i = 2, x = 100; i < planets.size(); i++){
-        if(i%2==0){
-            planets[i]->SetPos(planets[i-2]->GetX()+x,planets[i-2]->GetY());
-            //y+=90;
-        }
-        else{
-            planets[i]->SetPos( planets[i-2]->GetX()+x,planets[i-2]->GetY());
-        }
-
-    }
-
+QString ManageSession::GetFileName() const
+{
+    return fileName;
 }
+
