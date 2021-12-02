@@ -201,34 +201,34 @@ void MainWindow::doPainting() {
 
     painter.drawEllipse(336, 371, mercury->GetRadius()*2,  mercury->GetRadius()*2); // меркурий
 
-    /////////////////////////////////////////////////////////////////////////
-
-    painter.drawEllipse(292, 327, 176, 176); // венера
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(245, 280, 270, 270); // земля
+    painter.drawEllipse(292, 327, venus->GetRadius()*2, venus->GetRadius()*2); // венера
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(202, 237, 356, 356); // марс
+    painter.drawEllipse(245, 280, earth->GetRadius()*2, earth->GetRadius()*2); // земля
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(161, 196, 438, 438); // юпитер
+    painter.drawEllipse(202, 237, mars->GetRadius()*2, mars->GetRadius()*2); // марс
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(112, 147, 536, 536); // сатурн
+    painter.drawEllipse(161, 196, jupiter->GetRadius()*2, jupiter->GetRadius()*2); // юпитер
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(76, 111, 608, 608); // уран
+    painter.drawEllipse(112, 147, saturn->GetRadius()*2, saturn->GetRadius()*2); // сатурн
 
     /////////////////////////////////////////////////////////////////////////
 
-    painter.drawEllipse(24, 59, 712, 712); // плутон
+    painter.drawEllipse(76, 111, uranus->GetRadius()*2, uranus->GetRadius()*2); // уран
 
     /////////////////////////////////////////////////////////////////////////
 
+    painter.drawEllipse(24, 59, neptune->GetRadius()*2, neptune->GetRadius()*2); // нептун
+
+    /////////////////////////////////////////////////////////////////////////
 }
