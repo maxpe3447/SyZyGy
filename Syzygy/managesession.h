@@ -2,7 +2,6 @@
 #define MANAGESESSION_H
 
 #include <QString>
-#include <string>
 #include <QVector>
 #include <QFile>
 #include <QJsonArray>

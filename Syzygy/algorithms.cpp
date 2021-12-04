@@ -96,23 +96,23 @@ void Algorithms::GetResponse(QNetworkReply *reply)
                     throw SyzygyException("Сервер відмовив у з'єднані! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::HostNotFoundError:
-                    throw SyzygyException("Недійсне ім'я серверу! Зверніться до розробників!", true, false);
+                    throw SyzygyException("Недійсне ім'я сервера! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::TimeoutError:
-                    throw SyzygyException("Минув час очікування підключення до серверу!", false, true);
+                    throw SyzygyException("Минув час очікування підключення до сервера!", false, true);
                     break;
                 case QNetworkReply::TemporaryNetworkFailureError:
                 case QNetworkReply::NetworkSessionFailedError:
                     throw SyzygyException("З'єднання було розірвано через відключення від мережі! Перевірте Інтернет-з'єднання!", false, true);
                     break;
                 case QNetworkReply::ContentAccessDenied:
-                    throw SyzygyException("Було відмовлено в доступі до вмісту серверу! Зверніться до розробників!", true, false);
+                    throw SyzygyException("Було відмовлено в доступі до вмісту сервера! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::ContentNotFoundError:
                     throw SyzygyException("Віддалений вміст не знайдено на сервері! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::ContentConflictError:
-                    throw SyzygyException("Не вдалося виконати запит до серверу через конфлікт із поточним станом ресурсу! Зверніться до розробників!", true, false);
+                    throw SyzygyException("Не вдалося виконати запит до сервера через конфлікт із поточним станом ресурсу! Зверніться до розробників!", true, false);
                     break;
                 case QNetworkReply::ContentGoneError:
                     throw SyzygyException("Запитаний ресурс більше не доступний на сервері! Зверніться до розробників!", true, false);
@@ -146,7 +146,7 @@ void Algorithms::GetResponse(QNetworkReply *reply)
             planetNum = parseReply.object().value("sso").toObject().value("num").toString().toInt();
         }
         else{
-            throw SyzygyException("Під час обробки відповіді від серверу сталася помилка!", false, true);
+            throw SyzygyException("Під час обробки відповіді від сервера сталася помилка!", false, true);
         }
         for(int i = 0; i < arrayReply.count(); i++){
             if(arrayReply.at(i).toObject().contains("Longitude")){
@@ -161,7 +161,7 @@ void Algorithms::GetResponse(QNetworkReply *reply)
             result = (matchParts.next().captured().toDouble() + matchParts.next().captured().toDouble() / 60.0) - 90.0;
         }
         else{
-            throw SyzygyException("Потрібних даних у відповіді від серверу не знайдено!", false, true);
+            throw SyzygyException("Потрібних даних у відповіді від сервера не знайдено!", false, true);
         }
 
         reply->deleteLater();
