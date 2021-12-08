@@ -5,7 +5,7 @@ DataFromDB::DataFromDB()
     db = QSqlDatabase::addDatabase("QSQLITE");
 
     if(!QFile::exists(fileName)){
-        throw SyzygyException("На пристрої немає зображень!\nПеревстановіть додаток", true, false);
+        throw SyzygyException("На пристрої немає зображень!\nПеревстановіть програму", true, false);
     }
 
     db.setDatabaseName(fileName);
